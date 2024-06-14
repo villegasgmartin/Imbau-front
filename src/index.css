@@ -1,0 +1,168 @@
+.womanImg {
+	background-image: url('../src/assets/Mujer.png');
+	background-size: cover;
+	width: 600px;
+}
+
+.manImg {
+	background-image: url('../src/assets/Hombre.png');
+	background-size: cover;
+	width: 600px;
+}
+.banner2-container {
+	margin-bottom: 20px;
+	height: 100%;
+	background-color: #1b4368;
+}
+
+.banner2-container img {
+	width: 100%;
+}
+
+.footer-logo {
+	background-image: url('../src/assets/Isotipo crema.png');
+	width: 160px;
+	height: 90px;
+	background-size: cover;
+	background-position: center;
+	margin-top: 60px;
+}
+
+.bold {
+	font-family: 'bold', sans-serif;
+}
+
+.boldItalic {
+	font-family: 'boldItalic' sans-serif;
+}
+
+.italic {
+	font-family: 'italic' sans-serif;
+}
+.regular {
+	font-family: 'regular' sans-serif;
+}
+.thin {
+	font-family: 'thin' sans-serif;
+}
+.thinItalic {
+	font-family: 'thinItalic', sans-serif;
+}
+
+.color-main {
+	color: rgb(6, 2, 61);
+}
+/* Estilo de la barra de desplazamiento */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-button:start {
+	display: none;
+}
+
+::-webkit-scrollbar-button:end {
+	display: none;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: orange;
+	border-radius: 4px;
+	height: 15px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #f1f1f1;
+	border-radius: 4px;
+}
+
+
+
+@font-face {
+	font-family: 'bold';
+	src: url('./assets/fonts/MagnifyPRO-Bold.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'boldItalic';
+	src: url('./assets/fonts/MagnifyPRO-BoldItalic.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'italic';
+	src: url('./assets/fonts/MagnifyPRO-Italic.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'regular';
+	src: url('./assets/fonts/MagnifyPRO-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'thin';
+	src: url('./assets/fonts/MagnifyPRO-Thin.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'thinItalic';
+	src: url('./assets/fonts/MagnifyPRO-ThinItalic.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+}
+
+h1{
+	font-size: 50px !important
+}
+h2{
+	font-size: 40px !important
+}
+h3{
+	font-size: 30px !important
+}
+h4{
+	font-size: 25px !important
+}
+p{
+	font-size: 18px !important; 
+}
+@media screen and (max-width: 850px) {
+	h1{
+	font-size: 25px !important
+}
+h2{
+	font-size: 20px !important
+}
+h3{
+	font-size: 18px !important
+}
+h4{
+	font-size: 16px !important
+}
+p{
+	font-size: 14px !important;
+}
+
+   
+	.banner2-container {
+		margin-bottom: 20px;
+		height: 200px;
+		background-color: orange;
+	}
+
+	.banner2-container img {
+		display: none;
+	}
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
