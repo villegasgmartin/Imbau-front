@@ -1,10 +1,19 @@
 // import { CiSearch } from 'react-icons/ci';
-import logo from '../../assets/Logotipo crema.png';	
-import userFem from '../../assets/UserFem.png'
+
+import logo from '../../assets/Logotipo crema.png';
+import userFem from '../../assets/UserFem.png';
 import { useState } from 'react';
 
+export default function SellerNavBar() {
+	const token = localStorage.getItem('token');
+	const username = localStorage.getItem('username');
+	const userId = localStorage.getItem('userId');
+	const rol = localStorage.getItem('rol');
+	console.log(rol);
 
-export default function NavBar() {
+	// useEffect(() => {
+
+	// });
 	const [navbar, setNavbar] = useState(false);
 
 	return (
@@ -71,14 +80,12 @@ export default function NavBar() {
 							/>
 							<div className="flex sm:justify-evenly sm:items-center sm:flex-row flex-col sm:w-64 ml-4">
 								<a href="" className="mb-4 sm:text-2xl sm:mr-6 hover:underline">
-									Productos
+									Mi panel
 								</a>
 								<a href="" className="mb-4 sm:text-2xl sm:mr-6 hover:underline">
-									Servicios
+									Mi negocio
 								</a>
-								<a href="" className="mb-4 sm:text-2xl sm:mr-6 hover:underline">
-									Vender
-								</a>
+							
 							</div>
 						</div>
 						<div className="flex justify-start sm:items-center text-white sm:text-xl ml-4">
@@ -87,9 +94,19 @@ export default function NavBar() {
 								alt="not found"
 								className=" w-4 mr-2 sm:w-12"
 							/>
-							<a href="/step2" className=" hover:underline sm:text-2xl">
-								Crea tu cuenta / inicia sesion
-							</a>
+
+							{rol === 'USER_BUYER' ||
+							rol === 'USER_SELLER' ||
+							rol === 'USER_SERVICE' ? (
+								<>
+									<p>Hola! {username}</p>
+									
+								</>
+							) : (
+								<a href="/step2" className=" hover:underline sm:text-2xl">
+									Crea tu cuenta / inicia sesion
+								</a>
+							)}
 						</div>
 					</div>
 				</div>
@@ -107,29 +124,43 @@ export default function NavBar() {
 						className="sm:ml-auto sm:w-80 rounded-xl pl-1 h-8 mb-4 ml-4"
 					/>
 					<div className="flex sm:justify-evenly sm:items-center sm:flex-row flex-col sm:w-64 ml-4">
-						<a href="/products" className="mb-4 sm:text-xl sm:mr-6 hover:underline">
-							Productos
+						<a
+							href="/products"
+							className="mb-4 sm:text-xl sm:mr-6 hover:underline"
+						>
+							Mi negocio
 						</a>
-						<a href="/servicios" className="mb-4 sm:text-xl sm:mr-6 hover:underline">
-							Servicios
+						<a
+							href="/servicios"
+							className="mb-4 sm:text-xl sm:mr-6 hover:underline"
+						>
+							Mi panel
 						</a>
-						<a href="" className="mb-4 sm:text-xl sm:mr-6 hover:underline">
-							Vender
-						</a>
+						
 					</div>
 				</div>
 				<div className=" text-white sm:text-xl ml-4 flex justify-start">
 					<img src={userFem} alt="not found" className="w-10 h-10 mr-6" />
-					<a href="/step2" className=" hover:underline sm:text-xl mr-2">
-						Crea tu cuenta /
-					</a>
-					<a href="/login" className=" hover:underline sm:text-xl">
-						{' '} Iniciá sesión
-					</a>
+					{rol === 'USER_BUYER' ||
+					rol === 'USER_SELLER' ||
+					rol === 'USER_SERVICE' ? (
+						<div className="flex flex-col">
+							<p>Hola! {username}</p>
+							
+						</div>
+					) : (
+						<>
+							<a href="/register" className=" hover:underline sm:text-xl mr-2">
+								Crea tu cuenta /
+							</a>
+							<a href="/login" className=" hover:underline sm:text-xl">
+								{' '}
+								Iniciá sesión
+							</a>
+						</>
+					)}
 				</div>
 			</div>
 		</nav>
 	);
 }
-
-

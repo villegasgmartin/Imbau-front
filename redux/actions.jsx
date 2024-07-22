@@ -1,9 +1,7 @@
 const url = 'http://localhost:8080';
 import axios from 'axios';
 
-export const POST_VENDEDOR = 'POST_VENDEDOR'
-export const POST_COMPRADOR = 'POST_COMPRADOR';
-export const POST_PRESTADOR = 'POST_PRESTADOR';
+export const REGISTER = 'REGISTER'
 export const POST_ADMIN = 'POST_ADMIN'
 export const GET_USERS = 'GET_USERS'
 export const LOGIN_USER = 'LOGIN_USER'
@@ -12,12 +10,12 @@ export const DELETE_USER = 'DELETE_USER';
 export const GET_USER_BY_ID = 'GET_USER_BY_ID';
 
 // Funciones para crear tipos de usuarios
-export function postVendedor(payload) {
+export function register(payload) {
 	return async function (dispatch) {
 		try {
-			const info = await axios.post(`${url}/api/new-seller`, payload);			
+			const info = await axios.post(`${url}/api/login`, payload);			
 			return dispatch({
-				type: POST_VENDEDOR,
+				type: REGISTER,
 				payload: info.data
 			});
 		} catch (error) {
@@ -26,33 +24,7 @@ export function postVendedor(payload) {
 	};
 }
 
-export function postComprador(payload) {
-	return async function (dispatch) {
-		try {
-			const info = await axios.post(`${url}/api/new-buyer`, payload);
-			return dispatch({
-				type: POST_COMPRADOR,
-				payload: info.data
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
-}
 
-export function postPrestador(payload) {
-	return async function (dispatch) {
-		try {
-			const info = await axios.post(`${url}/api/new-service`, payload);
-			return dispatch({
-				type: POST_PRESTADOR,
-				payload: info.data
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
-}
 
 
 // Funcion para iniciar sesion
@@ -60,6 +32,7 @@ export function loginUser(payload) {
 	return async function (dispatch) {
 		try {
 			const info = await axios.post(`${url}/api/auth/login`, payload);
+			window.location.href='/'
 			return dispatch({
 				type: LOGIN_USER,
 				payload: info.data
@@ -140,3 +113,4 @@ export function getUserById(id) {
 		}
 	};
 }
+

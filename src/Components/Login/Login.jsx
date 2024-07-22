@@ -1,7 +1,9 @@
 import hombre from '../../assets/Hombre.png';
 import mujer from '../../assets/Mujer.png'
 
-import NavBar from '../Layouts/NavBar';
+import BuyerNavBar from '../Layouts/BuyerNavBar';
+import SellerNavBar from '../Layouts/SellerNavBar';
+import ServicesNavBar from '../Layouts/ServicesNavBar';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../redux/actions';
@@ -12,6 +14,8 @@ export default function Login() {
 		password: '',
 		
 	});
+
+	const rol = localStorage.getItem('rol')
 
 	const handleChange = (e) => {
 		setInput({
@@ -40,13 +44,20 @@ export default function Login() {
 			alert('Ingrese una contraseña');
 			return;
 		} 		
-		dispatch(loginUser(input))			
+		dispatch(loginUser(input))
+			
 		};
 	
 
 	return (
 		<div className="transition duration-700 ">
-			<NavBar />
+			{rol === 'USER_SERVICE' ? (
+				<ServicesNavBar />
+			) : rol === 'USER_SELLER' ? (
+				<SellerNavBar />
+			) : (
+				<BuyerNavBar />
+			)}
 
 			<div className="w-[99vw] max-h-[80vh] overflow-hidden flex justify-center items-start pt-10 bg-[#f8f3e0] min-h-fit pb-10">
 				<img src={hombre} alt="" />
@@ -82,10 +93,15 @@ export default function Login() {
 								</button>
 								<p className="text-[#06023d]">
 									Al continuar, aceptás nuestros{' '}
-									<span className='bold'>
+									<span className="bold">
 										{' '}
-										<a href="" className='underline '>términos de uso </a>y{' '}
-										<a href="" className='underline'>política de privacidad</a>{' '}
+										<a href="" className="underline ">
+											términos de uso{' '}
+										</a>
+										y{' '}
+										<a href="" className="underline">
+											política de privacidad
+										</a>{' '}
 									</span>
 								</p>
 							</div>

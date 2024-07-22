@@ -5,7 +5,7 @@ import logo from '../../assets/Isotipo crema.png'
 
 export default function Footer() {
 	return (
-		<footer className="bg-[#06023d] text-white pt-8 sm:h-72 ">
+		<footer className="bg-[#06023d] text-white pt-8 sm:h-fit ">
 			<div className="sm:block hidden">
 				<div className="flex justify-evenly ">
 					<div className="footer-contact">

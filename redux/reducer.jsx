@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import {POST_VENDEDOR, POST_COMPRADOR, POST_PRESTADOR, POST_ADMIN, GET_USERS, LOGIN_USER, PUT_USER_DATA, DELETE_USER,GET_USER_BY_ID} from './actions'
+import { POST_ADMIN, GET_USERS, LOGIN_USER, PUT_USER_DATA, DELETE_USER,GET_USER_BY_ID} from './actions'
 let initialState = {loggedUser: {}, allUsers:[], userData:{}}
 
 function rootReducer(state = initialState, action){
@@ -10,6 +10,10 @@ function rootReducer(state = initialState, action){
 				allUsers: action.payload
 			};
            case LOGIN_USER:
+            localStorage.setItem('token', action.payload.token)
+            localStorage.setItem('username', action.payload.usuario.nombre);         
+            localStorage.setItem('userId', action.payload.usuario.uid) 
+            localStorage.setItem('rol', action.payload.usuario.rol);
             return{
                 ...state,
                 loggedUser: action.payload

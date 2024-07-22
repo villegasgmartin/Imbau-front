@@ -163,6 +163,45 @@ p{
 		display: none;
 	}
 }
+
+.product-card{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: start;
+	width: 196px;
+	height: 335px;
+	background-color: white;
+	border: solid 2px gray;
+	border-radius: 20px;
+	
+}
+
+.product-card img{
+	width: 196px;
+	height: 168px;
+	
+	
+}
+
+.product-card h3{
+	
+	font-size: 14px !important
+}
+.product-card h2{
+	font-size: 20px !important;
+
+}
+.product-card h4{
+	font-size: 16px !important;
+}
+.product-card h5 {
+	font-size: 12px !important
+}
+
+
+	
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
