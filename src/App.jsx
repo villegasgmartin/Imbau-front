@@ -13,6 +13,7 @@ import RegisterForm from './Components/Register/RegisterForm';
 import Servicios from './Components/Servicios';
 import Prestador from './Components/Prestador';
 import AllProducts from './Components/Layouts/AllProducts';
+import VendedorPanel from './Components/Vendedor/VendedorPanel';
 
 
 function App() {
@@ -27,12 +28,13 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/email-login" element={<EmailLogin />} />
 					{/* Rutas para el registro  */}
-					<Route path="/register" element={<RegisterForm />} />					
-			
-				
+					<Route path="/register" element={<RegisterForm />} />
 
 					{/* Rutas de cada tipo de usuario*/}
+					{/* Prestador de servicios */}
 					<Route path="/prestador" element={<Prestador />} />
+					{/* Vendedor */}
+					<Route path="/vendedor-panel" element={<VendedorPanel />} />
 				</Routes>
 				<Footer />
 			</div>

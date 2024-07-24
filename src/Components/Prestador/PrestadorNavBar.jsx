@@ -1,5 +1,7 @@
+import ServicesNavBar from "../Layouts/ServicesNavBar";
+
 export default function PrestadorNavBar(){
     return(
-        <div>Nav</div>
+        <div><ServicesNavBar/></div>
     )
 }
