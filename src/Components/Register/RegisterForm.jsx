@@ -3,12 +3,10 @@ import compradorImg from '../../assets/Comprador.png';
 import vendedorImg from '../../assets/Lavarropa_1.png';
 import prestadorImg from '../../assets/Herramienta_1.png';
 import swal from 'sweetalert';
-import BuyerNavBar from '../Layouts/BuyerNavBar';
-import SellerNavBar from '../Layouts/SellerNavBar';
-import ServicesNavBar from '../Layouts/ServicesNavBar';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {  register } from '../../../redux/actions';
+import NavBar from '../Layouts/NavBar';
 
 export default function RegisterForm() {
 	const [index, setIndex] = useState(1);
@@ -104,13 +102,7 @@ export default function RegisterForm() {
 
 	return (
 		<div className="transition duration-700 ">
-			{rol === 'USER_SERVICE' ? (
-				<ServicesNavBar />
-			) : rol === 'USER_SELLER' ? (
-				<SellerNavBar />
-			) : (
-				<BuyerNavBar />
-			)}
+		<NavBar/>
 			{index === 1 ? (
 				<div
 					style={{

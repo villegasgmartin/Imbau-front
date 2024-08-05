@@ -1,9 +1,10 @@
-import SellerNavBar from "../Layouts/SellerNavBar";
+import NavBar from "../Layouts/NavBar";
+
 
 export default function VendedorPanel () {
     return (
 			<div className="bg-[#f8f3e0] min-h-[100vh]">
-				<SellerNavBar />
+				<NavBar />
 				<main className="p-28">
 					<h1>Resumen</h1>
 					<div>

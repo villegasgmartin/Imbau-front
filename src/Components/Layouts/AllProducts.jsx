@@ -1,4 +1,4 @@
-import NavBar from "./BuyerNavBar";
+
 import ProductCard from "./ProductCard";
 
 export default function AllProducts () {

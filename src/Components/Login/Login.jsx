@@ -1,12 +1,10 @@
 import hombre from '../../assets/Hombre.png';
 import mujer from '../../assets/Mujer.png'
 
-import BuyerNavBar from '../Layouts/BuyerNavBar';
-import SellerNavBar from '../Layouts/SellerNavBar';
-import ServicesNavBar from '../Layouts/ServicesNavBar';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../redux/actions';
+import NavBar from '../Layouts/NavBar';
 export default function Login() {
 	const dispatch = useDispatch();
 	const [input, setInput] = useState({		
@@ -51,13 +49,7 @@ export default function Login() {
 
 	return (
 		<div className="transition duration-700 ">
-			{rol === 'USER_SERVICE' ? (
-				<ServicesNavBar />
-			) : rol === 'USER_SELLER' ? (
-				<SellerNavBar />
-			) : (
-				<BuyerNavBar />
-			)}
+		<NavBar/>
 
 			<div className="w-[99vw] max-h-[80vh] overflow-hidden flex justify-center items-start pt-10 bg-[#f8f3e0] min-h-fit pb-10">
 				<img src={hombre} alt="" />

@@ -32,7 +32,7 @@ function App() {
 
 					{/* Rutas de cada tipo de usuario*/}
 					{/* Prestador de servicios */}
-					<Route path="/prestador" element={<Prestador />} />
+					<Route path="/prestador-panel" element={<Prestador />} />
 					{/* Vendedor */}
 					<Route path="/vendedor-panel" element={<VendedorPanel />} />
 				</Routes>
