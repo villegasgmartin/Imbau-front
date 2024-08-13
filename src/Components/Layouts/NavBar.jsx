@@ -1,13 +1,16 @@
+import { useDispatch } from 'react-redux';
 import logo from '../../assets/Logotipo crema.png';
 import userFem from '../../assets/UserFem.png';
 import { useState } from 'react';
 import { TbTriangleInvertedFilled } from 'react-icons/tb';
+import { logout } from '../../../redux/actions';
 
 export default function NavBar() {
 	const token = localStorage.getItem('token');
 	const username = localStorage.getItem('username');
 	const userId = localStorage.getItem('userId');
 	const rol = localStorage.getItem('rol');
+	const dispatch = useDispatch()
 
 	const [navbar, setNavbar] = useState(false);
 	const [open, setOpen] = useState(false);
@@ -15,6 +18,15 @@ export default function NavBar() {
 	const handleOpen = () => {
 		setOpen(!open);
 	};
+
+	const handleLogOut = () => {
+		dispatch(logout())
+		localStorage.removeItem('token')
+		localStorage.removeItem('username');         
+		localStorage.removeItem('userId') 
+		localStorage.removeItem('rol');
+		window.location.href = '/'
+	}
 
 	return (
 		<nav className="w-full bg-[#06023D] shadow z-50 sm:rounded-lg opacity-90 text-white">
@@ -105,7 +117,7 @@ export default function NavBar() {
 											<button className="bg-gray-100 m-1 opacity-100">
 												Mis contrataciones
 											</button>
-											<button className="bg-gray-100 m-1 opacity-100">
+											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 												Cerrar sesión
 											</button>
 										</div>
@@ -128,6 +140,14 @@ export default function NavBar() {
 												Mis contrataciones
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/vendedor-panel">Mi panel</a>
+												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="vendedor-negocio">Mi negocio</a>
+												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 												Cerrar sesión
 											</button>
 										</div>
@@ -150,6 +170,12 @@ export default function NavBar() {
 												Mis contrataciones
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/prestador-panel">Mi panel</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/prestador-negocio">Mi negocio</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 												Cerrar sesión
 											</button>
 										</div>
@@ -174,7 +200,8 @@ export default function NavBar() {
 			</div>
 			<div className="hidden sm:flex sm:justify-evenly items-center">
 				<div>
-					<img src={logo} alt="not found" className="w-36 sm:w-36" />
+					<a href="/"><img src={logo} alt="not found" className="w-36 sm:w-36" /></a>
+					
 				</div>
 				<div className="flex sm:flex-row">
 					<input
@@ -218,7 +245,7 @@ export default function NavBar() {
 									<button className="bg-gray-100 m-1 opacity-100 h-[30%] hover:bg-gray-400 rounded-xl">
 										Mis contrataciones
 									</button>
-									<button className="bg-gray-100 m-1 opacity-100 h-[30%] hover:bg-gray-400 rounded-xl">
+									<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 										Cerrar sesión
 									</button>
 								</div>
@@ -235,14 +262,21 @@ export default function NavBar() {
 							{open && (
 								<div className="absolute right-0 bg-white flex flex-col justify-evenly opacity-100 text-black text-sm rounded-xl mt-8 z-10">
 									<button className="bg-gray-100 m-1 opacity-100">
-										Mis compras
-									</button>
-									<button className="bg-gray-100 m-1 opacity-100">
-										Mis contrataciones
-									</button>
-									<button className="bg-gray-100 m-1 opacity-100">
-										Cerrar sesión
-									</button>
+												Mis compras
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												Mis contrataciones
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/vendedor-panel">Mi panel</a>
+												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+											<a href="vendedor-negocio">Mi negocio</a>
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
+												Cerrar sesión
+											</button>
 								</div>
 							)}
 						</>
@@ -256,15 +290,21 @@ export default function NavBar() {
 							</div>
 							{open && (
 								<div className="absolute right-0 bg-white flex flex-col justify-evenly opacity-100 text-black text-sm rounded-xl mt-8 z-10">
-									<button className="bg-gray-100 m-1 opacity-100">
-										Mis compras
-									</button>
-									<button className="bg-gray-100 m-1 opacity-100">
-										Mis contrataciones
-									</button>
-									<button className="bg-gray-100 m-1 opacity-100">
-										Cerrar sesión
-									</button>
+										<button className="bg-gray-100 m-1 opacity-100">
+												Mis compras
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												Mis contrataciones
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/prestador-panel">Mi panel</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/prestador-negocio">Mi negocio</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
+												Cerrar sesión
+											</button>
 								</div>
 							)}
 						</>

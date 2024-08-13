@@ -2,10 +2,10 @@ export default function Promotions() {
 	return (
 		<div className="mb-10">
 			<div className="  bold pt-10 pb-10 text-center sm:flex ">
-				<h1 className="  color-main mr-10 ml-10">PROMOCIONES BANCARIAS</h1>
-				<a href="/" className="text-sky-400 hover:underline text-2xl ">
+				<h1 className="  color-main sm:text-4xl sm:bold ml-10 mr-10">PROMOCIONES BANCARIAS</h1>
+				{/* <a href="/" className="text-sky-400 hover:underline text-2xl ">
 					ver mas
-				</a>
+				</a> */}
 			</div>
 			<div className="sm:flex justify-evenly  hidden">
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-gray-400 rounded-xl">
