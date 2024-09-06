@@ -45,7 +45,6 @@ const Slider = () => {
           }}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
-		 
         >
           {products.map((producto) => (
             <SwiperSlide key={producto._id}>

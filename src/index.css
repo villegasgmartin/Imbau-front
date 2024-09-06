@@ -186,6 +186,42 @@ p{
 }
 
 
+/*responsive home*/
+@media only screen and (max-width: 768px) {
+	.h-20.woman-image-home{
+		width:200px;
+		margin: auto;
+		height: auto;
+	}
+	.h-0.div-imagen-home{
+		height: 100%;
+		text-align: center;
+		width: 100%;
+	}
+	h1.text-3xl{
+		margin-top: 0px;
+	}
+	.home-banner li{
+		font-size: 14px;
+	}
+	li.w-32, div.w-60{
+		width: 90%;
+
+		margin: 0 auto 20px;
+	}
+	div.flex.mb-6{
+		display: block;
+	}
+	.banner-homer-footer{
+		height: 30vh;
+	}
+	.banner-homer-footer img{
+		height: 100%;
+		object-fit: cover
+	}
+
+}
+
 	
 
 @tailwind base;

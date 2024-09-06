@@ -7,7 +7,7 @@ export default function Promotions() {
 					ver mas
 				</a> */}
 			</div>
-			<div className="sm:flex justify-evenly  hidden">
+			<div className="sm:flex justify-evenly  hidden promos">
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-gray-400 rounded-xl">
 					<div className="h-[25%] bg-[#06023d] flex justify-center items-center text-white regular  rounded-xl">
 						Lunes

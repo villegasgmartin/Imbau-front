@@ -18,6 +18,7 @@ export default function Footer() {
 					</div>
 					<div className="flex justify-between list-none">
 						<div className="flex flex-col justify-evenly items-start w-[25vw]">
+						<h3 className="text-white text-xl bold">Link Utiles</h3>
 							<li className="text-gray-500 text-lg">Terminos y condiciones</li>
 							<li className="text-gray-500 text-lg">Vende en Imbau</li>
 							<li className="text-gray-500 text-lg">Defensa al consumidor</li>
@@ -39,7 +40,7 @@ export default function Footer() {
 			<div className="sm:hidden block h-fit">
 				<div className="flex flex-col h-fit">
 					<div className="flex justify-evenly">
-						<div className="footer-contact">
+						<div className="footer-contact text-center mb-4">
 							<h3 className="text-white text-sm bold">Atencion al cliente</h3>
 							<h4 className="text-gray-500 text-sm">0800 122 0338</h4>
 							<h4 className="text-gray-500  text-sm">0810 999 3728</h4>
@@ -47,8 +48,9 @@ export default function Footer() {
 							<h4 className="text-gray-500  text-sm">SA de 9.00 a 13.00</h4>
 							<h4 className="text-gray-500  text-sm">contacto@imbau.com</h4>
 						</div>
-						<div className="flex justify-between list-none">
+						<div className="flex justify-between list-none text-center mb-4">
 							<div className="flex flex-col justify-evenly items-start w-[25vw]">
+								<h3 className="text-white text-xl bold">Link Utiles</h3>
 								<li className="text-gray-500  text-sm">
 									Terminos y condiciones
 								</li>
@@ -66,7 +68,7 @@ export default function Footer() {
 					</div>
 					<img src={logo} alt="" className='w-20'/>					
 				</div>
-				<p className="text-sm mb-5">
+				<p className="text-sm mb-5 text-center">
 					Copyright 1927-2023 | Todos los derechos reservados imbau.com.Imbau
 					SRL | Rosario | Argentina
 				</p>
