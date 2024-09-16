@@ -12,6 +12,9 @@ export const GET_USER_BY_ID = 'GET_USER_BY_ID';
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
+export const POST_PRODUCTO = 'POST_PRODUCTO'
+export const POST_SERVICE = 'POST_SERVICE'
+
 
 // Funciones para crear tipos de usuarios
 export function register(payload) {
@@ -176,6 +179,58 @@ export function getAllServices() {
 				type: GET_ALL_SERVICES,
 				payload: info.data
 			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
+
+// Funcion para crear producto
+
+export function postProducto(payload) {
+	return async function (dispatch) {
+		try {
+			const token = localStorage.getItem('token'); // Obtén el token almacenado en localStorage
+			console.log(token, 'token');
+			const headers = {
+				'x-token': token
+			};
+			axios
+				.post(`${url}/api/products/new-product`, payload,  {
+					headers
+				})	
+				.then((response) => {
+					return dispatch({
+						type: POST_PRODUCTO,
+						payload: response.data
+					});
+				});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+}
+
+// Funcion para crear servicio
+
+export function postServicio(payload) {
+	return async function (dispatch) {
+		try {
+			const token = localStorage.getItem('token'); // Obtén el token almacenado en localStorage
+			console.log(token, 'token');
+			const headers = {
+				'x-token': token
+			};
+			axios
+				.post(`${url}/api/products/new-service`, payload,  {
+					headers
+				})	
+				.then((response) => {
+					return dispatch({
+						type: POST_SERVICE,
+						payload: response.data
+					});
+				});
 		} catch (error) {
 			console.log(error);
 		}

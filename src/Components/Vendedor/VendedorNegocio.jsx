@@ -5,6 +5,7 @@ export default function VendedorNegocio () {
         <div className="bg-[#f8f3e0] min-h-[100vh]">
             <NavBar />
             <main className="p-28">
+               
                 <h1 className="text-3xl text-[#06023D] mb-20">Tu negocio</h1>
                 <div>
                     <div className="flex mb-10">

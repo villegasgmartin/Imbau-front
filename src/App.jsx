@@ -18,6 +18,8 @@ import VendedorNegocio from './Components/Vendedor/VendedorNegocio'
 import PrestadorPanel from './Components/Prestador/PrestadorPanel';
 import AllServices from './Components/Layouts/AllServices';
 import IdProduct from './Components/Layouts/IdProduct';
+import CrearProducto from './Components/Vendedor/CrearProducto';
+import CrearServicio from './Components/Servicios/CrearServicio';
 
 
 function App() {
@@ -41,8 +43,10 @@ function App() {
 					{/* Vendedor */}
 					<Route path="/vendedor-panel" element={<VendedorPanel />} />
 					<Route path="/vendedor-negocio" element={<VendedorNegocio />} />
+					<Route path="/crear-producto" element={<CrearProducto/>} />
 					{/* Prestador de servicios */}
 					<Route path="/prestador-panel" element={<PrestadorPanel />} />
+					<Route path='/crear-servicio' element={<CrearServicio/>} />
 				</Routes>
 				<Footer />
 			</div>
