@@ -26,7 +26,6 @@ const services = useSelector((state) => state.allServices)
 					ver mas
 				</a>
 			</div>		
-			     
         <Swiper
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables
@@ -45,7 +44,6 @@ const services = useSelector((state) => state.allServices)
           }}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
-		 
         >
           {services.map((p) => (
             <SwiperSlide key={p.uid}>
@@ -60,8 +58,6 @@ const services = useSelector((state) => state.allServices)
             </SwiperSlide>
           ))}
         </Swiper>
-      	
-				
 		</div>
 	);
 }

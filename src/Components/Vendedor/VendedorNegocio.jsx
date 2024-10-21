@@ -23,6 +23,8 @@ export default function VendedorNegocio () {
                     <table className="w-[90vw]">
                      <thead>
                       <tr className="flex justify-evenly">
+                        <tr>
+
                        <th>Producto</th>
                        <th>Cant.</th>
                        <th>$</th>
@@ -31,6 +33,7 @@ export default function VendedorNegocio () {
                        <th>Tiempo</th>
                        <th>Metodo de envio</th>
                        <th>Estado</th>
+                        </tr>
                      </tr>
                      </thead>
                      <tbody>

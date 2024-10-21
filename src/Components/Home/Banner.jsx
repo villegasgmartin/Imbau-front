@@ -25,15 +25,15 @@ export default function Banner() {
 					</li>
 				</ul>
 			</div>
-			<div className="sm:hidden flex flex-col bg-[#f8f3e0] h-fit pb-4  ">
-				<div className="h-0 ">
-					<img src={womanImg} alt="" className="overflow-hidden h-20 " />
+			<div className="sm:hidden flex flex-col bg-[#f8f3e0] h-fit pb-4 home-banner ">
+				<div className="h-0 div-imagen-home">
+					<img src={womanImg} alt="" className="overflow-hidden h-20 woman-image-home" />
 				</div>
 				<div className="flex flex-col text-center items-center justify-evenly ">
 					<h1 className="thinItalic flex flex-col text-3xl color-main text-center mt-10 ">
 						Todo lo qué necesitás <strong>para tu hogar</strong>
 					</h1>
-					<ul className="flex flex-col justify-evenly  text-xl color-main italic">
+					<ul className="flex flex-col justify-evenly  text-xl color-main italic ">
 						<li>
 							{'-->'} Materiales de <strong>construcción</strong>
 						</li>

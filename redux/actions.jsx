@@ -7,13 +7,19 @@ export const GET_USERS = 'GET_USERS'
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT = 'LOGOUT'
 export const PUT_USER_DATA = 'PUT_USER_DATA'
-export const DELETE_USER = 'DELETE_USER';
+
 export const GET_USER_BY_ID = 'GET_USER_BY_ID';
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
 export const POST_PRODUCTO = 'POST_PRODUCTO'
 export const POST_SERVICE = 'POST_SERVICE'
+export const DELETE_USER = 'DELETE_USER'
+export const ACTIVATE_USER = 'ACTIVATE_USER'
+export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const COMPRAR_PRODUCTO = "COMPRAR_PRODUCTO";
+
 
 
 // Funciones para crear tipos de usuarios
@@ -71,19 +77,31 @@ export function logout(payload) {
 }
 
 //Funcion para traer a todos los usuarios 
+
 export function getUsers() {
-	return async function (dispatch) {
-		try {
-			const info = await axios.get(`${url}/api/users`);
-			return dispatch({
-				type: GET_USERS,
-				payload: info.data
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/admin/usuarios`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_USERS,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
+
 
 //Funcion para modificar los datos de un usuario
 export function putUserData(id, payload) {
@@ -100,20 +118,7 @@ export function putUserData(id, payload) {
 	};
 }
 
-//Funcion para borrar usuarios
-export function deleteUser(id, payload) {
-	return async function (dispatch) {
-		try {
-			const info = await axios.delete(`${url}/api?id${id}`, payload);
-			return dispatch({
-				type: DELETE_USER,
-				payload: info.data
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
-}
+
 
 //Funcion para obtener los datos de un usuario
 export function getUserById(id) {
@@ -235,4 +240,100 @@ export function postServicio(payload) {
 			console.log(error);
 		}
 	};
+}
+
+
+
+
+export function activateUser(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .put(`${url}/api/admin/activar?id=${id}`, {
+          headers
+        })
+        .then((response) => {r
+          return dispatch({
+            type: ACTIVATE_USER,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function deleteUser(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+
+      const headers = {
+        "x-token": token,
+      };
+
+      // Asegúrate de pasar los headers como tercer argumento en axios.put
+      axios
+        .put(`${url}/api/admin/delete?id=${id}`, null, { headers })
+        .then((response) => {
+          return dispatch({
+            type: DELETE_USER,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+// redux/actions/cartActions.js
+export const addToCart = (product) => (dispatch) => {
+  dispatch({
+    type: "ADD_TO_CART",
+    payload: product,
+  });
+};
+
+export const removeFromCart = (id) => (dispatch) => {
+  dispatch({
+    type: "REMOVE_FROM_CART",
+    payload: id,
+  });
+};
+
+export function comprarProducto(payload) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtiene el token almacenado en localStorage
+      const headers = {
+        "x-token": token,
+      };
+
+      // Hacer el POST con el payload y los headers
+      const response = await axios.post(
+        `${url}/api/products/comprar-producto`,
+        payload,
+        {
+          headers,
+        }
+      );
+
+      // Despachar la acción con la respuesta de la API
+      return dispatch({
+        type: COMPRAR_PRODUCTO,
+        payload: response.data,
+      });
+	
+    } catch (error) {
+      console.error("Error al realizar la compra:", error);
+    }
+  };
 }

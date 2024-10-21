@@ -20,37 +20,46 @@ import AllServices from './Components/Layouts/AllServices';
 import IdProduct from './Components/Layouts/IdProduct';
 import CrearProducto from './Components/Vendedor/CrearProducto';
 import CrearServicio from './Components/Servicios/CrearServicio';
+import AdminGeneral from './Components/Admin/AdminGeneral';
+import AdminUsers from './Components/Admin/AdminUsers';
+import Cart from './Components/Layouts/Minicart';
+
+
 
 
 function App() {
 	return (
-		<BrowserRouter>
-			<div>
-				<Routes>
-					{/* Rutas generales */}
-					<Route path="/" element={<Home />} />
-					<Route path="/products" element={<AllProducts />} />
-					<Route exact path="/products/:id" element={<IdProduct/>} />
-					<Route path="/servicios" element={<AllServices />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/email-login" element={<EmailLogin />} />
-					{/* Rutas para el registro  */}
-					<Route path="/register" element={<RegisterForm />} />
+    <BrowserRouter>
+      <div>
+        <Routes>
+          {/* Rutas generales */}
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<AllProducts />} />
+          <Route exact path="/products/:id" element={<IdProduct />} />
+          <Route path="/servicios" element={<AllServices />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/email-login" element={<EmailLogin />} />
+          {/* Rutas para el registro  */}
+          <Route path="/register" element={<RegisterForm />} />
 
-					{/* Rutas de cada tipo de usuario*/}
-					{/* Prestador de servicios */}
-					{/* <Route path="/prestador-panel" element={<Prestador />} /> */}
-					{/* Vendedor */}
-					<Route path="/vendedor-panel" element={<VendedorPanel />} />
-					<Route path="/vendedor-negocio" element={<VendedorNegocio />} />
-					<Route path="/crear-producto" element={<CrearProducto/>} />
-					{/* Prestador de servicios */}
-					<Route path="/prestador-panel" element={<PrestadorPanel />} />
-					<Route path='/crear-servicio' element={<CrearServicio/>} />
-				</Routes>
-				<Footer />
-			</div>
-		</BrowserRouter>
-	);
+          {/* Rutas de cada tipo de usuario*/}
+          {/* Comprador */}
+          <Route path="/carrito" element={<Cart />} />
+
+          {/* Vendedor */}
+          <Route path="/vendedor-panel" element={<VendedorPanel />} />
+          <Route path="/vendedor-negocio" element={<VendedorNegocio />} />
+          <Route path="/crear-producto" element={<CrearProducto />} />
+          {/* Prestador de servicios */}
+          <Route path="/prestador-panel" element={<PrestadorPanel />} />
+          <Route path="/crear-servicio" element={<CrearServicio />} />
+          {/* Administrador */}
+          <Route path="/admin" element={<AdminGeneral />} />
+          <Route path="/usuarios" element={<AdminUsers />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
 }
 export default App;
