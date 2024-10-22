@@ -17,16 +17,16 @@ const Slider = () => {
   const products = useSelector((state) => state.allProducts);
 
   return (
-    <div className="bg-[#06023d] sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll">
+    <div className="bg-[#06023d] sm:h-max sm:relative sm:max-w-[100vw] pt-10 pb-10 ">
       <div className="text-center sm:flex sm:items-center sm:pt-20 sm:pb-10">
-        <h1 className="text-white sm:text-4xl sm:bold ml-10 mr-10">
+        <h2 className="text-white sm:text-4xl sm:bold ml-10 mr-10">
           PRODUCTOS DESTACADOS
-        </h1>
+        </h2>
         <a href="/products" className="text-sky-400 sm:text-3xl thin">
           ver más
         </a>
       </div>
-      <div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
+      <div className="sm:flex sm:justify-center flex max-w-[100vw]">
         <Swiper
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables

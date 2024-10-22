@@ -94,9 +94,9 @@ export default function NavBar() {
 								<a href="" className="mb-4 sm:text-2xl sm:mr-6 hover:underline">
 									Productos
 								</a>
-								<a href="" className="mb-4 sm:text-2xl sm:mr-6 hover:underline">
+								{/* <a href="" className="mb-4 sm:text-2xl sm:mr-6 hover:underline">
 									Servicios
-								</a>
+								</a> */}
 							</div>
 						</div>
 						<div className="flex justify-start sm:items-center text-white sm:text-xl ml-4 relative">
@@ -224,12 +224,12 @@ export default function NavBar() {
 						>
 							Productos
 						</a>
-						<a
+						{/* <a
 							href="/servicios"
 							className="mb-4 sm:text-xl sm:mr-6 hover:underline"
 						>
 							Servicios
-						</a>
+						</a> */}
 					</div>
 				</div>
 				<div className="text-white sm:text-xl ml-4 flex justify-start relative">

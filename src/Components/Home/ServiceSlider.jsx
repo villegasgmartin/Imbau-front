@@ -13,7 +13,7 @@ export default function ServiceSlider() {
 const dispatch = useDispatch()
 useEffect(() => (
 	dispatch(getAllServices())),[])
-const services = useSelector((state) => state.allServices)
+// const services = useSelector((state) => state.allServices)
 
 
 	return (
@@ -26,7 +26,8 @@ const services = useSelector((state) => state.allServices)
 					ver mas
 				</a>
 			</div>		
-        <Swiper
+      <h3>Proximamente</h3>
+        {/* <Swiper
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables
           spaceBetween={50}
@@ -57,7 +58,7 @@ const services = useSelector((state) => state.allServices)
 								/>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
 		</div>
 	);
 }
