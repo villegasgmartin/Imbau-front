@@ -144,6 +144,9 @@ export default function NavBar() {
 												
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
+												<a href="/crear-producto">Crear producto</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
 												<a href="vendedor-negocio">Mi negocio</a>
 												
 											</button>
@@ -174,6 +177,9 @@ export default function NavBar() {
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
 												<a href="/prestador-negocio">Mi negocio</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+											<a href="crear-servicio">Crear servicio</a>
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 												Cerrar sesión
@@ -268,11 +274,13 @@ export default function NavBar() {
 												Mis contrataciones
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
-												<a href="/vendedor-panel">Mi panel</a>
-												
+												<a href="/vendedor-panel">Mi panel</a>												
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
 											<a href="vendedor-negocio">Mi negocio</a>
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+											<a href="crear-producto">Crear producto</a>
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 												Cerrar sesión
@@ -301,6 +309,9 @@ export default function NavBar() {
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100">
 												<a href="/prestador-negocio">Mi negocio</a>												
+											</button>
+											<button className="bg-gray-100 m-1 opacity-100">
+											<a href="crear-servicio">Crear servicio</a>
 											</button>
 											<button className="bg-gray-100 m-1 opacity-100" onClick={handleLogOut}>
 												Cerrar sesión

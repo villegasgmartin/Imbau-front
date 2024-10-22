@@ -5,6 +5,7 @@ export default function VendedorNegocio () {
         <div className="bg-[#f8f3e0] min-h-[100vh]">
             <NavBar />
             <main className="p-28">
+               
                 <h1 className="text-3xl text-[#06023D] mb-20">Tu negocio</h1>
                 <div>
                     <div className="flex mb-10">
@@ -22,6 +23,8 @@ export default function VendedorNegocio () {
                     <table className="w-[90vw]">
                      <thead>
                       <tr className="flex justify-evenly">
+                        <tr>
+
                        <th>Producto</th>
                        <th>Cant.</th>
                        <th>$</th>
@@ -30,6 +33,7 @@ export default function VendedorNegocio () {
                        <th>Tiempo</th>
                        <th>Metodo de envio</th>
                        <th>Estado</th>
+                        </tr>
                      </tr>
                      </thead>
                      <tbody>

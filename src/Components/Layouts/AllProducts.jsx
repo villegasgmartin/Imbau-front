@@ -24,7 +24,7 @@ export default function AllProducts () {
     return (
 			<div className="flex flex-col ">
 				<NavBar/>
-				<div className="flex justify-evenly items-center bg-[#f8f3e0]">
+				<div className="flex justify-evenly items-center bg-[#f8f3e0] ">
 					<h1 className="text-3xl text-[#06023D] bold">
 						¿Que  <br /> producto <br /> buscas?
 					</h1>

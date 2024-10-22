@@ -5,10 +5,13 @@ export default function VendedorPanel () {
     return (
 			<div className="bg-[#f8f3e0] min-h-[100vh]">
 				<NavBar />
-				<main className="p-28">
-					<h1>Resumen</h1>
+				
+				<main className="p-28 flex flex-col">
 					<div>
-						<p>Tu desempeño</p>
+					<h1 className="text-xl bold color-main">Resumen</h1>
+					<p className="text-gray-400">Tu desempeño</p>
+					</div>
+					<div>
 						<div className="flex justify-evenly">
 							<div className="w-[521px] h-[124px] bg-white rounded-lg p-1">
 								<h6 className="text-blue-500 text-sm">Reputacion</h6>
