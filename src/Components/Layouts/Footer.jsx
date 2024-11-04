@@ -7,7 +7,7 @@ export default function Footer() {
 	return (
 		<footer className="bg-[#06023d] text-white pt-8 sm:h-fit ">
 			<div className="sm:block hidden">
-				<div className="flex justify-evenly ">
+				<div className="footer-container flex justify-evenly">
 					<div className="footer-contact">
 						<h3 className="text-white text-xl bold">Atencion al cliente</h3>
 						<h4 className="text-gray-500 text-lg">0800 122 0338</h4>
@@ -39,7 +39,7 @@ export default function Footer() {
 			</div>
 			<div className="sm:hidden block h-fit">
 				<div className="flex flex-col h-fit">
-					<div className="flex justify-evenly">
+					<div className="footer-container flex justify-evenly">
 						<div className="footer-contact text-center mb-4">
 							<h3 className="text-white text-sm bold">Atencion al cliente</h3>
 							<h4 className="text-gray-500 text-sm">0800 122 0338</h4>

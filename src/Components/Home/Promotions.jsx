@@ -13,19 +13,19 @@ export default function Promotions() {
 						Lunes
 					</div>
 					<div className="h-[75%] flex flex-col justify-center items-center ">
-						<h4 className="ml-5 mb-0 color-main bold ">10% OFF</h4>
-						<h4 className="color-main bold ">Banco ICBC</h4>
+						<h4 className="ml-5 mb-0 color-main bold ">Proximamente</h4>
+						{/* <h4 className="color-main bold ">Banco ICBC</h4> */}
 					</div>
 				</li>
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-gray-400">
-					<div className="h-[25%] bg-orange-500 flex justify-center items-center text-[#06023d] regular ">
+					<div className="h-[25%] bg-orange-500 flex justify-center items-center text-white regular ">
 						Martes
 					</div>
 					<div className="h-[75%] flex flex-col justify-center items-center ">
 						<h4 className="ml-5 mb-0 color-main bold text-center ">
-							15% OFF
+							Proximamente
 						</h4>
-						<h4 className="color-main bold ">Banco Macro</h4>
+						{/* <h4 className="color-main bold ">Banco Macro</h4> */}
 					</div>
 				</li>{' '}
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-gray-400">
@@ -34,9 +34,9 @@ export default function Promotions() {
 					</div>
 					<div className="h-[75%] flex flex-col justify-center items-center ">
 						<h4 className="ml-5 mb-0 color-main bold text-center ">
-							30% OFF
+						Proximamente
 						</h4>
-						<h4 className="color-main bold ">Banco HCBC</h4>
+						{/* <h4 className="color-main bold ">Banco HCBC</h4> */}
 					</div>
 				</li>{' '}
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-gray-400 ">
@@ -45,9 +45,9 @@ export default function Promotions() {
 					</div>
 					<div className="h-[75%] flex flex-col justify-center items-center ">
 						<h4 className="ml-5 mb-0 color-main bold text-center ">
-							15% OFF
+						Proximamente
 						</h4>
-						<h4 className="color-main bold ">Banco Credicop</h4>
+						{/* <h4 className="color-main bold ">Banco Credicop</h4> */}
 					</div>
 				</li>{' '}
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-gray-400">
@@ -56,9 +56,8 @@ export default function Promotions() {
 					</div>
 					<div className="h-[75%] flex flex-col justify-center items-center ">
 						<h4 className=" ml-5 mb-0 color-main bold text-center ">
-							10% OFF
-						</h4>
-						<h4 className="color-main bold ">Tarjeta Naranja</h4>
+						Proximamente						</h4>
+						{/* <h4 className="color-main bold ">Tarjeta Naranja</h4> */}
 					</div>
 				</li>
 			</div>
@@ -69,8 +68,8 @@ export default function Promotions() {
 							Lunes
 						</div>
 						<div className="h-[75%] flex flex-col justify-center items-center ">
-							<h4 className="mb-0 color-main text-center ">10% OFF</h4>
-							<h4 className="color-main  text-center">Banco ICBC</h4>
+							<h4 className="mb-0 color-main text-center ">Proximamente</h4>
+							{/* <h4 className="color-main  text-center">Banco ICBC</h4> */}
 						</div>
 					</li>
 					<li className="h-48 w-32 bg-white ml-15 mr-15 list-none border-2 border-gray-400 rounded-xl">
@@ -78,8 +77,8 @@ export default function Promotions() {
 							Martes
 						</div>
 						<div className="h-[75%] flex flex-col justify-center items-center ">
-							<h4 className="mb-0 color-main  text-center ">15% OFF</h4>
-							<h4 className="color-main  text-center">Banco Macro</h4>
+							<h4 className="mb-0 color-main  text-center ">Proximamente</h4>
+							{/* <h4 className="color-main  text-center">Banco Macro</h4> */}
 						</div>
 					</li>{' '}
 				</div>
@@ -89,8 +88,8 @@ export default function Promotions() {
 							Miercoles
 						</div>
 						<div className="h-[75%] flex flex-col justify-center items-center ">
-							<h4 className=" mb-0 color-main text-center ">30% OFF</h4>
-							<h4 className="color-main  text-center">Banco HCBC</h4>
+							<h4 className=" mb-0 color-main text-center ">Proximamente</h4>
+							{/* <h4 className="color-main  text-center">Banco HCBC</h4> */}
 						</div>
 					</li>{' '}
 					<li className="h-48 w-32 bg-white ml-15 mr-15 list-none border-2 border-gray-400 rounded-xl">
@@ -98,10 +97,10 @@ export default function Promotions() {
 							Jueves
 						</div>
 						<div className="h-[75%] flex flex-col justify-center items-center ">
-							<h4 className="mb-0 color-main  text-center ">15% OFF</h4>
-							<h4 className="color-main text-center	  ">
+							<h4 className="mb-0 color-main  text-center ">Proximamente</h4>
+							{/* <h4 className="color-main text-center	  ">
 								Banco Credicop
-							</h4>
+							</h4> */}
 						</div>
 					</li>{' '}
 				</div>
@@ -112,11 +111,11 @@ export default function Promotions() {
 						</div>
 						<div className="h-[75%] flex flex-col justify-center items-center ">
 							<h4 className="mb-0 color-main  text-center ">
-								10% OFF
+							Proximamente
 							</h4>
-							<h4 className="color-main text-center ">
+							{/* <h4 className="color-main text-center ">
 								Tarjeta Naranja
-							</h4>
+							</h4> */}
 						</div>
 					</li>
 				</div>

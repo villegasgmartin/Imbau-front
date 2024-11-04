@@ -29,7 +29,7 @@ export default function NavBar() {
 	}
 
 	return (
-		<nav className="w-full bg-[#06023D] shadow z-50 sm:rounded-lg opacity-90 text-white">
+		<nav className="w-full bg-[#06023D] p-3 shadow z-50 sm:rounded-lg opacity-90 text-white">
 			<div className="justify-between px-4 mx-auto sm:items-center md:px-8 sm:hidden">
 				<div>
 					<div className="flex items-center justify-around py-3 md:py-5 md:block">

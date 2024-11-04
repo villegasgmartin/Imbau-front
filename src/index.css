@@ -245,6 +245,38 @@ p{
 
 }
 
+/*footer style*/
+@media only screen and (max-width:768px){
+	.footer-container{
+		display: flex;
+		flex-direction: column;
+
+	}
+	.footer-container div{
+		width: 100%;
+	}
+	.footer-container div h3, .footer-container div li{
+		width: 100%;
+	}
+	/*contener productos*/
+	.contenedor-productos{
+		display: flex;
+		flex-direction: column;
+		padding: 30px 0;
+	}
+	.contenedor-productos img{
+		width: 200px;
+		height: auto
+	}
+	h2.titulos-productos{
+		margin-right:0px;
+	}	
+}
+
+h2.titulos-productos{
+	padding: 0 20px
+}
+
 	
 
 @tailwind base;
