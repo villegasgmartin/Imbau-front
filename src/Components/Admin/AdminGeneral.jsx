@@ -3,6 +3,8 @@ import NavBar from "../Layouts/NavBar";
 import { useEffect } from "react";
 import { getAllProducts } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
+import "../Styles/AdminGeneral.css"
+import SearchIcon from "../../assets/search.png"
 
 export default function AdminGeneral() {
   const dispatch = useDispatch();
@@ -17,24 +19,28 @@ export default function AdminGeneral() {
   return (
     <div className="min-h-screen bg-[#f8f3e0]">
       <AdminNavBar />
-      <div className="max-w-7xl mx-auto p-4">
-        <h1 className="text-2xl font-bold text-gray-700 mb-4">
+      <div className="max-w-7xl mx-auto p-4" style={{paddingBottom: "100px"}}>
+        <h1 className="adminGeneral-title">
           Administración General
         </h1>
-        <input
-          type="text"
-          placeholder="Buscar productos..."
-          className="mb-4 p-2 border rounded-md w-full max-w-md"
-        />
-
-        <div className="mb-4 flex gap-4">
-          <button className="px-4 py-2 ">Todos</button>
-          <button className="px-4 py-2 ">Productos</button>
-          <button className="px-4 py-2 ">Servicios</button>
+        <div className="adminGeneral-search">
+          <input
+            type="text"
+            placeholder="Buscar productos..."
+            className="adminGeneral-search-input"
+          />
+          <button className="adminGeneral-search-button">
+            <img src={SearchIcon} alt="Buscar" className="adminGeneral-search-icon" />
+          </button>
         </div>
-
-        <table className="w-full  rounded-lg shadow-md overflow-hidden">
-          <thead className="   text-gray-700">
+        <div className="adminGeneral-button-container">
+          <button className="adminGeneral-button01">Todos</button>
+          <button className="adminGeneral-button02">Servicios</button>
+          <button className="adminGeneral-button02">Productos</button>
+        </div>
+        <div class="adminGeneral-divider"></div>
+        <table className="w-full rounded-lg overflow-hidden border-separate" style={{ borderSpacing: "0 15px" }}>
+          <thead className="text-gray-700">
             <tr>
               <th className="py-2 px-4 text-left">Código</th>
               <th className="py-2 px-4 text-left">Descripción</th>
@@ -43,10 +49,10 @@ export default function AdminGeneral() {
               <th className="py-2 px-4"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{ color: "#06023D" }}>
             {products?.map((p) => (
-              <tr key={p._id} className="border-t bg-white ">
-                <td className="py-2 px-4 mt-2">{p._id}</td>
+              <tr key={p._id} className="bg-white border rounded-lg" style={{ borderRadius: "30px" }}>
+                <td className="py-2 px-4">{p._id}</td>
                 <td className="py-2 px-4">{p.nombre}</td>
                 <td className="py-2 px-4">
                   <p>{p.usuario.nombre}</p>
@@ -55,7 +61,7 @@ export default function AdminGeneral() {
                 </td>
                 <td className="py-2 px-4">{p.estado}</td>
                 <td className="py-2 px-4">
-                  <button className="px-4 py-2 bg-red-500 text-white rounded-md">
+                  <button className="adminGeneral-button03">
                     Dar de baja
                   </button>
                 </td>

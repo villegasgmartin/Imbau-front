@@ -9,6 +9,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import "../Styles/IdProduct.css"
+import VisaIcon from "../../assets/PaymentIcons/visa.png"
+import AmericanExpressIcon from "../../assets/PaymentIcons/american-express.png"
+import MasterCardIcon from "../../assets/PaymentIcons/master-card.png"
+import MaestroIcon from "../../assets/PaymentIcons/maestro.png"
+import CabalIcon from "../../assets/PaymentIcons/cabal.png"
 
 export default function IdProduct() {
   const { id } = useParams();
@@ -74,96 +80,113 @@ const handleAddToCart = (product) => {
   return (
     <main>
       <NavBar />
-      <div className="flex justify-around border-b-2 border-gray-200 mt-20">
-        <div className="w-[30%] ">
-          <img src={product.img} alt="" className=""></img>
-        </div>
-        <div className="w-[30%] ">
-          <h1 className="text-3xl bold mt-10">
-            {product.nombre} - {product.marca} - {product.modelo}
-          </h1>
-          <h2 className="text-3xl bold ">${product.precio}</h2>
-          <h3 className="text-2xl">Color: {product.color}</h3>
-          <p className="text-xl">Lo que tenes que saber sobre este producto:</p>
-          <p className="text-xl">{product.info}</p>
-        </div>
-        <div className="flex flex-col w-[30%]">
-          <div className=" flex flex-col justify-evenly items-center border-2 border-gray-200">
-            <p>Cantidad de stock: {product.stock}</p>
-            <button className="text-green-600 border-2 border-green-600 p-2 rounded-full">
-              Comprar ahora
-            </button>
-            <button
-              className="text-green-600 border-2 border-green-600 p-2 rounded-full mt-2"
-              onClick={() => handleAddToCart(product)} // Actualización: Agregar al carrito usando localStorage
+      <div className="idProduct-background">
+        <div className="idProduct-main-container">
+          <div className="idProduct-container">
+            <div className="idProduct-image-container">
+              <img src={product.img} alt="" className="idProduct-image"></img>
+            </div>
+            <div className="idProduct-info-container">
+              <h1 className="idProduct-nombre">
+                {product.nombre} - {product.marca} - {product.modelo}
+              </h1>
+              <h2 className="idProduct-precio">${product.precio}</h2>
+              <h3 className="idProduct-color">Color: {product.color}</h3>
+              <p className="idProduct-text01">Lo que tenes que saber sobre este producto:</p>
+              <p className="idProduct-textInfo">{product.info}</p>
+            </div>
+            <div className="idProduct-compra-container">
+              <div className="idProduct-compra">
+                <p className="idProduct-stock">Cantidad de stock: {product.stock}</p>
+                <button className="idProduct-button-comprar">
+                  Comprar ahora
+                </button>
+                <button
+                  className="idProduct-button-agregar"
+                  onClick={() => handleAddToCart(product)} // Actualización: Agregar al carrito usando localStorage
+                >
+                  Agregar al carrito
+                </button>
+                <p className="idProduct-text02">
+                  <span className="idProduct-blue">Compra Protegida.</span> Recibí
+                  el producto que esperabas o te devolvemos tu dinero
+                </p>
+                <p className="idProduct-text03">
+                  <span className="idProduct-blue"> Devolución gratis.</span>{" "}
+                  Tenés 30 días desde que lo recibís
+                </p>
+              </div>
+              <div className="idProduct-payment-container">
+                <h4 className="idProduct-payments">Medios de pago</h4>
+                <p className="idProduct-text02">Tarjetas de credito</p>
+                <div className="idProduct-card-icon-container" style={{marginBottom: "10px"}}>
+                  <img className="idProduct-card-icon" src={VisaIcon} alt="Visa" />
+                  <img className="idProduct-card-icon" src={AmericanExpressIcon} alt="American Express" />
+                  <img className="idProduct-card-icon" src={MasterCardIcon} alt="Master Card" />
+                </div>
+                <p className="idProduct-text02">Tarjetas de debito </p>
+                <div className="idProduct-card-icon-container">
+                  <img className="idProduct-card-icon" src={VisaIcon} alt="Visa Débito" />
+                  <img className="idProduct-card-icon" src={MaestroIcon} alt="Maestro" />
+                  <img className="idProduct-card-icon" src={MasterCardIcon} alt="Master Card Débito" />
+                  <img className="idProduct-card-icon" src={CabalIcon} alt="Cabal Débito" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="productId-divider"></div>
+          <h1 className="idProduct-sliders-titles">Productos relacionados</h1>
+          <div className="idProduct-slider-container">
+            <Swiper
+              modules={[Pagination]}
+              pagination={{ clickable: true }}
+              spaceBetween={0}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
             >
-              Agregar al carrito
-            </button>
-            <p className="max-w-inherit">
-              <span className="text-skyblue-400">Compra Protegida.</span> Recibí
-              el producto que esperabas o te devolvemos tu dinero
-            </p>
-            <p className="max-w-inherit">
-              <span className="text-skyblue-400"> Devolución gratis.</span>{" "}
-              Tenés 30 días desde que lo recibís
-            </p>
+              {products.map((producto) => (
+                <SwiperSlide key={producto._id}>
+                  <CardProducto producto={producto} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-          <div className="flex flex-col justify-evenly items-center border-2 border-gray-200 mt-10 ">
-            <h4>Medios de pago</h4>
-            <p>Tarjetas de credito</p>
-            <p>Tarjetas de debito</p>
+          <div className="productId-divider"></div>
+          <h1 className="idProduct-sliders-titles">Otros productos del vendedor</h1>
+          <div className="idProduct-slider-container">
+            <Swiper
+              modules={[Pagination]}
+              pagination={{ clickable: true }}
+              spaceBetween={0}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
+            >
+              {products.map((producto) => (
+                <SwiperSlide key={producto._id}>
+                  <CardProducto producto={producto} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
-      </div>
-      <h1 className="text-3xl mt-20 mb-10">Productos relacionados</h1>
-      <div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
-        <Swiper
-          modules={[Pagination]}
-          pagination={{ clickable: true }}
-          spaceBetween={50}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 4,
-            },
-          }}
-        >
-          {products.map((producto) => (
-            <SwiperSlide key={producto._id}>
-              <CardProducto producto={producto} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <h1 className="text-3xl mt-20 mb-10">Otros productos del vendedor</h1>
-      <div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
-        <Swiper
-          modules={[Pagination]}
-          pagination={{ clickable: true }}
-          spaceBetween={50}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 4,
-            },
-          }}
-        >
-          {products.map((producto) => (
-            <SwiperSlide key={producto._id}>
-              <CardProducto producto={producto} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
       </div>
     </main>
   );

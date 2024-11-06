@@ -1,0 +1,230 @@
+/*Fondo*/
+.idProduct-background{
+    background-color: #F8F3E0;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
+    padding-left: 9.375rem;
+    padding-right: 9.375rem;
+}
+
+/*Contenedor principal*/
+.idProduct-main-container{
+    background-color: white;
+    border-radius: 1.25rem;
+}
+
+/*Contenedor de información*/
+.idProduct-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.875rem;
+    padding: 2.5rem;
+}
+
+/*Contenedor de imágen*/
+.idProduct-image-container{
+    width: 31.25rem;
+    height: 31.25rem;
+    border: 2px solid #D9D9D9;
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+/*Imágen*/
+.idProduct-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.25rem;
+}
+
+/*Contenedor de información de producto*/
+.idProduct-info-container{
+    padding-top: 1.25rem;
+    width: 31.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+/*Nombre del producto*/
+.idProduct-nombre{
+    color: black;
+    font-size: 1.875rem !important;
+    font-family: "inter";
+    font-weight: bold;
+    line-height: 2.5rem;
+}
+
+/*Precio del producto*/
+.idProduct-precio{
+    color:#06023D; 
+    font-size: 3.125rem !important;
+    font-family: "regular";
+}
+
+/*Color del producto*/
+.idProduct-color{
+    color: #06023D;
+    font-family: "regular";
+}
+
+/*"Lo que tenes que saber de este producto"*/
+.idProduct-text01{
+    color:#06023D;
+    font-family: "inter";
+}
+
+/*Información del producto*/
+.idProduct-textInfo{
+    color:#06023D;
+    font-family: "thin";
+    width: 18.75rem;
+}
+
+/*Contenedor de detalles de compra*/
+.idProduct-compra-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/*Contenedor de la sección de agregar al carrito*/
+.idProduct-compra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    border: 2px solid #D9D9D9;
+    border-radius: 1.25rem;
+    padding: 1.875rem;
+    width: 23.75rem;
+}
+
+/*Stock*/
+.idProduct-stock{
+    color: #06023D;
+    font-family: "regular";
+    font-weight: bold;
+}
+
+/*Botón "comprar ahora"*/
+.idProduct-button-comprar{
+    color: #065D4A;
+    font-family: "regular";
+    font-size: 1.25rem;
+    border: 2px solid #065D4A;
+    padding: .625rem;
+    border-radius: 1.25rem;
+    width: 20.625rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+/*Hover para el botón "comprar ahora"*/
+.idProduct-button-comprar:hover {
+    background-color: #065D4A;
+    color: #ffffff;
+}
+
+/*Movimiento del click del botón "comprar ahora"*/
+.idProduct-button-comprar:active {
+    transform: scale(0.95);
+}
+
+/*Botón "agregar al carrito"*/
+.idProduct-button-agregar{
+    color: #065D4A;
+    background-color: #065D4A33;
+    font-family: "regular";
+    font-size: 1.25rem;
+    padding: .625rem;
+    border-radius: 1.25rem;
+    width: 20.625rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease
+}
+
+/*Hover para el botón "agregar al carrito"*/
+.idProduct-button-agregar:hover {
+    background-color: #065D4A;
+    color: #ffffff;
+}
+
+/*Movimiento del click del botón "agregar al carrito"*/
+.idProduct-button-agregar:active {
+    transform: scale(0.95);
+}
+
+/*Texto de "Compra Protegida"*/
+.idProduct-text02{
+    color: #9A9A9A;
+    font-family: "regular";
+    line-height: 1.1875rem;
+}
+
+/*Texto de "Devolución gratis*/
+.idProduct-text03{
+    color: #9A9A9A;
+    font-family: "regular";
+    line-height: 1.1875rem;
+}
+
+/*Estilo azúl para los textos*/
+.idProduct-blue{
+    color: #4284F3;
+}
+
+/*Contenedor de métodos de pago*/
+.idProduct-payment-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .625rem;
+    border: 2px solid #D9D9D9;
+    border-radius: 1.25rem;
+    padding: 1.875rem;
+    width: 23.75rem;
+}
+
+/*Título de medios de pago*/
+.idProduct-payments{
+    color: #06023D;
+    font-family: "regular";
+    font-weight: bold;
+    font-size: 1rem !important;
+}
+
+/*Contenedor de íconos de tarjetas*/
+.idProduct-card-icon-container{
+    display: flex;
+    gap: 1.25rem;
+}
+
+/*Íconos de tarjetas de pago*/
+.idProduct-card-icon{
+    width: 3.125rem;
+}
+
+/*Línea divisoria*/
+.productId-divider{
+    width: 60%;
+    height: .125rem; 
+    background-color: #D9D9D9;
+    margin-top: 1.25rem;
+    margin-bottom: 3.125rem;
+    margin-left: 6.25rem;
+}
+
+/*Títulos de sliders*/
+.idProduct-sliders-titles{
+    color: #06023D;
+    margin-bottom: 1.875rem;
+    font-family: "regular";
+    font-size: 1.875rem !important;
+    padding-left: 6.25rem;
+}
+
+/*Contenedor de sliders*/
+.idProduct-slider-container{
+    margin-left: 6.25rem;
+    padding-bottom: 1.875rem;
+}

@@ -3,6 +3,8 @@ import NavBar from "../Layouts/NavBar";
 import { useEffect } from "react";
 import { getAllProducts, getUsers, deleteUser, activateUser } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
+import "../Styles/AdminUsers.css"
+import SearchIcon from "../../assets/search.png"
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
@@ -73,20 +75,25 @@ export default function AdminUsers() {
     <div className="min-h-screen bg-[#f8f3e0]">
       <AdminNavBar />
       <div className="max-w-7xl mx-auto p-4">
-        <h1 className="text-2xl font-bold text-gray-700 mb-4">Usuarios</h1>
-        <input
-          type="text"
-          placeholder="Buscar usuarios..."
-          className="mb-4 p-2 border rounded-md w-full max-w-md"
-        />
+        <h1 className="adminUsers-title">Usuarios</h1>
+        <div className="adminUsers-search">
+          <input
+            type="text"
+            placeholder="Buscar productos..."
+            className="adminUsers-search-input"
+          />
+          <button className="adminUsers-search-button">
+            <img src={SearchIcon} alt="Buscar" className="adminUsers-search-icon" />
+          </button>
+        </div>
 
         {/* <div className="mb-4 flex gap-4">
           <button className="px-4 py-2 ">Todos</button>
           <button className="px-4 py-2 ">Productos</button>
           <button className="px-4 py-2 ">Servicios</button>
         </div> */}
-
-        <table className="w-full  rounded-lg shadow-md overflow-hidden">
+        <div class="adminUsers-divider"></div>
+        <table className="w-full  rounded-lg  overflow-hidden">
           <thead className="   text-gray-700">
             <tr>
               <th className="py-2 px-4 text-left">Nombre</th>
