@@ -46,6 +46,7 @@ export default function AllProducts () {
 				</div> */}
 				<div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
         <Swiper
+        className="my-swiper-container"
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables
           spaceBetween={50}

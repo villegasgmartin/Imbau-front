@@ -83,6 +83,9 @@ const handleAddToCart = (product) => {
       <div className="idProduct-background">
         <div className="idProduct-main-container">
           <div className="idProduct-container">
+              <h1 className="idProduct-nombre-mobile">
+                {product.nombre} - {product.marca} - {product.modelo}
+              </h1>
             <div className="idProduct-image-container">
               <img src={product.img} alt="" className="idProduct-image"></img>
             </div>
@@ -149,7 +152,7 @@ const handleAddToCart = (product) => {
                   slidesPerView: 2,
                 },
                 1024: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                 },
               }}
             >
@@ -162,8 +165,8 @@ const handleAddToCart = (product) => {
           </div>
           <div className="productId-divider"></div>
           <h1 className="idProduct-sliders-titles">Otros productos del vendedor</h1>
-          <div className="idProduct-slider-container">
-            <Swiper
+          <div className="idProduct-slider-container"> 
+              <Swiper
               modules={[Pagination]}
               pagination={{ clickable: true }}
               spaceBetween={0}
@@ -175,7 +178,7 @@ const handleAddToCart = (product) => {
                   slidesPerView: 2,
                 },
                 1024: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                 },
               }}
             >

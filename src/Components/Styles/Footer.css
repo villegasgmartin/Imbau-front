@@ -1,0 +1,80 @@
+/* Contenedor principal */
+.footer-main-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #06023D;
+    gap: .625rem;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 13%;
+    padding-right: 13%;
+}
+
+/* Contenedor secundario */
+.footer-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Contenedor de información del footer */
+.footer-info-container {
+    display: flex;
+    align-items: center;
+    gap: 6.25rem;
+    flex-wrap: wrap;
+}
+
+/* Contenedor de contactos */
+.footer-contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* Título de contactos */
+.footer-contact-title {
+    color: #FFFFFF;
+    font-family: "regular";
+    font-size: 1.125rem !important;
+}
+
+/* Contactos */
+.footer-contact {
+    color: #FFFFFF;
+    font-family: "thin";
+    font-size: 1rem !important; 
+}
+
+/* Enlaces */
+.footer-link {
+    color: #FFFFFF;
+    font-family: "regular";
+    font-size: 1.125rem !important;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover para enlaces */
+.footer-link:hover {
+    transform: scale(1.1);
+}
+
+/* Contenedor de redes */
+.footer-social-container {
+    display: flex;
+    align-items: center;
+    gap: .625rem;
+}
+
+/* Logo del footer */
+.footer-logo-container {
+    width: 12.5rem;
+    min-width: 150px;
+}
+
+/* Copyright */
+.footer-copyright {
+    color: #FFFFFF;
+    font-family: "regular";
+}
