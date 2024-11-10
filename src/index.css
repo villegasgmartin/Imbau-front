@@ -19,14 +19,6 @@
 	width: 100%;
 }
 
-.footer-logo {
-	background-image: url('../src/assets/Isotipo crema.png');
-	width: 160px;
-	height: 90px;
-	background-size: cover;
-	background-position: center;
-	margin-top: 60px;
-}
 
 .bold {
 	font-family: 'bold', sans-serif;

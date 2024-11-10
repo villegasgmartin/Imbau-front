@@ -44,7 +44,7 @@ export default function AllProducts () {
 					<button className="w-36 h-12 border-2 border-[#EA8C06] rounded-full ">{c.categoria}</button>
 				))}
 				</div> */}
-				<div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
+				<div className="sm:flex sm:justify-center flex max-w-[100vw]">
         <Swiper
         className="my-swiper-container"
           modules={[Pagination]} // Incluye el módulo de paginación
@@ -82,7 +82,7 @@ export default function AllProducts () {
 	<button className="w-36 h-12 border-2 border-[#EA8C06] rounded-full ">{c.categoria}</button>
 ))}
 </div> */}
-<div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
+<div className="sm:flex sm:justify-center flex max-w-[100vw]">
         <Swiper
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables
@@ -118,7 +118,7 @@ export default function AllProducts () {
 	<button className="w-36 h-12 border-2 border-[#EA8C06] rounded-full ">{c.categoria}</button>
 ))}
 </div> */}
-<div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
+<div className="sm:flex sm:justify-center flex max-w-[100vw]">
         <Swiper
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables

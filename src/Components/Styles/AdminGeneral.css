@@ -1,9 +1,16 @@
+/*Contenedor Principal*/
+.adminGeneral-container{
+    width: 70%;
+    margin: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
 /*Título principal*/
 .adminGeneral-title{
     font-family: "regular";
     color: #06023D;
     font-size: 2.8125rem !important;
-    padding-top: 3.125rem;
 }
 
 /* Contenedor del input de búsqueda */
@@ -74,6 +81,18 @@
     background-color: #EA8C06;
     padding: 7px 8px 7px 8px;
     border-radius: .9375rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Hover */
+.adminGeneral-button01:hover {
+    background-color: #D47A05;
+}
+
+/* Efecto de click */
+.adminGeneral-button01:active {
+    transform: scale(0.95);
+    background-color: #BF6E04;
 }
 
 /*Botón de "Servicio" y "Productos"*/
@@ -84,6 +103,20 @@
     border: 2px solid #9A9A9A;
     padding: 5px 20px 5px 20px;
     border-radius: .9375rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+/* Hover */
+.adminGeneral-button02:hover {
+    background-color: #E1DCC7;
+    color: #7A7A7A;
+}
+
+/* Efecto de click */
+.adminGeneral-button02:active {
+    transform: scale(0.95);
+    background-color: #C8C1A5;
+    color: #5A5A5A;
 }
 
 /*Línea divisoria*/
@@ -95,8 +128,85 @@
     margin-bottom: 1.25rem;
 }
 
+/* Contenedor de la tabla */
+.adminGeneral-table-container {
+    overflow-x: auto;
+}
+
 /*Botón para dar de baja*/
 .adminGeneral-button03{
     color: #4284F3 ;
     font-family: "regular";
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1104px){
+    .adminGeneral-container{
+        width: 80%;
+    }
+    .adminGeneral-title{
+        font-size: 2.5rem !important;
+    }
+    .adminGeneral-search{
+        margin-top: 5rem;
+    }
+    .adminGeneral-divider{
+        margin-bottom: .625rem;
+    }
+}
+
+@media (max-width: 850px){
+    .adminGeneral-container{
+        width: 90%;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .adminGeneral-title{
+        font-size: 2.1875rem !important;
+    }
+    .adminGeneral-search{
+        margin-top: 4rem;
+    }
+    .adminGeneral-divider{
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 760px){
+    .adminGeneral-title{
+        font-size: 1.875rem !important;
+    }
+    .adminGeneral-search{
+        margin-top: 3rem;
+    }
+    .adminGeneral-button-container{
+        gap: 1.875rem;
+    }
+}
+
+@media (max-width: 640px){
+    .adminGeneral-button-container{
+        flex-direction: column;
+        gap: 20px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .adminGeneral-search{
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px){
+    .adminGeneral-container{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .adminGeneral-title{
+        font-size: 1.5625rem !important;
+    }
+    .adminGeneral-search{
+        margin-top: 2rem;
+    }
 }
