@@ -1,0 +1,229 @@
+/*Contenedor superior*/
+.allProducts-container{
+    background-color: #F8F3E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+/*Título de búsqueda*/
+.allProducts-searchTitle{
+    color: #06023D;
+    font-family: "bold";
+    width: 400px;
+    line-height: normal;
+}
+
+/*Contenedor de inputs y botón*/
+.allProducts-searchContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+/*Inputs*/
+.allProducts-input {
+    background-color: transparent;
+    border: 1px solid #B5B5B5;
+    color: #5B5B5B;
+    border-radius: 15px;
+    padding: 8px 20px;
+    width: 450px;
+    font-size: 1.25rem;
+}
+
+/* Color del placeholder */
+.allProducts-input::placeholder {
+    color: #5B5B5B;
+}
+
+/*Hover de inputs*/
+.allProducts-input:hover {
+    border-color: #909090;
+    border-width: 1.5px;
+}
+
+/*Efecto al clickear en el input*/
+.allProducts-input:focus {
+    outline: none;
+    border-color: #707070;
+    border-width: 1.5px;
+    box-shadow: 0 0 5px rgba(112, 112, 112, 0.3);
+}
+
+/*Botón de búsqueda*/
+.allProducts-button{
+    color: #065D4A;
+    font-family: "regular";
+    border: 1.5px solid #065D4A;
+    padding: 10px 40px 7px 40px;
+    border-radius: .9375rem;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+/* Hover del botón */
+.allProducts-button:hover {
+    background-color: #065D4A;
+    color: #ffffff;
+}
+
+/* Efecto clickeo del botón */
+.allProducts-button:active {
+    transform: scale(0.96);
+    background-color: #054C3E;
+    border-color: #054C3E;
+}
+
+/*Contenedor de imágen*/
+.allProducts-imageContainer{
+    width: 400px;
+    padding-top: 6%;
+}
+
+/*Categorías de sliders*/
+.allProducts-subtitles{
+    color: #06023D;
+    font-family: "regular";
+    padding-top: 70px;
+    padding-left: 90px;
+    width: 450px;
+    line-height: normal;
+}
+
+/*Contenedor de publicidad*/
+.allProducts-banner-container{
+    width: 70%;
+    margin: auto;
+    height: auto;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+/*Publicidad*/
+.allProducts-banner{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1350px){
+    .allProducts-container{
+        gap: 3.125rem;
+    }
+    .allProducts-searchTitle{
+        font-size: 3.4375rem !important;
+        padding-left: 5%;
+    }
+    .allProducts-input {
+        width: 400px;
+        font-size: 1rem;
+    }
+    .allProducts-button{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1150px){
+    .allProducts-searchTitle{
+        font-size: 3.125rem !important;
+    }
+    .allProducts-input {
+        width: 350px;
+    }
+    .allProducts-subtitles{
+        font-size: 26px !important;
+        padding-top: 60px;
+        padding-left: 80px;
+        width: 380px;
+    }
+    .allProducts-banner-container{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1050px){
+    .allProducts-searchTitle{
+        font-size: 45px !important;
+    }
+    .allProducts-input {
+        width: 300px;
+    }
+}
+
+@media (max-width: 950px){
+    .allProducts-container{
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        padding-top: 3rem;
+        gap: 0;
+    }
+    .allProducts-searchTitle{
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        padding: 0;
+    }
+    .allProducts-searchContainer{
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .allProducts-input {
+        width: 75%;
+    }
+    .allProducts-imageContainer{
+        width: 300px;
+        padding-top: 20px;
+    }
+    .allProducts-banner-container{
+        width: 80%;
+    }
+}
+
+@media (max-width: 639px){
+    .allProducts-searchTitle{
+        font-size: 2.5rem !important;
+    }
+    .allProducts-input {
+        width: 90%;
+    }
+    .allProducts-button{
+        width: 90%;
+    }
+    .allProducts-imageContainer{
+        width: 200px;
+    }
+    .allProducts-subtitles{
+        font-size: 22px !important;
+        padding-top: 40px;
+        padding-left: 60px;
+        width: 350px;
+    }
+    .allProducts-banner-container{
+        width: 85%;
+    }
+}
+
+@media (max-width: 520px){
+    .allProducts-container{
+        padding-top: 2rem;
+    }
+    .allProducts-searchTitle{
+        font-size: 1.875rem !important;
+    }
+}
+
+@media (max-width: 410px){
+    .allProducts-searchTitle{
+        font-size: 25px !important;
+
+    }
+}
