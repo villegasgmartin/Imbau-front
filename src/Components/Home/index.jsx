@@ -13,7 +13,7 @@ export default function Home() {
 
 	return (
 		<div>
-			<NavBar/>
+			{/*<NavBar/>*/}
 			<Banner />
 			<Promotions />
 			<Banner1 />

@@ -93,11 +93,12 @@
     padding-left: 90px;
     width: 450px;
     line-height: normal;
+    font-size: 32px
 }
 
 /*Contenedor de publicidad*/
 .allProducts-banner-container{
-    width: 70%;
+    width: 1400px;
     margin: auto;
     height: auto;
     overflow: hidden;
@@ -112,6 +113,12 @@
 }
 
 /*-------Media Queries--------*/
+
+@media (max-width: 1600px){
+    .allProducts-banner-container{
+        width: 1200px;
+    }
+}
 
 @media (max-width: 1350px){
     .allProducts-container{
@@ -130,6 +137,12 @@
     }
 }
 
+@media (max-width: 1300px){
+    .allProducts-banner-container{
+        width: 1000px;
+    }
+}
+
 @media (max-width: 1150px){
     .allProducts-searchTitle{
         font-size: 3.125rem !important;
@@ -143,9 +156,6 @@
         padding-left: 80px;
         width: 380px;
     }
-    .allProducts-banner-container{
-        width: 75%;
-    }
 }
 
 @media (max-width: 1050px){
@@ -154,6 +164,9 @@
     }
     .allProducts-input {
         width: 300px;
+    }
+    .allProducts-banner-container{
+        width: 800px;
     }
 }
 
@@ -183,8 +196,11 @@
         width: 300px;
         padding-top: 20px;
     }
+}
+
+@media (max-width: 850px){
     .allProducts-banner-container{
-        width: 80%;
+        width: 650px;
     }
 }
 
@@ -208,7 +224,7 @@
         width: 350px;
     }
     .allProducts-banner-container{
-        width: 85%;
+        width: 95%;
     }
 }
 
@@ -224,6 +240,5 @@
 @media (max-width: 410px){
     .allProducts-searchTitle{
         font-size: 25px !important;
-
     }
 }
