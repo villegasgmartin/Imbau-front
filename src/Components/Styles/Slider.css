@@ -1,0 +1,75 @@
+/*Contenedor principal*/
+.slider-main-container{
+    background-color: #06023d;
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+}
+
+/*Contenedor de título y enlace*/
+.slider-title-container{
+    padding-left: 5.625rem;
+    padding-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+/*Título*/
+.slider-title{
+    color: white;
+    font-family: "regular";
+    font-size: 32px
+}
+
+/*Enlace*/
+.slider-link{
+    color: #4284F3;
+    font-family: "regular";
+    font-size: 1.75rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/*Hover de enlace*/
+.slider-link:hover {
+    color: #8FAAF6;
+    transform: scale(1.05);
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1150px){
+    .slider-main-container{
+        padding-top: 1.875rem;
+        padding-bottom: 1.875rem;
+    }
+    .slider-title-container{
+        padding-left: 70px;
+        padding-bottom: 5px;
+    }
+    .slider-title{
+        font-size: 26px !important;
+    }
+    .slider-link{
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 639px){
+    .slider-title-container{
+        padding-left: 40px;
+    }
+}
+
+@media (max-width: 500px){
+    .slider-title-container{
+        flex-direction: column;
+        gap: 0;
+        align-items: start;
+    }
+    .slider-title{
+        font-size: 22px !important;
+    }
+    .slider-link{
+        font-size: 18px;
+    }
+}

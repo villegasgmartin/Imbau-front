@@ -77,3 +77,9 @@
         border-top-right-radius: 10px;
     }
 }
+
+@media (max-width: 500px){
+    .promotions-title{
+        font-size: 22px !important;
+    }
+}
