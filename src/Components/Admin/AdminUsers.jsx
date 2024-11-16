@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import NavBar from "../Layouts/NavBar";
-import { useEffect } from "react";
-import { getAllProducts, getUsers, deleteUser, activateUser } from "../../../redux/actions";
+import { useEffect, useState } from "react";
+import { getUsers, deleteUser, activateUser } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
+
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para la búsqueda
 
   useEffect(() => {
     dispatch(getUsers());
@@ -13,61 +14,54 @@ export default function AdminUsers() {
 
   const users = useSelector((state) => state.allUsers);
 
+  // Filtrar usuarios según el término de búsqueda
+  const filteredUsers = users?.usuarios?.filter((user) =>
+    user.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-
-  //   const handleActivateUser = (e) => {
-  //     dispatch(activateUser(e.target.value));
-  //   };
-      const handleDeleteUser = (uid) => {      
+  const handleDeleteUser = (uid) => {
+    swal({
+      title: "Dar de baja?",
+      text: `¿Está seguro que desea dar de baja este usuario?`,
+      icon: "warning",
+      buttons: ["No", "Sí"],
+    }).then((respuesta) => {
+      if (respuesta) {
+        dispatch(deleteUser(uid));
         swal({
-          title: "Dar de baja?",
-          text: `Esta seguro que desea dar de baja este usuario?`,
-          icon: "warning",
-          buttons: ["No", "Si"],
-        }).then((respuesta) => {
-          if (respuesta) {
-          dispatch(deleteUser(uid));           
-            swal({
-              text: `Se ha dado de baja el usuario`,
-              icon: "success",
-            });
-            // setTimeout(function () {
-            // 	window.location.href = '/';
-            // }, 3000);
-          } else {
-            swal({
-              text: "No se ha dado de baja el usuario",
-              icon: "info",
-            });
-          }
+          text: `Se ha dado de baja el usuario`,
+          icon: "success",
         });
-      }; 
+      } else {
+        swal({
+          text: "No se ha dado de baja el usuario",
+          icon: "info",
+        });
+      }
+    });
+  };
 
-            const handleActivateUser = (uid) => {
-              swal({
-                title: "Dar de alta?",
-                text: `Esta seguro que desea dar de alta este usuario?`,
-                icon: "warning",
-                buttons: ["No", "Si"],
-              }).then((respuesta) => {
-                if (respuesta) {
-                  dispatch(activateUser(uid));
-                  swal({
-                    text: `Se ha dado de alta el usuario`,
-                    icon: "success",
-                  });
-                  // setTimeout(function () {
-                  // 	window.location.href = '/';
-                  // }, 3000);
-                } else {
-                  swal({
-                    text: "No se ha dado de alta el usuario",
-                    icon: "info",
-                  });
-                }
-              });
-            }; 
-  
+  const handleActivateUser = (uid) => {
+    swal({
+      title: "Dar de alta?",
+      text: `¿Está seguro que desea dar de alta este usuario?`,
+      icon: "warning",
+      buttons: ["No", "Sí"],
+    }).then((respuesta) => {
+      if (respuesta) {
+        dispatch(activateUser(uid));
+        swal({
+          text: `Se ha dado de alta el usuario`,
+          icon: "success",
+        });
+      } else {
+        swal({
+          text: "No se ha dado de alta el usuario",
+          icon: "info",
+        });
+      }
+    });
+  };
 
   return (
     <div className="min-h-screen bg-[#f8f3e0]">
@@ -78,16 +72,12 @@ export default function AdminUsers() {
           type="text"
           placeholder="Buscar usuarios..."
           className="mb-4 p-2 border rounded-md w-full max-w-md"
+          value={searchTerm} // Vincular el estado al input
+          onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
         />
 
-        {/* <div className="mb-4 flex gap-4">
-          <button className="px-4 py-2 ">Todos</button>
-          <button className="px-4 py-2 ">Productos</button>
-          <button className="px-4 py-2 ">Servicios</button>
-        </div> */}
-
-        <table className="w-full  rounded-lg shadow-md overflow-hidden">
-          <thead className="   text-gray-700">
+        <table className="w-full rounded-lg shadow-md overflow-hidden">
+          <thead className="text-gray-700">
             <tr>
               <th className="py-2 px-4 text-left">Nombre</th>
               <th className="py-2 px-4 text-left">Email</th>
@@ -97,32 +87,30 @@ export default function AdminUsers() {
             </tr>
           </thead>
           <tbody>
-            {users?.usuarios?.map((p, index) => (
-              <tr key={index} className="border-t bg-white ">
-                <td className="py-2 px-4 mt-2">{p.nombre}</td>
-                <td className="py-2 px-4">{p.correo}</td>
+            {filteredUsers?.map((user, index) => (
+              <tr key={index} className="border-t bg-white">
+                <td className="py-2 px-4 mt-2">{user.nombre}</td>
+                <td className="py-2 px-4">{user.correo}</td>
                 <td className="py-2 px-4">
-                  <p>{p.banco}</p>
-                  <p>{p.alias}</p>
-                  <p>{p.cbu}</p>
+                  <p>{user.banco}</p>
+                  <p>{user.alias}</p>
+                  <p>{user.cbu}</p>
                 </td>
                 <td className="py-2 px-4">
-                  {p.estado === true ? <p>Activo</p> : <p>Inactivo</p>}
+                  {user.estado === true ? <p>Activo</p> : <p>Inactivo</p>}
                 </td>
                 <td className="py-2 px-4">
-                  {p.estado === true ? (
+                  {user.estado === true ? (
                     <button
-                      className="px-4 py-2 bg-red-500 text-white rounded-md"
-                      value={p.id}
-                      onClick={() => handleDeleteUser(p.uid)}
+                      className="text-blue-400"
+                      onClick={() => handleDeleteUser(user.uid)}
                     >
                       Dar de baja
                     </button>
                   ) : (
                     <button
-                      className="px-4 py-2 bg-red-500 text-white rounded-md"
-                      value={p.id}
-                      onClick={() => handleActivateUser(p.uid)}
+                      className="text-blue-400"
+                      onClick={() => handleActivateUser(user.uid)}
                     >
                       Dar de alta
                     </button>
@@ -136,3 +124,4 @@ export default function AdminUsers() {
     </div>
   );
 }
+  

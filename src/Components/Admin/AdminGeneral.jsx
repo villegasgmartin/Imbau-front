@@ -1,18 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Layouts/NavBar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllProducts } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
 
 export default function AdminGeneral() {
   const dispatch = useDispatch();
 
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para la búsqueda
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
   const products = useSelector((state) => state.allProducts);
-  
+console.log(products, 'pr');
+
+  // Filtrar productos según el término de búsqueda
+  const filteredProducts = products?.filter((p) =>
+    p.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-[#f8f3e0]">
@@ -25,6 +32,8 @@ export default function AdminGeneral() {
           type="text"
           placeholder="Buscar productos..."
           className="mb-4 p-2 border rounded-md w-full max-w-md"
+          value={searchTerm} // Vincular el estado al input
+          onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
         />
 
         <div className="mb-4 flex gap-4">
@@ -33,8 +42,8 @@ export default function AdminGeneral() {
           <button className="px-4 py-2 ">Servicios</button>
         </div>
 
-        <table className="w-full  rounded-lg shadow-md overflow-hidden">
-          <thead className="   text-gray-700">
+        <table className="w-full rounded-lg shadow-md overflow-hidden">
+          <thead className="text-gray-700">
             <tr>
               <th className="py-2 px-4 text-left">Código</th>
               <th className="py-2 px-4 text-left">Descripción</th>
@@ -44,8 +53,8 @@ export default function AdminGeneral() {
             </tr>
           </thead>
           <tbody>
-            {products?.map((p) => (
-              <tr key={p._id} className="border-t bg-white ">
+            {filteredProducts?.map((p) => (
+              <tr key={p._id} className="border-t bg-white">
                 <td className="py-2 px-4 mt-2">{p._id}</td>
                 <td className="py-2 px-4">{p.nombre}</td>
                 <td className="py-2 px-4">

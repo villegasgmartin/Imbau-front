@@ -254,10 +254,10 @@ export function activateUser(id) {
         "x-token": token,
       };
       axios
-        .put(`${url}/api/admin/activar?id=${id}`, {
+        .put(`${url}/api/admin/activar?id=${id}`, null, {
           headers
         })
-        .then((response) => {r
+        .then((response) => {	
           return dispatch({
             type: ACTIVATE_USER,
             payload: response.data,
