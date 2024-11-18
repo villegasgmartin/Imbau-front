@@ -5,22 +5,21 @@ import Promotions from './Promotions';
 
 // import ServiceSlider from './ServiceSlider';
 import NavBar from '../Layouts/NavBar';
-import Banner1 from './Banner1';
-// import Banner3 from './Banner3';
+import AdminNavBar from '../Layouts/AdminNavBar';
+
 
 export default function Home() {
 	const rol = localStorage.getItem('rol')
 
 	return (
-		<div>
-			<NavBar/>
-			<Banner />
-			<Promotions />
-			<Banner1 />
-			<Slider />
-			<Banner2 />
-			{/* <ServiceSlider/>
-			<Banner3 /> */}
-		</div>
-	);
+    <div>
+      {rol === 'USER_ADMIN' ? <AdminNavBar /> : <NavBar />}
+      <Banner />
+      <Promotions />
+      <Slider />
+      <ServiceSlider />
+      <Banner2 />
+    </div>
+  );
+
 }
