@@ -17,8 +17,8 @@ useEffect(() => (
 
 
 	return (
-		<div className="sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll ">
-			<div className=" text-center sm:flex sm:items-center sm:pt-20 sm:pb-10">
+    <div className="sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll ">
+      {/* <div className=" text-center sm:flex sm:items-center sm:pt-20 sm:pb-10">
 				<h1 className="color-main  sm:text-4xl sm:bold ml-10 mr-10 ">
 					SERVICIOS DESTACADOS
 				</h1>
@@ -58,7 +58,9 @@ useEffect(() => (
 								/>
             </SwiperSlide>
           ))}
-        </Swiper> */}
-		</div>
-	);
+
+        </Swiper> */}{" "}
+     
+    </div>
+  );
 }

@@ -23,6 +23,11 @@ import CrearServicio from './Components/Servicios/CrearServicio';
 import AdminGeneral from './Components/Admin/AdminGeneral';
 import AdminUsers from './Components/Admin/AdminUsers';
 import Cart from './Components/Layouts/Minicart';
+import Categorias from './Components/Admin/Categorias';
+import EspacioPublicitario from './Components/Admin/EspacioPublicitario';
+import PromocionesBancarias from './Components/Admin/PromocionesBancarias';
+import MisCompras from './Components/Layouts/MisCompras';
+import MisContrataciones from './Components/Layouts/MisContrataciones';
 
 
 
@@ -45,6 +50,8 @@ function App() {
           {/* Rutas de cada tipo de usuario*/}
           {/* Comprador */}
           <Route path="/carrito" element={<Cart />} />
+          <Route path="/mis-compras" element={<MisCompras />} />
+          <Route path="/mis-contrataciones" element={<MisContrataciones />} />
 
           {/* Vendedor */}
           <Route path="/vendedor-panel" element={<VendedorPanel />} />
@@ -56,6 +63,15 @@ function App() {
           {/* Administrador */}
           <Route path="/admin" element={<AdminGeneral />} />
           <Route path="/usuarios" element={<AdminUsers />} />
+          <Route path="/categorias" element={<Categorias />} />
+          <Route
+            path="/espacio-publicitario"
+            element={<EspacioPublicitario />}
+          />
+          <Route
+            path="/promociones-bancarias"
+            element={<PromocionesBancarias />}
+          />
         </Routes>
         <Footer />
       </div>

@@ -22,9 +22,9 @@ const services = useSelector((state) => state.allServices)
 
 
 	return (
-		<div className="sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll ">
-      <NavBar/>
-					<div className="flex justify-evenly items-center bg-[#f8f3e0]">
+    <div className="sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll ">
+      <NavBar />
+      {/* <div className="flex justify-evenly items-center bg-[#f8f3e0]">
 					<h1 className="text-3xl text-[#06023D] bold">
 						¿Que  <br /> servicio <br /> buscas?
 					</h1>
@@ -141,7 +141,18 @@ const services = useSelector((state) => state.allServices)
         </Swiper>
         <img src={banner2} alt="" className="w-[100vw] mt-10"/>
         
-				
-		</div>
-	);
+				 */}
+      <div className="h-[80vh] flex flex-col justify-evenly items-center">
+        <h1 className='mt-32'>Web en desarrollo</h1>
+        <button>
+          <a
+            href="/"
+            className="border-2 border-solid border-green-400 rounded-xl p-2 mt-20 hover:bg-green-400 hover:text-white mt-20"
+          >
+            Volver al inicio
+          </a>
+        </button>
+      </div>
+    </div>
+  );
 }
