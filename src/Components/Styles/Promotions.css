@@ -1,0 +1,85 @@
+/*Contenedor principal*/
+.promotions-main-container{
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+}
+
+/*Contenedor de título y enlace*/
+.promotions-title-container{
+    padding-left: 5.625rem;
+    padding-bottom: 2.1875rem;
+}
+
+/*Título*/
+.promotions-title{
+    color: #06023D;
+    font-family: "regular";
+    font-size: 32px
+}
+
+/*Contenedor de cards */
+.promotions-cards-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 30px;
+    margin-right: 1.875rem;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+/*Día de promoción*/
+.promotions-day{
+    font-family: "regular";
+    height: 25%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    font-size: 1.25rem;
+    padding-top: 5PX;
+}
+
+/*Color para Viernes*/
+.viernes{
+    color: #06023D;
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1150px){
+    .promotions-main-container{
+        padding-top: 30px;
+        padding-bottom: 1.875rem;
+    }
+    .promotions-title-container{
+        padding-left: 70px;
+        padding-bottom: 20px;
+    }
+    .promotions-title{
+        font-size: 26px !important;
+    }
+    .promotions-day{
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 639px){
+    .promotions-cards-container{
+        display: none;
+    }
+    .promotions-title-container{
+        padding-left: 40px;
+    }
+    .promotions-day{
+        border-top-left-radius: 10px; 
+        border-top-right-radius: 10px;
+    }
+}
+
+@media (max-width: 500px){
+    .promotions-title{
+        font-size: 22px !important;
+    }
+}

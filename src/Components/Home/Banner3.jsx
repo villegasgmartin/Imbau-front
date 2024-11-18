@@ -1,11 +1,9 @@
 import banner2 from '../../assets/banner2.png';
-import "../Styles/Banner2.css"
-
 // import preFooter from '../../assets/prefooter.png'
-export default function Banner2() {
+export default function Banner3() {
 	return (
-		<div className="banner2-img-container">
-			<img src={banner2} alt="" className="banner2-img"/>
+		<div className="banner-homer-footer">
+			<img src={banner2} alt="" className="w-[100vw]"/>
 			{/* <img src={preFooter} alt="" className='w-[70vw] ml-[15vw]'/>
 			<p >Cambiar </p> */}
 		</div>

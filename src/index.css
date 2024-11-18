@@ -1,8 +1,3 @@
-.womanImg {
-	background-image: url('../src/assets/Mujer.png');
-	background-size: cover;
-	width: 600px;
-}
 
 .manImg {
 	background-image: url('../src/assets/Hombre.png');
@@ -19,14 +14,6 @@
 	width: 100%;
 }
 
-.footer-logo {
-	background-image: url('../src/assets/Isotipo crema.png');
-	width: 160px;
-	height: 90px;
-	background-size: cover;
-	background-position: center;
-	margin-top: 60px;
-}
 
 .bold {
 	font-family: 'bold', sans-serif;
@@ -115,11 +102,35 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'inter';
+	src: url('./assets/fonts/Inter_18pt-Regular.ttf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 body {
 	margin: 0;
 }
-
+@media only screen and (min-width:1024px){
+	h1{
+		font-size: 65px !important
+		
+	}
+	h2{
+		font-size: 32px !important
+	}
+	h3{
+		font-size: 28px !important
+	}
+	h4{
+		font-size: 22px !important
+	}
+	p{
+		font-size: 16px !important;
+	}
+}
 
 @media screen and (max-width: 850px) {
 	h1{
@@ -154,7 +165,7 @@ p{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	align-items: start;
+	align-items: flex-start;
 	width: 196px;
 	height: 335px;
 	background-color: white;
@@ -185,6 +196,12 @@ p{
 	font-size: 12px !important
 }
 
+
+/*scroll lateral productos */
+
+.overflow-x-scroll {
+    overflow-x: initial;
+}
 
 /*responsive home*/
 @media only screen and (max-width: 768px) {
@@ -219,10 +236,7 @@ p{
 		height: 100%;
 		object-fit: cover
 	}
-
 }
-
-	
 
 @tailwind base;
 @tailwind components;

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import { getAllProducts } from "../../../redux/actions";
 import generic from '../../assets/caja test.jpg'
-import image from '../../assets/Lavarropa_1.png'
+import image from '../../assets/Lavarropa-edited.png'
 import categorias from "../../../utils/categorias";
 import banner2 from '../../assets/banner2.png'
 import CardProducto from "../Home/CardProducto";
@@ -13,6 +13,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination'; // Importa los estilos de la paginación
 import { Pagination } from 'swiper/modules'; // Importa el módulo de paginación
+import "../Styles/AllProducts.css"
+
 
 export default function AllProducts () {
 	const dispatch = useDispatch()
@@ -27,6 +29,7 @@ export default function AllProducts () {
       : products;
 
     return (
+
       <div className="flex flex-col ">
         <NavBar />
         <div className="flex justify-evenly items-center bg-[#f8f3e0] ">
@@ -209,5 +212,7 @@ export default function AllProducts () {
         </div>
         <img src={banner2} alt="" className="w-[100vw] mt-10" />
       </div>
+
     );
+
 }

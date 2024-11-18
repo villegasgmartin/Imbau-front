@@ -46,6 +46,7 @@ const allProducts = useSelector((state) => state.allProducts)
      }
    };
 	return (
+
     <nav className="w-full bg-[#06023D] shadow z-50 sm:rounded-lg opacity-90 text-white">
       <div className="justify-between px-4 mx-auto sm:items-center md:px-8 sm:hidden">
         <div>
@@ -53,6 +54,7 @@ const allProducts = useSelector((state) => state.allProducts)
             <div>
               <img src={logo} alt="not found" className="w-36 sm:w-48" />
             </div>
+
 
             <div className="md:hidden">
               <button
@@ -304,6 +306,7 @@ const allProducts = useSelector((state) => state.allProducts)
         </div>
         <div className="text-white sm:text-xl ml-4 flex justify-start relative">
           <img src={userFem} alt="not found" className="w-10 h-10 mr-6" />
+
 
           {rol === "USER_BUYER" ? (
             <>

@@ -1,0 +1,53 @@
+/*Contenedor de publicidad*/
+.banner1-img-container{
+    width: 70%;
+    margin: auto;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 3.125rem;
+}
+
+/*Publicidad*/
+.banner1-img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1600px){
+    .banner1-img-container{
+        width: 1200px;
+    }
+}
+
+@media (max-width: 1300px){
+    .banner1-img-container{
+        width: 1000px;
+    }
+}
+
+@media (max-width: 1300px){
+    .banner1-img-container{
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1050px){
+    .banner1-img-container{
+        width: 800px;
+    }
+}
+
+@media (max-width: 850px){
+    .banner1-img-container{
+        width: 650px;
+    }
+}
+
+@media (max-width: 680px){
+    .banner1-img-container{
+        width: 90%;
+    }
+}

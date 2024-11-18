@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getUsers, deleteUser, activateUser } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
+import "../Styles/AdminUsers.css"
+import SearchIcon from "../../assets/search.png"
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
@@ -67,6 +69,7 @@ export default function AdminUsers() {
     <div className="min-h-screen bg-[#f8f3e0]">
       <AdminNavBar />
       <div className="max-w-7xl mx-auto p-4">
+ 
         <h1 className="text-2xl font-bold text-gray-700 mb-4">Usuarios</h1>
         <input
           type="text"
@@ -75,7 +78,7 @@ export default function AdminUsers() {
           value={searchTerm} // Vincular el estado al input
           onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
         />
-
+        <div className="adminUsers-divider"></div>
         <table className="w-full rounded-lg shadow-md overflow-hidden">
           <thead className="text-gray-700">
             <tr>

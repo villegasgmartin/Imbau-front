@@ -6,6 +6,7 @@ import 'swiper/css/pagination'; // Importa los estilos de la paginación
 import { Pagination } from 'swiper/modules'; // Importa el módulo de paginación
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/actions';
+import "../Styles/Slider.css"
 
 const Slider = () => {
   const dispatch = useDispatch();
@@ -17,16 +18,16 @@ const Slider = () => {
   const products = useSelector((state) => state.allProducts);
 
   return (
-    <div className="bg-[#06023d] sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll">
-      <div className="text-center sm:flex sm:items-center sm:pt-20 sm:pb-10">
-        <h1 className="text-white sm:text-4xl sm:bold ml-10 mr-10">
-          PRODUCTOS DESTACADOS
-        </h1>
-        <a href="/products" className="text-sky-400 sm:text-3xl thin">
+    <div className="slider-main-container">
+      <div className="slider-title-container">
+        <h2 className="slider-title">
+          Productos destacados
+        </h2>
+        <a href="/products" className="slider-link">
           ver más
         </a>
       </div>
-      <div className="sm:flex sm:justify-center flex max-w-[100vw] overflow-x-scroll">
+      <div className="sm:flex sm:justify-center flex max-w-[100vw]">
         <Swiper
           modules={[Pagination]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables
