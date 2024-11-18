@@ -72,7 +72,8 @@ console.log(products, 'pr');
                   </button>
                 </td>
               </tr>
-            </thead>
+              ))}
+            </tbody>
             <tbody style={{ color: "#06023D" }}>
               {products?.map((p) => (
                 <tr key={p._id} className="bg-white border rounded-lg" style={{ borderRadius: "30px" }}>
@@ -95,6 +96,6 @@ console.log(products, 'pr');
           </table>
         </div>
       </div>
-    </div>
+    
   );
 }
