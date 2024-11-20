@@ -7,9 +7,10 @@ export const GET_USERS = 'GET_USERS'
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT = 'LOGOUT'
 export const PUT_USER_DATA = 'PUT_USER_DATA'
-
 export const GET_USER_BY_ID = 'GET_USER_BY_ID';
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
+export const GET_ALL_PRODUCTS1 = "GET_ALL_PRODUCTS1";
+export const GET_ALL_PRODUCTS2 = "GET_ALL_PRODUCTS2";
 export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
 export const POST_PRODUCTO = 'POST_PRODUCTO'
@@ -19,7 +20,12 @@ export const ACTIVATE_USER = 'ACTIVATE_USER'
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const COMPRAR_PRODUCTO = "COMPRAR_PRODUCTO";
-
+export const GET_COMPRAS_POR_USUARIO = "GET_COMPRAS_POR_USUARIO";
+export const GET_VENTAS_POR_USUARIO = "GET_VENTAS_POR_USUARIO";
+export const GET_CATEGORIAS = "GET_CATEGORIAS"
+export const GET_SUBCATEGORIAS = "GET_SUBCATEGORIAS";
+export const POST_CATEGORIAS = "POST_CATEGORIAS";
+export const POST_SUBCATEGORIAS = "POST_SUBCATEGORIAS";
 
 
 // Funciones para crear tipos de usuarios
@@ -36,9 +42,6 @@ export function register(payload) {
 		}
 	};
 }
-
-
-
 
 // Funcion para iniciar sesion
 export function loginUser(payload) {
@@ -160,6 +163,32 @@ export function getAllProducts() {
 	};
 }
 
+export function getAllProducts1() {
+  return async function (dispatch) {
+    try {
+      const info = await axios.get(`${url}/api/products/productos1`);	
+      return dispatch({
+        type: GET_ALL_PRODUCTS1,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getAllProducts2() {
+  return async function (dispatch) {
+    try {
+      const info = await axios.get(`${url}/api/products/productos2`);	
+      return dispatch({
+        type: GET_ALL_PRODUCTS2,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export function getProductById(id){
 	return async function (dispatch){
@@ -334,6 +363,154 @@ export function comprarProducto(payload) {
 	
     } catch (error) {
       console.error("Error al realizar la compra:", error);
+    }
+  };
+}
+
+export function getCompras() {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/compras-por-usuario`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_COMPRAS_POR_USUARIO,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getVentas() {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/ventas-por-usuario`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_VENTAS_POR_USUARIO,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getCategorias() {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/admin/categorias`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_CATEGORIAS,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getSubcategorias() {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/admin/subcategorias`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_SUBCATEGORIAS,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function postCategoria(payload) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .post(`${url}/api/admin/crear-categoria`, payload, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: POST_CATEGORIA,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+
+export function postSubcategoria(categoria, payload) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .post(
+          `${url}/api/admin/agregar-subcategoria?categoria=${categoria}`,
+          payload,
+          {
+            headers,
+          }
+        )
+        .then((response) => {
+          return dispatch({
+            type: POST_SUBCATEGORIA,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
     }
   };
 }

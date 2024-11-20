@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import { getAllProducts } from "../../../redux/actions";
-import generic from '../../assets/caja test.jpg'
-import image from '../../assets/Lavarropa-edited.png'
+import { getAllProducts, getAllProducts1, getAllProducts2 } from "../../../redux/actions";
+
 import categorias from "../../../utils/categorias";
 import banner2 from '../../assets/banner2.png'
 import CardProducto from "../Home/CardProducto";
@@ -21,38 +20,39 @@ export default function AllProducts () {
 
 	useEffect(() => {
 		dispatch(getAllProducts())
+    dispatch(getAllProducts1());
+    dispatch(getAllProducts2());
 	},[])
     const [selectedCategory, setSelectedCategory] = useState(null); 
+    const [selectedCategory1, setSelectedCategory1] = useState(null); 
+    const [selectedCategory2, setSelectedCategory2] = useState(null); 
+
 	const products = useSelector((state) => state.allProducts)
-    const filteredProducts = selectedCategory
+  const products1 = useSelector((state) => state.allProducts1);
+  const products2 = useSelector((state) => state.allProducts2);
+
+ 
+  
+
+  const filteredProducts = selectedCategory
       ? products.filter((producto) => producto.categoria === selectedCategory)
       : products;
 
-    return (
+  const filteredProducts1 = selectedCategory1
+         ? products1.filter(
+             (producto) => producto.categoria === selectedCategory1
+           )
+         : products1;
 
+  const filteredProducts2 = selectedCategory2
+            ? products2.filter(
+                (producto) => producto.categoria === selectedCategory2
+              )
+            : products2;
+
+    return (
       <div className="flex flex-col ">
-        <NavBar />
-        <div className="flex justify-evenly items-center bg-[#f8f3e0] ">
-          <h1 className="text-3xl text-[#06023D] bold">
-            ¿Que <br /> producto <br /> buscas?
-          </h1>
-          <div className="flex flex-col">
-            <input
-              type="text"
-              placeholder="Nombre del producto"
-              className="bg-transparent rounded-xl border-2 border-gray-400 text-start p-1 mb-3 w-72	"
-            />
-            <input
-              type="text"
-              placeholder="Categorìa del producto"
-              className="bg-transparent rounded-xl border-2 border-gray-400 text-start p-1	"
-            />
-            <button className="border-2 border-[#065D4A] text-[#065D4A] rounded-full p-2 w-32 mt-3">
-              Buscar
-            </button>
-          </div>
-          <img src={image} alt="" className="w-96 h-96" />
-        </div>
+        <NavBar />  
 
         <h3 className="ml-40 mt-20 text-3xl text-[#06023D] bold">
           Productos destacados <br /> en tu zona
@@ -115,11 +115,11 @@ export default function AllProducts () {
             <button
               key={index}
               className={`w-36 h-12 border-2 ${
-                selectedCategory === c.categoria
+                selectedCategory1 === c.categoria
                   ? "bg-[#EA8C06] text-white"
                   : "border-[#EA8C06]"
               } rounded-full`}
-              onClick={() => setSelectedCategory(c.categoria)} // Establece la categoría seleccionada
+              onClick={() => setSelectedCategory1(c.categoria)} // Establece la categoría seleccionada
             >
               {c.categoria}
             </button>
@@ -151,7 +151,7 @@ export default function AllProducts () {
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {filteredProducts.map((producto) => (
+            {filteredProducts1.map((producto) => (
               <SwiperSlide key={producto._id}>
                 <CardProducto producto={producto} />
               </SwiperSlide>
@@ -167,11 +167,11 @@ export default function AllProducts () {
             <button
               key={index}
               className={`w-36 h-12 border-2 ${
-                selectedCategory === c.categoria
+                selectedCategory2 === c.categoria
                   ? "bg-[#EA8C06] text-white"
                   : "border-[#EA8C06]"
               } rounded-full`}
-              onClick={() => setSelectedCategory(c.categoria)} // Establece la categoría seleccionada
+              onClick={() => setSelectedCategory2(c.categoria)} // Establece la categoría seleccionada
             >
               {c.categoria}
             </button>
@@ -203,7 +203,7 @@ export default function AllProducts () {
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {filteredProducts.map((producto) => (
+            {filteredProducts2.map((producto) => (
               <SwiperSlide key={producto._id}>
                 <CardProducto producto={producto} />
               </SwiperSlide>
