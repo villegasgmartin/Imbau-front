@@ -26,7 +26,7 @@ export const GET_CATEGORIAS = "GET_CATEGORIAS"
 export const GET_SUBCATEGORIAS = "GET_SUBCATEGORIAS";
 export const POST_CATEGORIAS = "POST_CATEGORIAS";
 export const POST_SUBCATEGORIAS = "POST_SUBCATEGORIAS";
-
+export const PUT_PRODUCT = "PUT_PRODUCT";
 
 // Funciones para crear tipos de usuarios
 export function register(payload) {
@@ -506,6 +506,35 @@ export function postSubcategoria(categoria, payload) {
         .then((response) => {
           return dispatch({
             type: POST_SUBCATEGORIA,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+
+export function putProduct(id, payload) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .put(
+          `${url}/api/products/product-update?id=${id}`,
+          payload,
+          {
+            headers,
+          }
+        )
+        .then((response) => {
+          return dispatch({
+            type: PUT_PRODUCT,
             payload: response.data,
           });
         });

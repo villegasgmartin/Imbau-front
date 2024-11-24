@@ -49,7 +49,7 @@ export default function MisCompras() {
           <tbody>
             {filteredProducts.map((p) => (
               <tr key={p._id} className="border-t bg-white">
-                <td className="py-2 px-4 mt-2">{p._id}</td>
+                <td className="py-2 px-4 mt-2">{p.id}</td>
                 <td className="py-2 px-4">{p.nombre}</td>
                 <td className="py-2 px-4">
                  {p.estado}

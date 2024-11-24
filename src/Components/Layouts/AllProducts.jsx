@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import { getAllProducts, getAllProducts1, getAllProducts2 } from "../../../redux/actions";
+import { getAllProducts, getAllProducts1, getAllProducts2, getCategorias } from "../../../redux/actions";
 
-import categorias from "../../../utils/categorias";
+// import categorias from "../../../utils/categorias";
 import banner2 from '../../assets/banner2.png'
 import CardProducto from "../Home/CardProducto";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -22,6 +22,7 @@ export default function AllProducts () {
 		dispatch(getAllProducts())
     dispatch(getAllProducts1());
     dispatch(getAllProducts2());
+    dispatch(getCategorias())
 	},[])
     const [selectedCategory, setSelectedCategory] = useState(null); 
     const [selectedCategory1, setSelectedCategory1] = useState(null); 
@@ -30,6 +31,8 @@ export default function AllProducts () {
 	const products = useSelector((state) => state.allProducts)
   const products1 = useSelector((state) => state.allProducts1);
   const products2 = useSelector((state) => state.allProducts2);
+  const categorias = useSelector((state) => state.categorias.categorias)
+  console.log(categorias, 'cate')
 
  
   
