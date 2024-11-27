@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/pagination'; // Importa los estilos de la paginación
 import { Pagination } from 'swiper/modules'; // Importa el módulo de paginación
 import "../Styles/AllProducts.css"
+import image from '../../assets/Lavarropa-edited.png'
 
 
 export default function AllProducts () {
@@ -56,9 +57,21 @@ export default function AllProducts () {
     return (
       <div className="flex flex-col ">
         <NavBar />  
-
-        <h3 className="ml-40 mt-20 text-3xl text-[#06023D] bold">
-          Productos destacados <br /> en tu zona
+        <div className="allProducts-container">
+					<h1 className="allProducts-searchTitle">
+						¿Qué producto buscás?
+					</h1>
+					<div className="allProducts-searchContainer">
+						<input type="text" placeholder="Nombre del producto"  className="allProducts-input"/>
+						<input type="text" placeholder="Categoría del producto" className="allProducts-input" />
+						<button className="allProducts-button">Buscar</button>
+					</div>
+					<div className="allProducts-imageContainer">
+            <img src={image} alt="" width={"100%"}/>
+          </div>
+				</div>
+        <h3 className="allProducts-subtitles">
+          Productos destacados en tu zona
         </h3>
         <div className="flex justify-evenly m-6">
           {categorias?.map((c, index) => (
@@ -108,10 +121,12 @@ export default function AllProducts () {
             ))}
           </Swiper>
         </div>
-        <img src={banner2} alt="" className="w-[100vw] mt-10" />
+        <div className="allProducts-banner-container">
+          <img src={banner2} alt="publicidad" className="allProducts-banner"/>
+        </div>
 
-        <h3 className="ml-40 mt-20 text-3xl text-[#06023D] bold">
-          Los mas <br /> vendidos
+        <h3 className="allProducts-subtitles">
+          Los más vendidos
         </h3>
         <div className="flex justify-evenly m-6">
           {categorias?.map((c, index) => (
@@ -161,9 +176,11 @@ export default function AllProducts () {
             ))}
           </Swiper>
         </div>
-        <img src={banner2} alt="" className="w-[100vw] mt-10" />
-        <h3 className="ml-40 mt-20 text-3xl text-[#06023D] bold">
-          Puede interesarte <br /> segun tus busquedas
+        <div className="allProducts-banner-container">
+          <img src={banner2} alt="publicidad" className="allProducts-banner"/>
+        </div>
+        <h3 className="allProducts-subtitles">
+          Puede interesarte según tus búsquedas
         </h3>
         <div className="flex justify-evenly m-6">
           {categorias?.map((c, index) => (
@@ -213,7 +230,9 @@ export default function AllProducts () {
             ))}
           </Swiper>
         </div>
-        <img src={banner2} alt="" className="w-[100vw] mt-10" />
+        <div className="allProducts-banner-container" style={{marginBottom: "8%"}}>
+          <img src={banner2} alt="publicidad" className="allProducts-banner"/>
+        </div>
       </div>
 
     );
