@@ -1,5 +1,5 @@
 /*Contenedor Principal*/
-.adminUsers-container {
+.misCompras-container{
     width: 70%;
     margin: auto;
     padding-top: 5rem;
@@ -7,14 +7,14 @@
 }
 
 /*Título principal*/
-.adminUsers-title {
+.misCompras-title{
     font-family: "regular";
     color: #06023D;
     font-size: 2.8125rem !important;
 }
 
 /* Contenedor del input de búsqueda */
-.adminUsers-search {
+.misCompras-search {
     position: relative;
     width: 25rem;
     height: 2.5rem;
@@ -22,7 +22,7 @@
 }
 
 /* Estilos del input */
-.adminUsers-search-input {
+.misCompras-search-input {
     width: 100%;
     height: 100%;
     padding-left: 1.875rem;
@@ -35,18 +35,18 @@
 }
 
 /* Efecto al seleccionar el input*/
-.adminUsers-search-input:focus {
+.misCompras-search-input:focus {
     border-color: #06023D;
     box-shadow: 0 0 8px rgba(0, 115, 230, 0.2);
 }
 
 /* Estilo del placeholder */
-.adminUsers-search-input::placeholder {
+.misCompras-search-input::placeholder {
     color: #D9D9D9;
 }
 
-/* Botón de búsqueda */
-.adminUsers-search-button {
+/* Botón de búsqueda*/
+.misCompras-search-button {
     position: absolute;
     right: 0.75rem;
     top: 50%;
@@ -62,13 +62,13 @@
 }
 
 /* Estilo de la lupa */
-.adminUsers-search-icon {
+.misCompras-search-icon {
     width: 1.25rem;
     height: 1.25rem;
 }
 
-/* Línea divisoria */
-.adminUsers-divider {
+/*Línea divisoria*/
+.misCompras-divider {
     width: 100%;
     height: 2px;
     background-color: #9A9A9A;
@@ -77,68 +77,68 @@
 }
 
 /* Contenedor de la tabla */
-.adminUsers-table-container {
+.misCompras-table-container {
     overflow-x: auto;
 }
 
 /*-------Media Queries--------*/
 
-@media (max-width: 1104px) {
-    .adminUsers-container {
+@media (max-width: 1104px){
+    .misCompras-container{
         width: 80%;
     }
-    .adminUsers-title {
+    .misCompras-title{
         font-size: 2.5rem !important;
     }
-    .adminUsers-search {
+    .misCompras-search{
         margin-top: 5rem;
     }
-    .adminUsers-divider {
+    .misCompras-divider{
         margin-bottom: .625rem;
     }
 }
 
-@media (max-width: 850px) {
-    .adminUsers-container {
+@media (max-width: 850px){
+    .misCompras-container{
         width: 90%;
         padding-top: 4rem;
         padding-bottom: 4rem;
     }
-    .adminUsers-title {
+    .misCompras-title{
         font-size: 2.1875rem !important;
     }
-    .adminUsers-search {
+    .misCompras-search{
         margin-top: 4rem;
     }
-    .adminUsers-divider {
+    .misCompras-divider{
         margin-bottom: 0;
     }
 }
 
-@media (max-width: 760px) {
-    .adminUsers-title {
+@media (max-width: 760px){
+    .misCompras-title{
         font-size: 1.875rem !important;
     }
-    .adminUsers-search {
+    .misCompras-search{
         margin-top: 3rem;
     }
 }
 
-@media (max-width: 640px) {
-    .adminUsers-search {
+@media (max-width: 640px){
+    .misCompras-search{
         width: 100%;
     }
 }
 
-@media (max-width: 450px) {
-    .adminUsers-container {
+@media (max-width: 450px){
+    .misCompras-container{
         padding-top: 3rem;
         padding-bottom: 3rem;
     }
-    .adminUsers-title {
+    .misCompras-title{
         font-size: 1.5625rem !important;
     }
-    .adminUsers-search {
+    .misCompras-search{
         margin-top: 2rem;
     }
 }

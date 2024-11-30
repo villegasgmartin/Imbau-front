@@ -35,8 +35,6 @@ export default function AllProducts () {
   const categorias = useSelector((state) => state.categorias.categorias)
   console.log(categorias, 'cate')
 
- 
-  
 
   const filteredProducts = selectedCategory
       ? products.filter((producto) => producto.categoria === selectedCategory)
@@ -73,23 +71,29 @@ export default function AllProducts () {
         <h3 className="allProducts-subtitles">
           Productos destacados en tu zona
         </h3>
-        <div className="flex justify-evenly m-6">
+        <div className="allProducts-buttons-container">
           {categorias?.map((c, index) => (
             <button
               key={index}
-              className={`w-36 h-12 border-2 ${
-                selectedCategory === c.categoria
-                  ? "bg-[#EA8C06] text-white"
-                  : "border-[#EA8C06]"
-              } rounded-full`}
-              onClick={() => setSelectedCategory(c.categoria)} // Establece la categoría seleccionada
+              className={`${
+                index === 0
+                  ? "allProducts-btn-1"
+                  : index === 1
+                  ? "allProducts-btn-2"
+                  : index === 2
+                  ? "allProducts-btn-3"
+                  : index === 3
+                  ? "allProducts-btn-4"
+                  : ""
+              }`}
+              onClick={() => setSelectedCategory(c.categoria)}
             >
               {c.categoria}
             </button>
           ))}
           <button
-            className="w-36 h-12 border-2 border-[#EA8C06] rounded-full"
-            onClick={() => setSelectedCategory(null)} // Opción para mostrar todos los productos
+            className="allProducts-btn-5"
+            onClick={() => setSelectedCategory(null)}
           >
             Todos
           </button>
@@ -128,23 +132,29 @@ export default function AllProducts () {
         <h3 className="allProducts-subtitles">
           Los más vendidos
         </h3>
-        <div className="flex justify-evenly m-6">
+        <div className="allProducts-buttons-container">
           {categorias?.map((c, index) => (
             <button
               key={index}
-              className={`w-36 h-12 border-2 ${
-                selectedCategory1 === c.categoria
-                  ? "bg-[#EA8C06] text-white"
-                  : "border-[#EA8C06]"
-              } rounded-full`}
-              onClick={() => setSelectedCategory1(c.categoria)} // Establece la categoría seleccionada
+              className={`${
+                index === 0
+                  ? "allProducts-btn-1"
+                  : index === 1
+                  ? "allProducts-btn-2"
+                  : index === 2
+                  ? "allProducts-btn-3"
+                  : index === 3
+                  ? "allProducts-btn-4"
+                  : ""
+              }`}
+              onClick={() => setSelectedCategory(c.categoria)}
             >
               {c.categoria}
             </button>
           ))}
           <button
-            className="w-36 h-12 border-2 border-[#EA8C06] rounded-full"
-            onClick={() => setSelectedCategory(null)} // Opción para mostrar todos los productos
+            className="allProducts-btn-5"
+            onClick={() => setSelectedCategory(null)}
           >
             Todos
           </button>
@@ -182,23 +192,29 @@ export default function AllProducts () {
         <h3 className="allProducts-subtitles">
           Puede interesarte según tus búsquedas
         </h3>
-        <div className="flex justify-evenly m-6">
+        <div className="allProducts-buttons-container">
           {categorias?.map((c, index) => (
             <button
               key={index}
-              className={`w-36 h-12 border-2 ${
-                selectedCategory2 === c.categoria
-                  ? "bg-[#EA8C06] text-white"
-                  : "border-[#EA8C06]"
-              } rounded-full`}
-              onClick={() => setSelectedCategory2(c.categoria)} // Establece la categoría seleccionada
+              className={`${
+                index === 0
+                  ? "allProducts-btn-1"
+                  : index === 1
+                  ? "allProducts-btn-2"
+                  : index === 2
+                  ? "allProducts-btn-3"
+                  : index === 3
+                  ? "allProducts-btn-4"
+                  : ""
+              }`}
+              onClick={() => setSelectedCategory(c.categoria)}
             >
               {c.categoria}
             </button>
           ))}
           <button
-            className="w-36 h-12 border-2 border-[#EA8C06] rounded-full"
-            onClick={() => setSelectedCategory(null)} // Opción para mostrar todos los productos
+            className="allProducts-btn-5"
+            onClick={() => setSelectedCategory(null)}
           >
             Todos
           </button>

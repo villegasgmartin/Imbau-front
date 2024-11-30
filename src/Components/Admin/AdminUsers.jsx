@@ -68,61 +68,67 @@ export default function AdminUsers() {
   return (
     <div className="min-h-screen bg-[#f8f3e0]">
       <AdminNavBar />
-      <div className="max-w-7xl mx-auto p-4">
- 
-        <h1 className="text-2xl font-bold text-gray-700 mb-4">Usuarios</h1>
-        <input
-          type="text"
-          placeholder="Buscar usuarios..."
-          className="mb-4 p-2 border rounded-md w-full max-w-md"
-          value={searchTerm} // Vincular el estado al input
-          onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
-        />
+      <div className="adminUsers-container">
+        <h1 className="adminUsers-title">Usuarios</h1>
+          <div className="adminUsers-search">
+          <input
+            type="text"
+            placeholder="Buscar usuarios..."
+            className="mb-4 p-2 border rounded-md w-full max-w-md"
+            value={searchTerm} // Vincular el estado al input
+            onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
+          />
+          <button className="adminUsers-search-button">
+            <img src={SearchIcon} alt="Buscar" className="adminUsers-search-icon" />
+          </button>
+        </div>
         <div className="adminUsers-divider"></div>
-        <table className="w-full rounded-lg shadow-md overflow-hidden">
-          <thead className="text-gray-700">
-            <tr>
-              <th className="py-2 px-4 text-left">Nombre</th>
-              <th className="py-2 px-4 text-left">Email</th>
-              <th className="py-2 px-4 text-left">Datos Bancarios</th>
-              <th className="py-2 px-4 text-left">Estado</th>
-              <th className="py-2 px-4"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsers?.map((user, index) => (
-              <tr key={index} className="border-t bg-white">
-                <td className="py-2 px-4 mt-2">{user.nombre}</td>
-                <td className="py-2 px-4">{user.correo}</td>
-                <td className="py-2 px-4">
-                  <p>{user.banco}</p>
-                  <p>{user.alias}</p>
-                  <p>{user.cbu}</p>
-                </td>
-                <td className="py-2 px-4">
-                  {user.estado === true ? <p>Activo</p> : <p>Inactivo</p>}
-                </td>
-                <td className="py-2 px-4">
-                  {user.estado === true ? (
-                    <button
-                      className="text-blue-400"
-                      onClick={() => handleDeleteUser(user.uid)}
-                    >
-                      Dar de baja
-                    </button>
-                  ) : (
-                    <button
-                      className="text-blue-400"
-                      onClick={() => handleActivateUser(user.uid)}
-                    >
-                      Dar de alta
-                    </button>
-                  )}
-                </td>
+        <div className="adminUsers-table-container">
+          <table className="w-full rounded-lg shadow-md overflow-hidden border-separate" style={{ borderSpacing: "0 15px" }}>
+            <thead className="text-gray-700">
+              <tr>
+                <th className="py-2 px-4 text-left">Nombre</th>
+                <th className="py-2 px-4 text-left">Email</th>
+                <th className="py-2 px-4 text-left">Datos Bancarios</th>
+                <th className="py-2 px-4 text-left">Estado</th>
+                <th className="py-2 px-4"></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody  style={{ color: "#06023D" }}>
+              {filteredUsers?.map((user, index) => (
+                <tr key={index}  className="border-t bg-white rounded-lg" style={{ borderRadius: "30px" }}>
+                  <td className="py-2 px-4 mt-2">{user.nombre}</td>
+                  <td className="py-2 px-4">{user.correo}</td>
+                  <td className="py-2 px-4">
+                    <p>{user.banco}</p>
+                    <p>{user.alias}</p>
+                    <p>{user.cbu}</p>
+                  </td>
+                  <td className="py-2 px-4">
+                    {user.estado === true ? <p>Activo</p> : <p>Inactivo</p>}
+                  </td>
+                  <td className="py-2 px-4">
+                    {user.estado === true ? (
+                      <button
+                        className="text-blue-400"
+                        onClick={() => handleDeleteUser(user.uid)}
+                      >
+                        Dar de baja
+                      </button>
+                    ) : (
+                      <button
+                        className="text-blue-400"
+                        onClick={() => handleActivateUser(user.uid)}
+                      >
+                        Dar de alta
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
