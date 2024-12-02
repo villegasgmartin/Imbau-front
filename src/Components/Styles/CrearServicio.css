@@ -1,0 +1,155 @@
+/*Contenedor de la primera sección*/
+.crearServicio-category-container{
+    background-color: #FFFFFF;
+    width: 800px;
+    padding: 80px 200px 80px 100px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*Título*/
+.crearServicio-title{
+    color: #06023D;
+    font-family: "regular";
+    font-size: 2.1875rem !important;
+}
+
+/*Instrucción*/
+.crearServicio-instruction{
+    color: #06023D;
+    font-family: "regular";
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px !important;
+}
+
+/*Contenedor de botón*/
+.crearServicio-button-container01{
+    display: flex;
+    justify-content: end;
+}
+
+/*Botón*/
+.crearServicio-button{
+    font-family: "regular";
+    color: #06023D;
+    border: 1px inset #06023D;
+    border-radius: 15px;
+    padding-top: .625rem;
+    padding-bottom: .4375rem;
+    width: 170px;
+    font-size: 1.25rem;
+    margin-top: 1.875rem;
+    transition: all 0.3s ease
+}
+
+/* Hover: invierte colores */
+.crearServicio-button:hover {
+    color: #F8F3E0; 
+    background-color: #06023D; 
+    border: 1px solid #F8F3E0;
+}
+
+/* Click: simula pulsación */
+.crearServicio-button:active {
+    transform: scale(0.95); 
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2); 
+}
+
+/*Contenedor de segunda sección*/
+.crearProducto-section02{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/*Label*/
+.crearServicio-label{
+    font-family: "regular";
+    color: #06023D;
+    font-size: 18px !important;
+}
+
+/*Inputs y selects*/
+.crearServicio-input{
+    width: 100%;
+    padding: 10px 10px 10px 20px;
+    font-size: 16px;
+    border: 1px solid #B5B5B5;
+    border-radius: 15px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.crearServicio-input:focus {
+    border-color: #3E1F7A; 
+    box-shadow: 0 0 5px rgba(62, 31, 122, 0.5);
+}
+
+.crearServicio-input::placeholder {
+    color: #B5B5B5; 
+    font-style: italic;
+}
+
+/*Contenedor de checkbox*/
+.crearServicio-checkbox{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+/*Tipo de texto gris*/
+.crearServicio-text01{
+    font-family: "inter";
+    color: #B5B5B5;
+    font-family: 16px !important;
+}
+
+/*Segundo contenedor de botones*/
+.crearServicio-button-container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 80px;
+}
+
+/*Botón para volver*/
+.crearServicio-button-back{
+    color: #E94335;
+    font-size: 20px !important;
+    margin-top: 1.875rem;
+    font-family: "regular";
+    transition:  transform 0.3s;
+}
+
+/* Efecto de click */
+.crearServicio-button-back:active {
+    transform: scale(0.9);
+}
+
+/*Contenedort de las tercera sección*/
+.crearServicio-section03{
+    background-color: #FFFFFF;
+    width: 800px;
+    padding: 80px 150px 80px 100px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*Información de la cuarta sección*/
+.crearServicio-section04-info{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/*Texto de aviso*/
+.crearServicio-aviso{
+    color: #E94335;
+    font-family: "inter";
+    border: 1px inset #E94335;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { comprarProducto } from "../../../redux/actions";
-
+import "../Styles/MiniCart.css"
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -67,69 +67,68 @@ const handleBuyNow = async () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto mt-10">
-        <h1 className="text-4xl font-bold text-center text-green-600 mb-8">
-          Tu Carrito de Compras
-        </h1>
-
+    <div className="miniCart-main-container">
         {cartItems.length === 0 ? (
-          <div className="flex flex-col justify-center align-center">
-            <p className="text-center text-gray-500 mb-10">
+          <div className="miniCart-noProducts-container">
+            <p className="miniCart-noProducts-text">
               No tienes productos en el carrito.
             </p>
             <button>
-              <a href="/" className="border-2 border-solid border-green-400 rounded-xl p-2 mt-20 hover:bg-green-400 hover:text-white">Volver al inicio</a>
+              <a href="/" className="miniCart-noProducts-button">Volver al inicio</a>
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="miniCart-container">
             {/* Lista de productos en el carrito */}
-            <div className="md:col-span-2">
+            <div className="miniCart-products-container">
+              <h1 className="miniCart-title">Mi carrito</h1>
+              <h3 className="miniCart-subTitle">Productos</h3>
               {cartItems.map((item) => (
                 <div
                   key={item._id}
-                  className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md mb-4 transition-transform transform hover:scale-105"
+                  className="miniCart-product"
                 >
-                  {/* Imagen del producto */}
+                {/* Imagen del producto */}
+                {/*
                   <img
                     src={item.img}
                     alt={item.nombre}
                     className="w-24 h-24 object-cover rounded-lg"
                   />
+                 */}
 
                   {/* Información del producto */}
-                  <div className="ml-4 flex-1">
-                    <h2 className="text-xl font-semibold text-gray-700">
+                  <div className="miniCart-product-info">
+                    <h2 className="miniCart-product-name">
                       {item.nombre}
                     </h2>
-                    <p className="text-gray-500">
+                    <p className="miniCart-product-quantity">
                       Cantidad: {item.cantidad || 1}
                     </p>
-                    <p className="text-gray-800 text-lg font-bold">
-                      ${item.precio}
-                    </p>
-                  </div>
-
-                  {/* Botón para quitar del carrito */}
-                  <button
+                    {/* Botón para quitar del carrito */}
+                    <button
                     onClick={() => handleRemoveFromCart(item._id)}
-                    className="text-red-600 border border-red-600 px-3 py-1 rounded-full hover:bg-red-600 hover:text-white transition-colors duration-300"
+                    className="miniCart-quit-button"
                   >
-                    Quitar
+                    Eliminar
                   </button>
+                  </div>
+                  <p className="miniCart-product-price">
+                      ${item.precio}
+                  </p>
                 </div>
               ))}
             </div>
 
+            <div className="resumen-button-container"> 
             {/* Resumen de compra */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4">
-                Resumen de la compra
+            <div className="resumen-container">
+              <h2 className="resumen-title">
+                Resumen de compra
               </h2>
-              <div className="flex justify-between text-gray-700 mb-2">
-                <p>Subtotal:</p>
-                <p className="font-semibold">
+              <div className="resumen-info-container">
+                <p className="resumen-text01">Producto</p>
+                <p className="resumen-text02">
                   $
                   {cartItems.reduce(
                     (total, item) => total + item.precio * (item.cantidad || 1),
@@ -137,13 +136,14 @@ const handleBuyNow = async () => {
                   )}
                 </p>
               </div>
-              <div className="flex justify-between text-gray-700 mb-2">
-                <p>Envío:</p>
-                <p className="font-semibold">$0</p>
+              <div className="resumen-info-container">
+                <p className="resumen-text01">Envío</p>
+                <p className="resumen-text02">$0</p>
               </div>
-              <div className="flex justify-between text-gray-700 mb-6">
-                <p className="text-lg font-bold">Total:</p>
-                <p className="font-semibold text-lg">
+              <div className="resumen-divider"></div>
+              <div className="resumen-info-container">
+                <p className="resumen-text01">Pagás</p>
+                <p className="resumen-text03">
                   $
                   {cartItems.reduce(
                     (total, item) => total + item.precio * (item.cantidad || 1),
@@ -151,17 +151,17 @@ const handleBuyNow = async () => {
                   )}
                 </p>
               </div>
-              <button
+            </div>
+            <button
                 onClick={handleBuyNow}
-                className="w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition-colors duration-300"
+                className="miniCart-compra-button"
               >
-                Comprar ahora
+                Continuar compra
               </button>
             </div>
           </div>
         )}
       </div>
-    </div>
   );
 };
 
