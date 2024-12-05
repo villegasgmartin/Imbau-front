@@ -67,17 +67,20 @@ const handleBuyNow = async () => {
 
 
   return (
-    <div className="miniCart-main-container">
-        {cartItems.length === 0 ? (
-          <div className="miniCart-noProducts-container">
-            <p className="miniCart-noProducts-text">
-              No tienes productos en el carrito.
-            </p>
-            <button>
-              <a href="/" className="miniCart-noProducts-button">Volver al inicio</a>
-            </button>
+    <>
+    {cartItems.length === 0 ? (
+          <div className="miniCart-empty-container">
+            <div className="miniCart-noProducts-container">
+              <p className="miniCart-noProducts-text">
+                No tienes productos en el carrito.
+              </p>
+              <button>
+                <a href="/" className="miniCart-noProducts-button">Volver al inicio</a>
+              </button>
+            </div>
           </div>
         ) : (
+        <div className="miniCart-main-container">
           <div className="miniCart-container">
             {/* Lista de productos en el carrito */}
             <div className="miniCart-products-container">
@@ -160,8 +163,9 @@ const handleBuyNow = async () => {
               </button>
             </div>
           </div>
-        )}
       </div>
+        )}
+    </>
   );
 };
 

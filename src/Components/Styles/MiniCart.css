@@ -3,14 +3,31 @@
     background-color: #F8F3E0;
     padding-top: 7rem;
     padding-bottom: 20rem;
+    padding-left: 12rem;
+    background-image: url("../../assets//hombre-billete.png");
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: 75% 600px;
 }
 
 /*En caso de que no hay productos*/
+/*Contenedor principal*/
+.miniCart-empty-container{
+    background-color: #F8F3E0;
+    padding-top: 7rem;
+    padding-bottom: 20rem;
+    background-image: url("../../assets//hombre-billete.png");
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: 90% 100px;
+}
+
+/*Contenedor de texto y botón*/
 .miniCart-noProducts-container{
     display: flex;
     flex-direction: column;
     gap: 1.875rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 3.125rem;
     width: 43.75rem;
     margin: auto;
@@ -52,15 +69,15 @@
 /*Contenedor del carrito*/
 .miniCart-container{
     display: flex;
-    justify-content: center;
     gap: 30px;
     align-items: start;
 }
 
 /*Contenedor de productos*/
 .miniCart-products-container{
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 80px 80px 30px 80px;
+    width: 800px;
     border-radius: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -87,9 +104,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 900px;
     background-color: #F5F5F5;
-    padding: 30px 70px 30px 70px;
+    padding: 20px 70px 20px 70px;
     border-radius: 1.25rem;
 }
 
@@ -137,13 +153,13 @@
 .resumen-button-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     gap: 1.875rem;
 }
 
 /*Resumen de compra*/
 .resumen-container{
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 80px 80px 30px 80px;
     width: 500px;
     border-radius: 1.25rem;
@@ -193,7 +209,7 @@
     height: 1px;
     background: #D9D9D9;
     border: none;
-    margin: 20px 0;
+    margin: 0px 0;
 }
 
 /*Botóm de compra*/
@@ -204,6 +220,7 @@
     padding: 10px 40px 7px 40px;
     border-radius: .9375rem;
     font-size: 1.5625rem;
+    background-color: rgba(248, 243, 224, 0.9);
     transition: all 0.2s ease;
 }
 
@@ -223,8 +240,8 @@
 /*-------Media Queries--------*/
 
 @media (max-width: 1600px){
-    .miniCart-product{
-        width: 700px;
+    .miniCart-main-container{
+        padding-left: 5%;
     }
     .resumen-container{
         width: 28.125rem;
@@ -232,6 +249,9 @@
 }
 
 @media (max-width: 1400px){
+    .miniCart-main-container{
+        background-position: 90% 150%;
+    }
     .miniCart-container{
         flex-direction: column;
     }
@@ -243,6 +263,7 @@
         width: 100%;
     }.resumen-button-container{
         width: 100%;
+        align-items: center;
     }
     .resumen-container{
         width: 80%;
@@ -257,6 +278,10 @@
     }
     .miniCart-noProducts-text{
         font-size: 1.5625rem !important;
+    }
+    .miniCart-main-container{
+        background-size: 350px;
+        background-position: 90% 130%;
     }
     .miniCart-products-container{
         gap: 15px;
@@ -293,6 +318,18 @@
 }
 
 @media (max-width: 640px){
+    .miniCart-empty-container{
+        padding-top: 5rem;
+        padding-bottom: 10rem;
+        background-size: 300px;
+        background-position: 90% 200px;
+    }
+    .miniCart-main-container{
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        background-size: 350px;
+        background-position: 95% 100%;
+    }
     .miniCart-noProducts-container{
         width: 90%;
         padding: 1.5625rem;
@@ -312,6 +349,10 @@
 }
 
 @media (max-width: 450px){
+    .miniCart-main-container{
+        background-size: 300px;
+        background-position: 95% 100%;
+    }
     .miniCart-products-container{
         padding: 40px 20px 20px 20px;
     }

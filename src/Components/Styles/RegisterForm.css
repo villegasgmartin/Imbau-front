@@ -3,9 +3,10 @@
     background-color: #F8F3E0;
     padding-top: 9.375rem;
     padding-bottom: 15.625rem;
-    background-image: url("../../assets/Mujer.png");
+    background-image: url("../../assets/hombre-billete.png");
     background-repeat: no-repeat;
-    background-position: 120% 20%;
+    background-position: 95% 50%;
+    background-size: 500px;
 }
 
 /*Contenedor de registro*/
@@ -237,6 +238,11 @@
 }
 
 @media (max-width: 639px){
+    .registerForm-main-container{
+        padding-top: 5rem;
+        background-size: 400px;
+        background-position: center 500px;
+    }
     .registerForm-container{
         width: 90%;
         padding: 30px 40px 30px 40px;
@@ -265,6 +271,9 @@
 }
 
 @media (max-width: 450px){
+    .registerForm-main-container{
+        background-position: center 450px;
+    }
     .registerForm-container{
         width: 90%;
         padding: 30px 30px 30px 30px;

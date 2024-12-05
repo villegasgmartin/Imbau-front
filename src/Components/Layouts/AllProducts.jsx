@@ -6,7 +6,9 @@ import NavBar from "./NavBar";
 import { getAllProducts, getAllProducts1, getAllProducts2, getCategorias } from "../../../redux/actions";
 
 // import categorias from "../../../utils/categorias";
-import banner2 from '../../assets/banner2.png'
+import banner1 from '../../assets/banner-01.jpg'
+import banner2 from '../../assets/banner-02.jpg'
+import banner3 from '../../assets/banner-03.jpg'
 import CardProducto from "../Home/CardProducto";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -126,7 +128,7 @@ export default function AllProducts () {
           </Swiper>
         </div>
         <div className="allProducts-banner-container">
-          <img src={banner2} alt="publicidad" className="allProducts-banner"/>
+          <img src={banner1} alt="publicidad" className="allProducts-banner"/>
         </div>
 
         <h3 className="allProducts-subtitles">
@@ -247,7 +249,7 @@ export default function AllProducts () {
           </Swiper>
         </div>
         <div className="allProducts-banner-container" style={{marginBottom: "8%"}}>
-          <img src={banner2} alt="publicidad" className="allProducts-banner"/>
+          <img src={banner3} alt="publicidad" className="allProducts-banner"/>
         </div>
       </div>
 
