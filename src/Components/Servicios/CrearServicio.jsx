@@ -3,6 +3,8 @@ import NavBar from "../Layouts/NavBar";
 import categorias from "../../../utils/categorias";
 import { postServicio } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
+import "../Styles/CrearServicio.css"
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function CrearServicio () {
     const dispatch = useDispatch()
@@ -86,62 +88,72 @@ export default function CrearServicio () {
           <NavBar/>
           {index === 1 ? 
              (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
-         >	<div className=" w-[40%] ">
+         >	<div className=" ">
          <div className="h-min-96 rounded-xl ">
-             <div className="bg-white h-fit  shadow-lg shadow-gray-400 rounded-xl p-20">
-                 <h4 className="text-start color-main bold text-3xl">
+             <div className="crearServicio-category-container">
+                 <h4 className="crearServicio-title">
                      Empeza describiendo todo sobre tu servicio
                  </h4>
-                 <p className="py-2 text-2xl">A que categoria pertenece tu servicio?</p>
+                 <p className="crearServicio-instruction">A que categoria pertenece tu servicio?</p>
                  <div className="flex flex-col">
                  {categorias.map((c, index) => (
                     <button
                     key={index}
                     onClick={() => handleCategoryClick(c.categoria)} // Al hacer clic, selecciona la categoría
-                    className={`p-2 text-start border-b-2 text-xl hover:bg-gray-200 transition duration-300 ${
-                      selectedCategory === c.categoria ? "bg-gray-300 font-bold" : ""
-                    }`} // Estilo condicional si está seleccionada
-                  >{c.categoria} {'->'}</button>
+                    className={`p-3 text-start border-b-2 text-xl transition duration-300 
+                      ${
+                        selectedCategory === c.categoria 
+                          ? "bg-[#06023D] text-white font-bold" // Fondo y texto al estar seleccionada
+                          : "hover:bg-gray-200 hover:text-black" // Hover para las no seleccionadas
+                      }`}
+                  >
+                    {c.categoria}
+                  </button>
+                  
                 ))}
                 </div>
-                <button
-                  onClick={() => handleIndex(2)}
-                  className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'>
-                     Continuar
-                </button>
+               <div className="crearServicio-button-container01">
+                    <button
+                        onClick={() => handleIndex(2)}
+                        className= 'crearServicio-button'>
+                        Continuar
+                    </button>
+               </div>
              </div>
          </div>
      </div></div>) : 
           index === 2 ? 
             (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
-                >	<div className=" w-[40%] ">
+                >	<div className="  ">
                 <div className="h-min-96 rounded-xl ">
-                    <div className="bg-white h-fit  shadow-lg shadow-gray-400 rounded-xl p-20">
-                        <h4 className="text-start color-main bold text-3xl">
+                    <div className="crearServicio-category-container">
+                        <h4 className="crearServicio-title">
                         Empezá describiendo todo sobre tu servicio
                         </h4>
-                        <div className=" mt-5  flex flex-col justify-start items-start ">
-                        <p>¿Cuál es la ubicación exacta 
-                        donde ofreces el servicio?</p>
-                        <input
-                                placeholder="direccion"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                        <div className="crearProducto-section02">
+                            <div>
+                            <p className="crearServicio-label" style={{marginBottom: "10px", marginTop: "30px"}}>¿Cuál es la ubicación exacta 
+                            donde ofreces el servicio?</p>
+                            <input
+                                placeholder="Dirección"
+                                className="crearServicio-input"
                                 type="text"
                                 name="direccion"
                                 value={input.direccion}
                                 onChange={handleChange}                               
                             ></input>
-                            <div className="flex flex-evenly items-center">
+                            </div>
+                            <div className="crearServicio-checkbox">
                             <input 
                                             type="checkbox"
                                             name="ocultardireccion"
                                             checked={input.ocultardireccion}
                                             onChange={handleChange}
-                                        /> <p>Ocultar dirección exacta</p>
+                                        /> <p className="crearServicio-text01">Ocultar dirección exacta</p>
                             </div>                   
                             <input
                                 placeholder="Provincia"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                className="crearServicio-input"
                                 type="text"
                                 name="Provicia"
                                 value={input.Provicia}
@@ -149,7 +161,7 @@ export default function CrearServicio () {
                             ></input>                       
                             <input
                                 placeholder="Ciudad"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                className="crearServicio-input"
                                 type="text"
                                 name="Ciudad"
                                 value={input.Ciudad}
@@ -157,24 +169,25 @@ export default function CrearServicio () {
                             ></input>                             
                                 <input
                                 placeholder="Barrio"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                className="crearServicio-input"
                                 type="text"
                                 name="Barrio"
                                 value={input.Barrio}
                                 onChange={handleChange}
                             ></input>
                          
-                         <div className="flex-between " >
+                         <div className="crearServicio-button-container">
                         <button
                                 onClick={() => handleIndex(1)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= 'crearServicio-button-back'
                                 
                                 >
+                                    <ArrowBackIosIcon/>
                                 Volver
                             </button>
                             <button
                                 onClick={() => handleIndex(3)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= 'crearServicio-button'
                                 
                                 >
                                 Continuar
@@ -186,39 +199,40 @@ export default function CrearServicio () {
             </div></div>) : 
           index === 3 ? 
             (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
-                >	<div className=" w-[40%] ">
+                >	<div className="">
                 <div className="h-min-96 rounded-xl ">
-                    <div className="bg-white h-fit  shadow-lg shadow-gray-400 rounded-xl p-20">
-                        <h4 className="text-start color-main bold text-3xl">
+                    <div className="crearServicio-section03">
+                        <h4 className="crearServicio-title">
                         Completá las características de tu servicio
                         </h4>
-                        <div className=" mt-5  flex flex-col justify-start items-start ">
-                        <p>Hacelo para tener una mejor ubicación en los resultados 
+                        <div className=" ">
+                        <p className="crearServicio-instruction">Hacelo para tener una mejor ubicación en los resultados 
                         de búsqueda y aumentar las posibilidades de que te contraten.</p>
                         <input
-                                placeholder="años de experiencia"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                placeholder="Años de experiencia"
+                                className="crearServicio-input"
                                 type="text"
                                 // name="direccion"
                                 // value={input.direccion}
                                 // onChange={handleChange}                               
                             ></input>
-                            <div className="flex flex-evenly items-center">
-                            <input type="checkbox"/> <p>Asesoramiento online?</p>
+                            <div className="crearServicio-checkbox">
+                            <p className="crearServicio-instruction">Asesoramiento online?</p>
+                            <input type="checkbox"/>
                             </div>                   
                            
                          
-                         <div className="flex-between " >
+                         <div className="crearServicio-button-container ">
                         <button
                                 onClick={() => handleIndex(2)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= "crearServicio-button-back"
                                 
-                                >
+                                ><ArrowBackIosIcon/>
                                 Volver
                             </button>
                             <button
                                 onClick={() => handleIndex(4)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= 'crearServicio-button'
                                 
                                 >
                                 Continuar
@@ -230,45 +244,51 @@ export default function CrearServicio () {
             </div></div>) : 
           index === 4 ? 
             (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
-                >	<div className=" w-[40%] ">
-                <div className="h-min-96 rounded-xl ">
-                    <div className="bg-white h-fit  shadow-lg shadow-gray-400 rounded-xl p-20">
-                        <h4 className="text-start color-main bold text-3xl">
+                >	<div className=" ">
+                <div className="">
+                    <div className="crearServicio-section03">
+                        <h4 className="crearServicio-title">
                         Agregá un título y una descripción
                         </h4>
-                        <div className=" mt-5  flex flex-col justify-start items-start ">
-                        <p>Agregá las características que distinguen tu servicio</p>
-                        <label htmlFor="">Titulo</label>
-                        <input
-                                placeholder="Instalación y reparación de aires acondicionados"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
-                                type="text"
-                                name="titulo"
-                                value={input.titulo}
-                                onChange={handleChange}                               
-                            ></input>
-                            <label htmlFor="">Descripcion</label>
+                        <div className=" ">
+                        <p className="crearServicio-instruction">Agregá las características que distinguen tu servicio</p>
+                        <div className="crearServicio-section04-info">
+                        <div>
+                            <label htmlFor="" className="crearServicio-label">Título</label>
+                            <input
+                                    placeholder="Instalación y reparación de aires acondicionados"
+                                    className="crearServicio-input"
+                                    type="text"
+                                    name="titulo"
+                                    value={input.titulo}
+                                    onChange={handleChange}                               
+                                ></input>
+                        </div>
+                        
+                        <div>
+                        <label htmlFor="" className="crearServicio-label">Descripción</label>
                             <input 
                                 placeholder="Agrega todo lo que incluye tu servicio como el detalle de los materiales, condiciones o plazos y lo que no para evitar malentendidos."
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                className="crearServicio-input"
                                 type="text"
                                 name="descripcion"
                                 value={input.descripcion}
                                 onChange={handleChange}
-                            ></input>                       
-                           <p className="text-red-400 border-2 border-red-400 rounded-xl p-4">No incluyas datos de contacto, e-mail, teléfono, direcciones ni enlaces a redes sociales.</p>
+                            ></input> 
+                        </div>                      
+                        <p className="crearServicio-aviso">No incluyas datos de contacto, e-mail, teléfono, direcciones ni enlaces a redes sociales.</p>
                          
-                         <div className="flex-between " >
+                        </div>
+                         <div className="crearServicio-button-container " >
                         <button
                                 onClick={() => handleIndex(3)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
-                                
-                                >
+                                className= "crearServicio-button-back"
+                                ><ArrowBackIosIcon/>
                                 Volver
                             </button>
                             <button
                                 onClick={() => handleIndex(5)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= 'crearServicio-button'
                                 
                                 >
                                 Continuar

@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    align-items: start;
+    align-items: flex-start;
 }
 
 /*Inputs*/
@@ -93,7 +93,121 @@
     padding-left: 90px;
     width: 450px;
     line-height: normal;
-    font-size: 32px
+    font-size: 32px !important
+}
+
+/*Contenedor de botónes*/
+.allProducts-buttons-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5625rem;
+    margin-bottom: .625rem;
+}
+
+/* Estilo para las categorías */
+.allProducts-btn-1 {
+    background-color: #EA8C06;
+    color: #06023D;
+    font-family: "regular";
+    border-radius: .9375rem;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.allProducts-btn-1:hover {
+    background-color: #C77905;
+    transform: scale(1.05);
+}
+
+.allProducts-btn-1:active {
+    background-color: #A76103;
+    transform: scale(0.95);
+}
+
+/* Botón 2 */
+.allProducts-btn-2 {
+    background-color: #E00A14;
+    color: #F8F3E0;
+    font-family: "regular";
+    border-radius: .9375rem;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.allProducts-btn-2:hover {
+    background-color: #B20810;
+    transform: scale(1.05);
+}
+
+.allProducts-btn-2:active {
+    background-color: #91060C;
+    transform: scale(0.95);
+}
+
+/* Botón 3 */
+.allProducts-btn-3 {
+    background-color: #065D4A;
+    color: #F8F3E0;
+    font-family: "regular";
+    border-radius: .9375rem;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.allProducts-btn-3:hover {
+    background-color: #054D3D;
+    transform: scale(1.05);
+}
+
+.allProducts-btn-3:active {
+    background-color: #043E31;
+    transform: scale(0.95);
+}
+
+/* Botón 4 */
+.allProducts-btn-4 {
+    background-color: #F9C7CA;
+    color: #06023D;
+    font-family: "regular";
+    border-radius: .9375rem;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.allProducts-btn-4:hover {
+    background-color: #E8B0B4;
+    transform: scale(1.05);
+}
+
+.allProducts-btn-4:active {
+    background-color: #D79AA0;
+    transform: scale(0.95);
+}
+
+/* Botón "Todos" */
+.allProducts-btn-5 {
+    background-color: #06023D;
+    color: #F8F3E0;
+    border: 2px #EA8C06 inset;
+    font-family: "regular";
+    border-radius: .9375rem;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.allProducts-btn-5:hover {
+    background-color: #2D2A61;
+    transform: scale(1.05);
+}
+
+.allProducts-btn-5:active {
+    background-color: #3F3A82;
+    transform: scale(0.95);
 }
 
 /*Contenedor de publicidad*/
@@ -155,6 +269,13 @@
         padding-top: 60px;
         padding-left: 80px;
         width: 380px;
+    }
+    .allProducts-btn-1,
+    .allProducts-btn-2,
+    .allProducts-btn-3,
+    .allProducts-btn-4,
+    .allProducts-btn-5 {
+        font-size: 16px;
     }
 }
 
@@ -222,6 +343,13 @@
         padding-top: 40px;
         padding-left: 60px;
         width: 350px;
+    }
+    .allProducts-buttons-container{
+        flex-direction: column;
+        gap: 15px;
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
     }
     .allProducts-banner-container{
         width: 95%;

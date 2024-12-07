@@ -6,7 +6,10 @@ import swal from 'sweetalert';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {  register } from '../../../redux/actions';
+import "../Styles/RegisterForm.css"
 import NavBar from '../Layouts/NavBar';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 
 export default function RegisterForm() {
 	const [index, setIndex] = useState(1);
@@ -104,79 +107,69 @@ export default function RegisterForm() {
 		<div className="transition duration-700 ">
 		<NavBar/>
 			{index === 1 ? (
-				<div
-					style={{
-						backgroundImage: `url(${bg})`,
-						backgroundSize: 'contain',
-						backgroundRepeat: 'no-repeat',
-						backgroundPosition: 'right'
-					}}
-					className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] min-h-fit pb-10"
-				>
-					<div className=" w-[40%] ">
-						<div className="h-min-96 rounded-xl ">
-							<div className="bg-white h-[500px]  shadow-lg shadow-gray-400 rounded-xl pt-10">
-								<h4 className="text-center color-main bold text-2xl">
-									Registrate con tu E-mail
-								</h4>
-								<div className=" mt-5  flex flex-col justify-center items-center ">
-									<input
-										type="text"
-										placeholder="Nombre de usuario"
-										className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
-										value={input.nombre}
-										name="nombre"
-										onChange={handleChange}
-									></input>
-									<input
-										type="text"
-										placeholder="E-mail"
-										className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
-										value={input.correo}
-										name="correo"
-										onChange={handleChange}
-									></input>
+				<div className="registerForm-main-container">
+					<div className="registerForm-container">
+						<h4 className='registerForm-title'>
+							Registrate con tu E-mail
+						</h4>
+						<div className="registerForm-info">
+							<input
+								type="text"
+								placeholder="Nombre de usuario"
+								className="registerForm-input"
+								value={input.nombre}
+								name="nombre"
+								onChange={handleChange}
+							></input>
+							<input
+								type="text"
+								placeholder="E-mail"
+								className="registerForm-input"
+								value={input.correo}
+								name="correo"
+								onChange={handleChange}
+							></input>
 
-									<input
-										placeholder="Contraseña"
-										className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
-										type="password"
-										name="password"
-										value={input.password}
-										onChange={handleChange}
-									></input>
+							<input
+								placeholder="Contraseña"
+								className="registerForm-input"
+								type="password"
+								name="password"
+								value={input.password}
+								onChange={handleChange}
+							></input>
 
-									<input
-										placeholder="Repetir contraseña"
-										className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
-										type="password"
-										value={repeatPass}
-										onChange={handleRepeatPass}
-									></input>
-									<button
-										onClick={() => handleIndex(2)}
-										className={
-											!input.nombre ||
-											!input.password ||
-											!input.correo ||
-											input.password !== repeatPass
-												? 'hidden'
-												: 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
-										}
-									>
-										Continuar
-									</button>
-								</div>
+							<input
+								placeholder="Repetir contraseña"
+								className="registerForm-input"
+								type="password"
+								value={repeatPass}
+								onChange={handleRepeatPass}
+							></input>
+							<div className='registerForm-button-container'>
+								<button
+									onClick={() => handleIndex(2)}
+									className={
+										!input.nombre ||
+										!input.password ||
+										!input.correo ||
+										input.password !== repeatPass
+											? 'hidden'
+											: "registerForm-button"
+									}
+								>
+									Continuar
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			) : index === 2 ? (
-				<div className="min-h-[60vh] bg-[#373463] ">
-					<h1 className="text-center text-white text-2xl pt-20 pb-20">
+				<div className="register-main-container">
+					<h1 className="register-title">
 						¿Cómo querés registarte?
 					</h1>
-					<div className="flex sm:flex-row flex-col  justify-evenly items-center ">
+					<div className="register-container">
 						<button
 							value="USER_BUYER"
 							className={
@@ -186,31 +179,13 @@ export default function RegisterForm() {
 							}
 							onClick={(e) => handleSelectRole(e)}
 						>
-							<img src={compradorImg} alt="" className="w-60 mb-5" />
-							<h2 className="p-4 text-lg thin drop-shadow-3xl text-center text-white border-2 border-white rounded-lg  hover:bg-white hover:text-[#373463]">
-								Comprador
-							</h2>
+							<div className='register-buttonText-container'>
+								<div><img src={compradorImg} alt="" className="register-button-img01" /></div>
+								<h2 className="register-button-text">
+									Comprador
+								</h2>
+							</div>
 						</button>
-
-						<button
-							value="USER_SELLER"
-							className={
-								input.rol === 'USER_SELLER'
-									? 'flex flex-col justify-center items-center w-96 sm:mb-0 mb-10 border-2 border-green-400 rounded-xl bg-green-500'
-									: 'flex flex-col justify-center items-center w-96 sm:mb-0 mb-10'
-							}
-							onClick={(e) => handleSelectRole(e)}
-						>
-							<img
-								src={vendedorImg}
-								alt=""
-								className="w-60 mb-5 rounded-full bg-white"
-							/>
-							<h2 className="p-4 text-lg thin drop-shadow-3xl text-center text-white border-2 border-white rounded-lg hover:bg-white hover:text-[#373463] ">
-								Vendedor de productos
-							</h2>
-						</button>
-
 						<button
 							value="USER_SERVICE"
 							className={
@@ -220,25 +195,51 @@ export default function RegisterForm() {
 							}
 							onClick={(e) => handleSelectRole(e)}
 						>
-							<img
-								src={prestadorImg}
-								alt=""
-								className="w-60 mb-5 rounded-full bg-white"
-							/>
-							<h2 className="p-4 text-lg thin drop-shadow-3xl text-center text-white border-2 border-white rounded-lg  hover:bg-white hover:text-[#373463] ">
-								Prestador de servicios
-							</h2>
+							<div className='register-buttonText-container'>
+								<div className='register-button-img-container'>
+									<img
+										src={prestadorImg}
+										alt=""
+										className="register-button-img"
+									/>
+								</div>
+								<h2 className="register-button-text">
+									Prestador de servicios
+								</h2>
+							</div>
+						</button>
+						<button
+							value="USER_SELLER"
+							className={
+								input.rol === 'USER_SELLER'
+									? 'flex flex-col justify-center items-center w-96 sm:mb-0 mb-10 border-2 border-green-400 rounded-xl bg-green-500'
+									: 'flex flex-col justify-center items-center w-96 sm:mb-0 mb-10'
+							}
+							onClick={(e) => handleSelectRole(e)}
+						>
+							<div className='register-buttonText-container'>
+								<div className='register-button-img-container'>
+									<img
+										src={vendedorImg}
+										alt=""
+										className="register-button-img"
+									/>
+								</div>
+								<h2 className="register-button-text">
+									Vendedor de productos
+								</h2>
+							</div>
 						</button>
 					</div>
-					<div className="flex flex-between">
+					<div className="register-button-container">
 						<button
-							className="text-xl text-white ml-60 mt-20 mb-20 hover:text-sky-400 hover:underline"
+							className="register-back-button"
 							onClick={() => handleIndex(1)}
-						>
+						><ArrowBackIosIcon/>
 							Anterior
 						</button>
 						<button
-							className="text-xl text-white ml-60 mt-20 mb-20 hover:text-sky-400 hover:underline"
+							className="register-button"
 							onClick={() => handleSubmit()}
 						>
 							Continuar

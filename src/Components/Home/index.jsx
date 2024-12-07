@@ -3,7 +3,7 @@ import Banner2 from './Banner2';
 import Slider from './Slider';
 import Promotions from './Promotions';
 
-// import ServiceSlider from './ServiceSlider';
+import ServiceSlider from './ServiceSlider';
 import NavBar from '../Layouts/NavBar';
 import AdminNavBar from '../Layouts/AdminNavBar';
 

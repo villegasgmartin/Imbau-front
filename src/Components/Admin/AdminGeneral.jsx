@@ -27,65 +27,53 @@ console.log(products, 'pr');
     <div className="min-h-screen bg-[#f8f3e0]">
       <AdminNavBar />
       <div className="adminGeneral-container">
-        <h1 className="adminGeneral-title">
-          Administración General
-        </h1>
+        <h1 className="adminGeneral-title">Administración General</h1>
 
-        <input
-          type="text"
-          placeholder="Buscar productos..."
-          className="mb-4 p-2 border rounded-md w-full max-w-md"
-          value={searchTerm} // Vincular el estado al input
-          onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
-        />
-
-        <div className="mb-4 flex gap-4">
-          <button className="px-4 py-2 ">Todos</button>
-          <button className="px-4 py-2 ">Productos</button>
-          <button className="px-4 py-2 ">Servicios</button>
+        <div className="adminGeneral-search">
+          <input
+            type="text"
+            placeholder="Buscar productos..."
+            className="mb-4 p-2 border rounded-md w-full max-w-md"
+            value={searchTerm} // Vincular el estado al input
+            onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el estado al cambiar el input
+          />
+          <button className="adminGeneral-search-button">
+            <img src={SearchIcon} alt="Buscar" className="adminGeneral-search-icon" />
+          </button>
         </div>
 
-        <table className="w-full rounded-lg shadow-md overflow-hidden">
-          <thead className="text-gray-700">
-            <tr>
-              <th className="py-2 px-4 text-left">Código</th>
-              <th className="py-2 px-4 text-left">Descripción</th>
-              <th className="py-2 px-4 text-left">Datos Bancarios</th>
-              <th className="py-2 px-4 text-left">Estado</th>
-              <th className="py-2 px-4"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProducts?.map((p) => (
-              <tr key={p._id} className="border-t bg-white">
-                <td className="py-2 px-4 mt-2">{p._id}</td>
-                <td className="py-2 px-4">{p.nombre}</td>
-                <td className="py-2 px-4">
-                  <p>{p.usuario.nombre}</p>
-                  <p>{p.usuario.alias}</p>
-                  <p>{p.usuario.banco}</p>
-                </td>
-                <td className="py-2 px-4">{p.estado}</td>
-                <td className="py-2 px-4">
-                  <button className="px-4 py-2 bg-red-500 text-white rounded-md">
-                    Dar de baja
-                  </button>
-                </td>
+        <div className="adminGeneral-button-container">
+          <button className="adminGeneral-button01">Todos</button>
+          <button className="adminGeneral-button02">Servicios</button>
+          <button className="adminGeneral-button02">Productos</button>
+        </div>
+        <div className="adminGeneral-divider"></div>
+        <div className="adminGeneral-table-container">
+          <table className="w-full rounded-lg shadow-md overflow-hidden border-separate" style={{ borderSpacing: "0 15px" }}>
+            <thead className="text-gray-700">
+              <tr>
+                <th className="py-2 px-4 text-left">Código</th>
+                <th className="py-2 px-4 text-left">Descripción</th>
+                <th className="py-2 px-4 text-left">Datos Bancarios</th>
+                <th className="py-2 px-4 text-left">$</th>
+                <th className="py-2 px-4 text-left">Estado</th>
+                <th className="py-2 px-4"></th>
               </tr>
             </thead>
             <tbody style={{ color: "#06023D" }}>
-              {products?.map((p) => (
-                <tr key={p._id} className="bg-white border rounded-lg" style={{ borderRadius: "30px" }}>
-                  <td className="py-2 px-4">{p._id}</td>
+              {filteredProducts?.map((p) => (
+                <tr key={p._id} className="border-t bg-white rounded-lg" style={{ borderRadius: "30px" }}>
+                  <td className="py-2 px-4 mt-2">{p._id}</td>
                   <td className="py-2 px-4">{p.nombre}</td>
                   <td className="py-2 px-4">
                     <p>{p.usuario.nombre}</p>
                     <p>{p.usuario.alias}</p>
                     <p>{p.usuario.banco}</p>
                   </td>
+                  <td className="py-2 px-4">ARS {p.precio}</td>
                   <td className="py-2 px-4">{p.estado}</td>
                   <td className="py-2 px-4">
-                    <button className="adminGeneral-button03" style={{whiteSpace: "nowrap"}}>
+                    <button className="px-4 py-2 bg-red-500 text-white rounded-md">
                       Dar de baja
                     </button>
                   </td>

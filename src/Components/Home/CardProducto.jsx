@@ -6,7 +6,7 @@ const CardProducto = ({ producto }) => {
 			<div className='flex items-center justify-center'>
 <a href={`/products/${producto._id}`}>
 			<img
-				src={!producto.img ? generic : producto.img}
+				src={producto.img}
 				alt={producto.nombre}
 				className="w-60"
 				/>

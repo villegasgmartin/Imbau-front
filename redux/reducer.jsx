@@ -8,12 +8,17 @@ import {
   DELETE_USER,
   GET_USER_BY_ID,
   GET_ALL_PRODUCTS,
+  GET_ALL_PRODUCTS1,
+  GET_ALL_PRODUCTS2,
   GET_PRODUCT_BY_ID,
   GET_ALL_SERVICES,
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  COMPRAR_PRODUCTO
-  
+  COMPRAR_PRODUCTO,
+  GET_COMPRAS_POR_USUARIO,
+  GET_VENTAS_POR_USUARIO,
+  GET_CATEGORIAS,
+  GET_SUBCATEGORIAS
 } from "./actions";
 
 let initialState = {
@@ -21,10 +26,16 @@ let initialState = {
   allUsers: [],
   userData: {},
   allProducts: [],
+  allProducts1:[],
+  allProducts2:[],
   allServices: [],
   productById: {},
   cartItems: [],
-  buymplink: null
+  buymplink: null,
+  comprasPorUsuario: [],
+  ventasPorUsuario:[],
+  categorias:[],
+  subcategorias:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -57,6 +68,16 @@ function rootReducer(state = initialState, action) {
         allProducts: action.payload,
       };
 
+    case GET_ALL_PRODUCTS1:
+      return {
+        ...state,
+        allProducts1: action.payload,
+      };
+    case GET_ALL_PRODUCTS2:
+      return {
+        ...state,
+        allProducts2: action.payload,
+      };
     case GET_PRODUCT_BY_ID:
       return {
         ...state,
@@ -69,8 +90,8 @@ function rootReducer(state = initialState, action) {
         allServices: action.payload,
       };
     case ADD_TO_CART:
-      console.log(state.cartItems, 'cartred');
-      
+      console.log(state.cartItems, "cartred");
+
       // Verifica si el producto ya está en el carrito
       const existItem = state.cartItems.find(
         (item) => item._id === action.payload._id
@@ -98,11 +119,31 @@ function rootReducer(state = initialState, action) {
         ),
       };
 
-    case COMPRAR_PRODUCTO: 
-    return{
-      ...state,
-      buymplink: action.payload
-    }
+    case COMPRAR_PRODUCTO:
+      return {
+        ...state,
+        buymplink: action.payload,
+      };
+    case GET_COMPRAS_POR_USUARIO:
+      return {
+        ...state,
+        comprasPorUsuario: action.payload,
+      };
+    case GET_VENTAS_POR_USUARIO:
+      return {
+        ...state,
+        ventasPorUsuario: action.payload,
+      };
+    case GET_CATEGORIAS:
+      return {
+        ...state,
+        categorias: action.payload,
+      };
+    case GET_SUBCATEGORIAS:
+      return {
+        ...state,
+        subcategorias: action.payload,
+      };
 
     default:
       return state;

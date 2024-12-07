@@ -9,7 +9,7 @@ import perfImg from '../../assets/perfil.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllServices } from '../../../redux/actions';
 import ServiceHomeCard from '../Home/ServiceHomeCard';
-import banner2 from '../../assets/banner2.png'
+import banner from '../../assets/banner-01.jpg'
 import NavBar from './NavBar';
 
 
@@ -139,7 +139,7 @@ const services = useSelector((state) => state.allServices)
             </SwiperSlide>
           ))}
         </Swiper>
-        <img src={banner2} alt="" className="w-[100vw] mt-10"/>
+        <img src={banner} alt="" className="w-[100vw] mt-10"/>
         
 				 */}
       <div className="h-[80vh] flex flex-col justify-evenly items-center">
