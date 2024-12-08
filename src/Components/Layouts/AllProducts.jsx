@@ -56,7 +56,7 @@ export default function AllProducts () {
 
     return (
       <div className="flex flex-col ">
-        {/*<NavBar />  */} 
+        <NavBar />
         <div className="allProducts-container">
 					<h1 className="allProducts-searchTitle">
 						¿Qué producto buscás?
@@ -138,12 +138,12 @@ export default function AllProducts () {
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          {products.map((producto) => (
-            <SwiperSlide key={producto._id}>
-              <CardProducto producto={producto} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          {filteredProducts.map((producto) => (
+              <SwiperSlide key={producto._id}>
+                <CardProducto producto={producto} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <div className="allProducts-banner-container">
           <img src={banner1} alt="publicidad" className="allProducts-banner"/>
@@ -217,7 +217,7 @@ export default function AllProducts () {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {products.map((producto) => (
+            {filteredProducts.map((producto) => (
               <SwiperSlide key={producto._id}>
                 <CardProducto producto={producto} />
               </SwiperSlide>
@@ -257,7 +257,8 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
-        <Swiper
+        <div className="slider-main-container" style={{backgroundColor: "white"}}>
+          <Swiper
             modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
             pagination={{ clickable: true }} // Activa la paginación con puntos clicables
             spaceBetween={10} // Reduce el espacio entre tarjetas
@@ -294,12 +295,13 @@ export default function AllProducts () {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {products.map((producto) => (
+            {filteredProducts.map((producto) => (
               <SwiperSlide key={producto._id}>
                 <CardProducto producto={producto} />
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
         <div className="allProducts-banner-container" style={{marginBottom: "8%"}}>
           <img src={banner3} alt="publicidad" className="allProducts-banner"/>
         </div>
