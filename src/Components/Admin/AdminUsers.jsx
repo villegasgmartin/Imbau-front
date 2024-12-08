@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getUsers, deleteUser, activateUser } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
-import "../Styles/AdminUsers.css"
+import "../Styles/Admin/AdminUsers.css"
 import SearchIcon from "../../assets/search.png"
 
 export default function AdminUsers() {

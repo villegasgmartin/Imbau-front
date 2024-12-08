@@ -1,33 +1,38 @@
 import perfil from '../../assets/perfilGenerico.png'
+import "../Styles/PrestadorPanel/PrestadorHeader.css"
+import StarIcon from '@mui/icons-material/Star';
+import SquareIcon from '@mui/icons-material/Square';
+
 export default function PrestadorHeader () {
     return (
-			<div className="w-[70vw] ml-[15vw] flex items-end h-[348px] mt-10 bg-[#ea8c06] rounded-xl">
-				<div className="flex justify-between items-end bg-white h-[202px] w-[100%] p-12 rounded-xl ">
+			<div className="prestadorHeader-main-container">
+				<div className="prestadorHeader-container">
 					<img
 						src={perfil}
 						alt=""
-						className="absolute top-[28%] w-[127px] rounded-full"
+						className="absolute top-[25%] left-[19%] w-[200px] rounded-full bg-[#F8F3E0]"
 					/>
-					<div className="flex justify-around">
-						<div>
-							<div className="flex justify-start items-center">
-								<h1 className="text-2xl text-[#06023D]">Nombre </h1>
-								<p className="ml-10">Estrellas</p>
-							</div>
-							<h3 className="text-base text-[#EA8C06]">Profesion</h3>
-							<p className="text-sm text-gray-500">
-								Rosario, Santa Fe, Argentina{' '}
-							</p>
-						</div>
-					</div>
-					<h3 className="mb-10 text-base text-[#06023D]">Estudios</h3>
-					<div className="flex justify-evenly items-start mb-20">
-						<button className="w-[225px] h-[37px] rounded-xl bg-[#cddfdb] text-[#065D4A] mr-2 hover:bg-[#065D4A] hover:text-white">
+					<div className="prestadorHeader-button-container">
+						<button className="prestadorHeader-button">
 							Agregar otro servicio
 						</button>
-						<button className="w-[225px] h-[37px] rounded-xl bg-[#cddfdb] text-[#065D4A]  hover:bg-[#065D4A] hover:text-white">
+						<button className="prestadorHeader-button">
 							Datos personales
 						</button>
+					</div>
+					<div className="prestadorHeader-info-container">
+						<div className='prestadorHeader-first-container'>
+							<div className='prestadorHeader-name-container'>
+								<h1 className="presatadorHeader-name">Nombre </h1>
+								<div><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/></div>
+							</div>
+							<div className='prestadorHeader-study-container'>
+								<SquareIcon sx={{color: "#9D0572", fontSize: "60px"}}/>
+								<h3 className='prestadorHeader-study'>Univerdsidad Nacional de Rosario</h3>
+							</div>
+						</div>
+						<h3 className="prestadorHeader-profesion">Profesión</h3>
+						<p className="prestadorHeader-adress">Rosario, Santa Fe, Argentina{' '}</p>
 					</div>
 				</div>
 			</div>

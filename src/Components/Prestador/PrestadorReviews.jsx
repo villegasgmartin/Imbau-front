@@ -1,5 +1,10 @@
+import "../Styles/PrestadorPanel/PrestadorReviews.css"
+
 export default function PrestadorReviews(){
     return(
-        <div className="w-[70vw] ml-[15vw] h-[370px] bg-white rounded-xl mt-10 flex justify-center items-center">Reviews</div>
+        <div className="reseñas-container">
+            <h3 className="reseñas-title">Reseñas</h3>
+            <p className="reseñas-empty">Aún no tienes reseñas</p>
+        </div>
     )
 }

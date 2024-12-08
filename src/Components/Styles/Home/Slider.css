@@ -2,7 +2,9 @@
 .slider-main-container{
     background-color: #06023d;
     padding-top: 3.125rem;
-    padding-bottom: 3.125rem;
+    padding-bottom: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 /*Contenedor de título y enlace*/
@@ -35,16 +37,43 @@
     transform: scale(1.05);
 }
 
+/*Orden de sliders*/
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+/* Círculos normales */
+.swiper-pagination-bullet {
+    background-color: #F8F3E0;
+    opacity: 0.7;
+    width: 10px;
+    height: 10px;
+    margin-top: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Círculo activo */
+.swiper-pagination-bullet-active {
+    background-color: #EA8C06;
+    opacity: 1;
+    transform: scale(1.5); 
+}
+
 /*-------Media Queries--------*/
 
 @media (max-width: 1150px){
     .slider-main-container{
         padding-top: 1.875rem;
-        padding-bottom: 1.875rem;
+        padding-bottom: 20px;
+    }
+    .swiper-slide{
+        padding-bottom: 60px;
     }
     .slider-title-container{
         padding-left: 70px;
-        padding-bottom: 5px;
+        padding-bottom: 20px;
     }
     .slider-title{
         font-size: 26px !important;
@@ -55,8 +84,12 @@
 }
 
 @media (max-width: 639px){
+    .slider-main-container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     .slider-title-container{
-        padding-left: 40px;
+        padding-left: 25px;
     }
 }
 

@@ -5,6 +5,8 @@ import { postServicio } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 import "../Styles/CrearServicio.css"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import "../Styles/CrearProducto.css"
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 export default function CrearServicio () {
     const dispatch = useDispatch()
@@ -300,47 +302,58 @@ export default function CrearServicio () {
             </div></div>) : 
           index === 5 ? 
             (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
-                >	<div className=" w-[40%] ">
-                <div className="h-min-96 rounded-xl ">
-                    <div className="bg-white h-fit  shadow-lg shadow-gray-400 rounded-xl p-20">
-                        <h4 className="text-start color-main bold text-3xl">
+                >	<div className="">
+                <div className=" ">
+                    <div className="crearServicio-foto-section">
+                        <h4 className="crearServicio-title">
                         Subí fotos o archivos que demuestren tu servicio
                         </h4>
-                        <div className=" mt-5  flex flex-col justify-start items-start ">
-                        <p>Para no perder exposición, asegurate de que tus fotos no contengan
+                        <div className=" ">
+                        <p className="crearServicio-instruction">Para no perder exposición, asegurate de que tus fotos no contengan
                         textos promocionales, datos de contacto, logos ni marcas de agua.</p>
-                        <p className="text-orange-400 border-2 border-orange-400 p-4 rounded-xl">Revisá que todas las imágenes estén nítidas, bien iluminadas y en formato .jpg o .png. Considerá que una buena imagen debe medir 1200 x 900 px. 
-                        De lo contrario, que tenga un mínimo de 600 x 400 px.</p>                            
-                        <input
-                                placeholder="Instalación y reparación de aires acondicionados"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
-                                type="file"
-                                name="img"
-                                value={input.img}
-                                onChange={handleChange}                               
-                            ></input>
-                              <h4 className="text-start color-main bold text-3xl">
-                              ¡Podés agregar videos! (Opcional)
+                        <div className="crearServicio-foto-infoContainer">
+                            <p className="crearServicio-image-text">Revisá que todas las imágenes estén nítidas, bien iluminadas y en formato .jpg o .png. Considerá que una buena imagen debe medir 1200 x 900 px. 
+                            De lo contrario, que tenga un mínimo de 600 x 400 px.</p>                            
+                            <div>
+                                <input
+                                    id="upload"
+                                    placeholder="Instalación y reparación de aires acondicionados"
+                                    className="crearServicio-foto-input"
+                                    type="file"
+                                    name="img"
+                                    value={input.img}
+                                    onChange={handleChange}>
+                                </input>
+                                <label htmlFor="upload" className="crearServicio-foto-label">
+                                    <AttachFileIcon sx={{
+                                color: "#4284F3",
+                                fontSize: "30px"
+                                }}/>
+                                </label>
+                            </div>
+                        </div>
+                              <h4 className="crearServicio-title">
+                              ¡Podés agregar videos! <span className="crearServicio-text01" style={{fontSize: "18px"}}>(opcional)</span>
                               </h4>
-                              <p>Agregá tu video de YouTube y mostrá de la mejor manera tu servicio.</p>
+                              <p className="crearServicio-instruction">Agregá tu video de YouTube y mostrá de la mejor manera tu servicio.</p>
                               <input
                                 placeholder="Instalación y reparación de aires acondicionados"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                className="crearServicio-input"
                                 type="text"
                                 name="video"
                                 value={input.video}
                                 onChange={handleChange}                               
                             ></input>                    
-                            <div className="flex-between " >
+                            <div className="crearServicio-button-container section-foto-margin" >
                              <button
                                 onClick={() => handleIndex(4)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'                                
-                                >
+                                className= 'crearServicio-button-back'                                
+                                ><ArrowBackIosIcon/>
                                 Volver
                             </button>
                             <button
                                 onClick={() => handleIndex(6)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'                                
+                                className= 'crearServicio-button'                                
                                 >
                                 Continuar
                             </button>
@@ -350,37 +363,37 @@ export default function CrearServicio () {
                 </div>
             </div></div>) : 
             index === 6 ? (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"   
-                >	<div className=" w-[40%] ">
-                <div className="h-min-96 rounded-xl ">
-                    <div className="bg-white h-fit  shadow-lg shadow-gray-400 rounded-xl p-20">
-                        <h4 className="text-start color-main bold text-3xl">
+                >	<div className="">
+                <div className=" ">
+                    <div className="crearServicio-foto-section">
+                        <h4 className="crearServicio-title">
                         Definí las condiciones de contratación
                         </h4>
-                        <div className=" mt-5  flex flex-col justify-start items-start ">
-                        <p>¿Cuál es el precio? (opcional)</p>
-
-                        <input
+                        <div className=" ">
+                        <div className="crearServicio-lastSection-container">
+                            <p className="crearServicio-label">¿Cuál es el precio? (opcional)</p>
+                            <input
                                 placeholder="Instalación y reparación de aires acondicionados"
-                                className="text-xl color-main  border-2 border-black mb-5 rounded-lg pl-5 thin w-96 h-12 shadow-md shadow-gray-400"
+                                className="crearServicio-input"
                                 type="text"
                                 name="precio"
                                 value={input.precio}
                                 onChange={handleChange}                               
-                            ></input>
-                                                
-                           <p className="text-orange-400 border-2 border-orange-400 rounded-xl p-4">Podés acordar el precio. Si tu servicio no tiene un precio fijo, podés acordarlo con la persona interesada luego de que te contacte y cobrá lo que corresponda.</p>
+                            ></input> 
+                            <p className="crearServicio-image-text">Podés acordar el precio. Si tu servicio no tiene un precio fijo, podés acordarlo con la persona interesada luego de que te contacte y cobrá lo que corresponda.</p>
+                        </div>
                          
-                         <div className="flex-between " >
+                         <div className="crearServicio-button-container">
                         <button
                                 onClick={() => handleIndex(5)}
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= 'crearServicio-button-back'
                                 
-                                >
+                                ><ArrowBackIosIcon/>
                                 Volver
                             </button>
                             <button
                                 onClick={handleSubmit}  
-                                className= 'w-60 h-12  p-2 mt-10 text-[#06023d] rounded-xl border-2 border-[#06023d] shadow-lg shadow-gray-400 mb-5 hover:bg-[#06023d] hover:text-white transition duration-500'
+                                className= "crearServicio-button"
                                 
                                 >
                                 Finalizar

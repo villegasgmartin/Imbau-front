@@ -1,5 +1,5 @@
 import womanImg from '../../assets/Mujer-edited.png'
-import "../Styles/Banner.css"
+import "../Styles/Home/Banner.css"
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 export default function Banner() {

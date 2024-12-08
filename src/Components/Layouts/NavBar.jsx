@@ -4,7 +4,7 @@ import userFem from '../../assets/UserFem.png';
 import { useEffect, useState } from 'react';
 import { TbTriangleInvertedFilled } from 'react-icons/tb';
 import { getAllProducts, logout } from '../../../redux/actions';
-import "../Styles/Navbar.css"
+import "../Styles/Layouts/Navbar.css"
 
 export default function NavBar() {
 	const token = localStorage.getItem('token');

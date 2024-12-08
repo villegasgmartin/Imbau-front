@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "../Styles/Admin/Categorias.css"
 import {
   getCategorias,
   getSubcategorias,
@@ -39,37 +40,39 @@ export default function Categorias() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f3e0]">
+    <div className="category-main-container">
       <AdminNavBar/>
       <div className="p-4">
        
 
         {/* Formulario para agregar categorías */}
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Crear Categoría</h2>
-          <div className="flex gap-4 items-center">
+        <div className="category-create">
+          <h2 className="category-title">Crear Categoría</h2>
+          <div className="">
             <input
               type="text"
               placeholder="Nombre de la categoría"
-              className="p-2 border rounded-md flex-grow"
+              className="category-input"
               value={newCategoria}
               onChange={(e) => setNewCategoria(e.target.value)}
             />
+          <div className="category-button-container">
             <button
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="category-button"
               onClick={handleCreateCategoria}
             >
-              Crear
+              Crear categoría
             </button>
+          </div>
           </div>
         </div>
 
         {/* Formulario para agregar subcategorías */}
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Crear Subcategoría</h2>
+        <div className="category-create">
+          <h2 className="category-title">Crear Subcategoría</h2>
           <div className="flex gap-4 items-center">
             <select
-              className="p-2 border rounded-md flex-grow"
+              className="category-input"
               value={selectedCategoria}
               onChange={(e) => setSelectedCategoria(e.target.value)}
             >
@@ -83,12 +86,14 @@ export default function Categorias() {
             <input
               type="text"
               placeholder="Nombre de la subcategoría"
-              className="p-2 border rounded-md flex-grow"
+              className="category-input"
               value={newSubcategoria}
               onChange={(e) => setNewSubcategoria(e.target.value)}
             />
-            <button
-              className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+          </div>
+          <div className="category-button-container">
+          <button
+              className="category-button"
               onClick={handleCreateSubcategoria}
             >
               Agregar
@@ -97,22 +102,22 @@ export default function Categorias() {
         </div>
 
         {/* Tabla de categorías y subcategorías */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">
+        <div className="category-create">
+          <h2 className="category-title">
             Categorías y Subcategorías
           </h2>
-          <table className="w-full rounded-lg shadow-md overflow-hidden bg-white">
-            <thead className="bg-gray-200 text-gray-700">
+          <table className="category-table">
+            <thead style={{backgroundColor: "#06023D",}}>
               <tr>
-                <th className="py-2 px-4 text-left">Categoría</th>
-                <th className="py-2 px-4 text-left">Subcategorías</th>
+                <th className="category-th">Categoría</th>
+                <th className="category-th">Subcategorías</th>
               </tr>
             </thead>
             <tbody>
               {categorias?.map((cat) => (
                 <tr key={cat._id} className="border-t">
-                  <td className="py-2 px-4">{cat.categoria}</td>
-                  <td className="py-2 px-4">
+                  <td className="category-td">{cat.categoria}</td>
+                  <td className="category-td">
                     {cat.subcategoria.length > 0 ? (
                       <ul className="list-disc pl-6">
                         {cat.subcategoria.map((sub, index) => (
@@ -120,7 +125,7 @@ export default function Categorias() {
                         ))}
                       </ul>
                     ) : (
-                      <span className="text-gray-500">Sin subcategorías</span>
+                      <span className="category-none">Sin subcategorías</span>
                     )}
                   </td>
                 </tr>

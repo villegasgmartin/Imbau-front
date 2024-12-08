@@ -3,7 +3,7 @@ import NavBar from "../Layouts/NavBar";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../../../redux/actions";
 import AdminNavBar from "../Layouts/AdminNavBar";
-import "../Styles/AdminGeneral.css"
+import "../Styles/Admin/AdminGeneral.css"
 import SearchIcon from "../../assets/search.png"
 
 export default function AdminGeneral() {

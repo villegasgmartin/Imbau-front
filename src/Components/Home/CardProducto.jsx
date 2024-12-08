@@ -1,23 +1,34 @@
 /* eslint-disable react/prop-types */
 import generic from '../../assets/caja test.jpg'
+import "../Styles/Home/CardProducto.css"
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+
 const CardProducto = ({ producto }) => {
 	return (
-		<div className="m-5 sm:p-5 px-10 py-2 bg-white sm:text-center mb-20 sm:h-fit sm:min-h-[400px] sm:w-80 rounded-xl flex flex-col justify-evenly border-2 border-gray-400 ">
-			<div className='flex items-center justify-center'>
-<a href={`/products/${producto._id}`}>
-			<img
-				src={producto.img}
-				alt={producto.nombre}
-				className="w-60"
-				/>
-			</a>
-				</div>
-			<div className="text-left w-fit">
-				<h5 className="text-gray-400 bold">{producto.nombre}</h5>				
-				<p className="text-sm"> {producto.categoria} - {producto.subcategoria}</p>
-				<p className="bold mt-2">${producto.precio}</p>			
+		<a href={`/products/${producto._id}`}>
+			<div className="cardProduct-container">
+					<div className='cardProduct-img-container'>
+						<img
+							src={producto.img}
+							alt={producto.nombre}
+							className="productCard-img"
+							/>
+					</div>
+					<div className="productCard-info-container">
+						<h5 className="productCard-name">{producto.nombre}</h5>	
+						<div>
+						<StarIcon sx={{color: "#EA8C06"}}/>
+						<StarIcon sx={{color: "#EA8C06"}}/>
+						<StarIcon sx={{color: "#EA8C06"}}/>		
+						<StarIcon sx={{color: "#EA8C06"}}/>	
+						<StarBorderIcon sx={{color: "#EA8C06"}}/>			
+						</div>	
+						<p className="productCard-category"> {producto.categoria} - {producto.subcategoria}</p>
+						<p className="productCard-price">${producto.precio}</p>			
+					</div>
 			</div>
-		</div>
+		</a>
 	);
 };
 

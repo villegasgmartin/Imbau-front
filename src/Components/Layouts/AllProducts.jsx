@@ -13,8 +13,8 @@ import CardProducto from "../Home/CardProducto";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination'; // Importa los estilos de la paginación
-import { Pagination } from 'swiper/modules'; // Importa el módulo de paginación
-import "../Styles/AllProducts.css"
+import { Autoplay, Pagination } from 'swiper/modules';
+import "../Styles/Layouts/AllProducts.css"
 import image from '../../assets/Lavarropa-edited.png'
 
 
@@ -56,7 +56,7 @@ export default function AllProducts () {
 
     return (
       <div className="flex flex-col ">
-        <NavBar />  
+        {/*<NavBar />  */} 
         <div className="allProducts-container">
 					<h1 className="allProducts-searchTitle">
 						¿Qué producto buscás?
@@ -100,32 +100,50 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
-        <div className="">
-          <Swiper
-            modules={[Pagination]} // Incluye el módulo de paginación
-            pagination={{ clickable: true }} // Activa la paginación con puntos clicables
-            spaceBetween={50}
-            //   slidesPerView={4}
-            breakpoints={{
-              640: {
-                slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
-              },
-              768: {
-                slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
-              },
-              1024: {
-                slidesPerView: 4, // 4 tarjetas visibles en pantallas grandes
-              },
-            }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
-            {filteredProducts.map((producto) => (
-              <SwiperSlide key={producto._id}>
-                <CardProducto producto={producto} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="slider-main-container" style={{backgroundColor: "white"}}>
+        <Swiper
+          modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
+          pagination={{ clickable: true }} // Activa la paginación con puntos clicables
+          spaceBetween={10} // Reduce el espacio entre tarjetas
+          slidesPerView={4} // Siempre muestra 4 tarjetas visibles
+          centeredSlides={true} // Centra las tarjetas en la pantalla
+          loop={true} // Hace que el carrusel sea infinito
+          autoplay={{
+            delay: 3000, 
+            disableOnInteraction: false,
+        }}
+          speed={1000}
+          breakpoints={{
+            250: {
+              slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+              
+            },
+            640: {
+              slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+              
+            },
+            720: {
+              slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
+              centeredSlides: false,// Centra en pantallas medianas
+            },
+            1050: {
+              slidesPerView: 3,
+              centeredSlides: true// 4 tarjetas visibles en pantallas grandes
+            },
+            1350: {
+              slidesPerView: 4, 
+              centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
+            },
+          }}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {products.map((producto) => (
+            <SwiperSlide key={producto._id}>
+              <CardProducto producto={producto} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
         </div>
         <div className="allProducts-banner-container">
           <img src={banner1} alt="publicidad" className="allProducts-banner"/>
@@ -161,27 +179,45 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
-        <div className="">
+        <div className="slider-main-container" style={{backgroundColor: "white"}}>
           <Swiper
-            modules={[Pagination]} // Incluye el módulo de paginación
+            modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
             pagination={{ clickable: true }} // Activa la paginación con puntos clicables
-            spaceBetween={50}
-            //   slidesPerView={4}
+            spaceBetween={10} // Reduce el espacio entre tarjetas
+            slidesPerView={4} // Siempre muestra 4 tarjetas visibles
+            centeredSlides={true} // Centra las tarjetas en la pantalla
+            loop={true} // Hace que el carrusel sea infinito
+            autoplay={{
+              delay: 3000, 
+              disableOnInteraction: false,
+          }}
+            speed={1000}
             breakpoints={{
+              250: {
+                slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+                
+              },
               640: {
                 slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+                
               },
-              768: {
+              720: {
                 slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
+                centeredSlides: false,// Centra en pantallas medianas
               },
-              1024: {
-                slidesPerView: 4, // 4 tarjetas visibles en pantallas grandes
+              1050: {
+                slidesPerView: 3,
+                centeredSlides: true// 4 tarjetas visibles en pantallas grandes
+              },
+              1350: {
+                slidesPerView: 4, 
+                centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
               },
             }}
-            onSlideChange={() => console.log("slide change")}
+            onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {filteredProducts1.map((producto) => (
+            {products.map((producto) => (
               <SwiperSlide key={producto._id}>
                 <CardProducto producto={producto} />
               </SwiperSlide>
@@ -221,33 +257,49 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
-        <div className="">
-          <Swiper
-            modules={[Pagination]} // Incluye el módulo de paginación
+        <Swiper
+            modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
             pagination={{ clickable: true }} // Activa la paginación con puntos clicables
-            spaceBetween={50}
-            //   slidesPerView={4}
+            spaceBetween={10} // Reduce el espacio entre tarjetas
+            slidesPerView={4} // Siempre muestra 4 tarjetas visibles
+            centeredSlides={true} // Centra las tarjetas en la pantalla
+            loop={true} // Hace que el carrusel sea infinito
+            autoplay={{
+              delay: 3000, 
+              disableOnInteraction: false,
+          }}
+            speed={1000}
             breakpoints={{
+              250: {
+                slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+                
+              },
               640: {
                 slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+                
               },
-              768: {
+              720: {
                 slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
+                centeredSlides: false,// Centra en pantallas medianas
               },
-              1024: {
-                slidesPerView: 4, // 4 tarjetas visibles en pantallas grandes
+              1050: {
+                slidesPerView: 3,
+                centeredSlides: true// 4 tarjetas visibles en pantallas grandes
+              },
+              1350: {
+                slidesPerView: 4, 
+                centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
               },
             }}
-            onSlideChange={() => console.log("slide change")}
+            onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {filteredProducts2.map((producto) => (
+            {products.map((producto) => (
               <SwiperSlide key={producto._id}>
                 <CardProducto producto={producto} />
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
         <div className="allProducts-banner-container" style={{marginBottom: "8%"}}>
           <img src={banner3} alt="publicidad" className="allProducts-banner"/>
         </div>
