@@ -86,49 +86,45 @@ export default function CrearServicio () {
     }; 
 
     return (
-        <div className="transition duration-700 h-max ">
-          <NavBar/>
-          {index === 1 ? 
-             (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
-         >	<div className=" ">
-         <div className="h-min-96 rounded-xl ">
-             <div className="crearServicio-category-container">
-                 <h4 className="crearServicio-title">
-                     Empeza describiendo todo sobre tu servicio
-                 </h4>
-                 <p className="crearServicio-instruction">A que categoria pertenece tu servicio?</p>
-                 <div className="flex flex-col">
-                 {categorias.map((c, index) => (
-                    <button
-                    key={index}
-                    onClick={() => handleCategoryClick(c.categoria)} // Al hacer clic, selecciona la categoría
-                    className={`p-3 text-start border-b-2 text-xl transition duration-300 
-                      ${
-                        selectedCategory === c.categoria 
-                          ? "bg-[#06023D] text-white font-bold" // Fondo y texto al estar seleccionada
-                          : "hover:bg-gray-200 hover:text-black" // Hover para las no seleccionadas
-                      }`}
-                  >
-                    {c.categoria}
-                  </button>
-                  
-                ))}
-                </div>
-               <div className="crearServicio-button-container01">
-                    <button
-                        onClick={() => handleIndex(2)}
-                        className= 'crearServicio-button'>
-                        Continuar
-                    </button>
-               </div>
-             </div>
-         </div>
-     </div></div>) : 
-          index === 2 ? 
-            (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
+        <div className="">
+            <NavBar/>
+            {index === 1 ? 
+                (<div className="crearProducto-first-container">	
+                        <div className="crearServicio-container">
+                            <h4 className="crearServicio-title">
+                                Empeza describiendo todo sobre tu servicio
+                            </h4>
+                            <p className="crearServicio-instruction">A que categoria pertenece tu servicio?</p>
+                            <div className="flex flex-col">
+                            {categorias.map((c, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleCategoryClick(c.categoria)} // Al hacer clic, selecciona la categoría
+                                    className={`p-3 text-start border-b-2 text-xl transition duration-300 
+                                    ${
+                                    selectedCategory === c.categoria 
+                                    ? "bg-[#06023D] text-white font-bold" // Fondo y texto al estar seleccionada
+                                    : "hover:bg-gray-200 hover:text-black" // Hover para las no seleccionadas
+                                }`}
+                                >
+                                    {c.categoria}
+                                </button>
+                                ))}
+                            </div>
+                            <div className="crearServicio-button-container01">
+                                <button
+                                    onClick={() => handleIndex(2)}
+                                    className= 'crearServicio-button'>
+                                    Continuar
+                                </button>
+                            </div>
+                        </div>
+                </div>) : 
+            index === 2 ? 
+            (<div className=""
                 >	<div className="  ">
-                <div className="h-min-96 rounded-xl ">
-                    <div className="crearServicio-category-container">
+                <div className="crearProducto-first-container">
+                    <div className="crearServicio-container">
                         <h4 className="crearServicio-title">
                         Empezá describiendo todo sobre tu servicio
                         </h4>
@@ -200,15 +196,15 @@ export default function CrearServicio () {
                 </div>
             </div></div>) : 
           index === 3 ? 
-            (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
+            (<div className=""
                 >	<div className="">
-                <div className="h-min-96 rounded-xl ">
-                    <div className="crearServicio-section03">
+                <div className="crearProducto-first-container ">
+                    <div className="crearServicio-container">
                         <h4 className="crearServicio-title">
                         Completá las características de tu servicio
                         </h4>
                         <div className=" ">
-                        <p className="crearServicio-instruction">Hacelo para tener una mejor ubicación en los resultados 
+                        <p className="crearServicio-instruction instruction-movile">Hacelo para tener una mejor ubicación en los resultados 
                         de búsqueda y aumentar las posibilidades de que te contraten.</p>
                         <input
                                 placeholder="Años de experiencia"
@@ -219,7 +215,7 @@ export default function CrearServicio () {
                                 // onChange={handleChange}                               
                             ></input>
                             <div className="crearServicio-checkbox">
-                            <p className="crearServicio-instruction">Asesoramiento online?</p>
+                            <p className="crearServicio-instruction instruction-movile">Asesoramiento online?</p>
                             <input type="checkbox"/>
                             </div>                   
                            
@@ -245,9 +241,9 @@ export default function CrearServicio () {
                 </div>
             </div></div>) : 
           index === 4 ? 
-            (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
+            (<div className=""
                 >	<div className=" ">
-                <div className="">
+                <div className="crearProducto-first-container">
                     <div className="crearServicio-section03">
                         <h4 className="crearServicio-title">
                         Agregá un título y una descripción
@@ -301,15 +297,15 @@ export default function CrearServicio () {
                 </div>
             </div></div>) : 
           index === 5 ? 
-            (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"
+            (<div className="crearProducto-first-container"
                 >	<div className="">
                 <div className=" ">
-                    <div className="crearServicio-foto-section">
+                    <div className="crearServicio-container">
                         <h4 className="crearServicio-title">
                         Subí fotos o archivos que demuestren tu servicio
                         </h4>
                         <div className=" ">
-                        <p className="crearServicio-instruction">Para no perder exposición, asegurate de que tus fotos no contengan
+                        <p className="crearServicio-instruction instruction-movile">Para no perder exposición, asegurate de que tus fotos no contengan
                         textos promocionales, datos de contacto, logos ni marcas de agua.</p>
                         <div className="crearServicio-foto-infoContainer">
                             <p className="crearServicio-image-text">Revisá que todas las imágenes estén nítidas, bien iluminadas y en formato .jpg o .png. Considerá que una buena imagen debe medir 1200 x 900 px. 
@@ -335,7 +331,7 @@ export default function CrearServicio () {
                               <h4 className="crearServicio-title">
                               ¡Podés agregar videos! <span className="crearServicio-text01" style={{fontSize: "18px"}}>(opcional)</span>
                               </h4>
-                              <p className="crearServicio-instruction">Agregá tu video de YouTube y mostrá de la mejor manera tu servicio.</p>
+                              <p className="crearServicio-instruction instruction-movile">Agregá tu video de YouTube y mostrá de la mejor manera tu servicio.</p>
                               <input
                                 placeholder="Instalación y reparación de aires acondicionados"
                                 className="crearServicio-input"
@@ -362,10 +358,10 @@ export default function CrearServicio () {
                     </div>
                 </div>
             </div></div>) : 
-            index === 6 ? (<div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10"   
+            index === 6 ? (<div className="crearProducto-first-container"   
                 >	<div className="">
                 <div className=" ">
-                    <div className="crearServicio-foto-section">
+                    <div className="crearServicio-container">
                         <h4 className="crearServicio-title">
                         Definí las condiciones de contratación
                         </h4>
@@ -380,7 +376,7 @@ export default function CrearServicio () {
                                 value={input.precio}
                                 onChange={handleChange}                               
                             ></input> 
-                            <p className="crearServicio-image-text">Podés acordar el precio. Si tu servicio no tiene un precio fijo, podés acordarlo con la persona interesada luego de que te contacte y cobrá lo que corresponda.</p>
+                            <p className="crearServicio-image-text" style={{marginTop: "0"}}>Podés acordar el precio. Si tu servicio no tiene un precio fijo, podés acordarlo con la persona interesada luego de que te contacte y cobrá lo que corresponda.</p>
                         </div>
                          
                          <div className="crearServicio-button-container">

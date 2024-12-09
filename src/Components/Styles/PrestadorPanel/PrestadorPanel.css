@@ -3,3 +3,11 @@
     background-color: #F8F3E0;
     padding-bottom: 150px;
 }
+
+/*-------Media Queries--------*/
+
+@media (max-width: 639px){
+    .prestador-main-container{
+        padding-bottom: 4rem;
+    }
+}

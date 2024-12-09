@@ -14,8 +14,8 @@
 /*Contenedor principal*/
 .miniCart-empty-container{
     background-color: #F8F3E0;
-    padding-top: 7rem;
-    padding-bottom: 20rem;
+    padding-top: 200px;
+    padding-bottom: 200px;
     background-image: url("../../assets//hombre-billete.png");
     background-repeat: no-repeat;
     background-size: 500px;
@@ -319,8 +319,8 @@
 
 @media (max-width: 640px){
     .miniCart-empty-container{
-        padding-top: 5rem;
-        padding-bottom: 10rem;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
         background-size: 300px;
         background-position: 90% 200px;
     }

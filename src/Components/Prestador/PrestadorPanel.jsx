@@ -9,7 +9,7 @@ export default function PrestadorPanel () {
     return(
         <div className="prestador-main-container">
 				<NavBar />
-				<PrestadorHeader />
+				<PrestadorHeader /> 
 				<PrestadorAbout />
 				<PrestadorActivity />
 				<PrestadorReviews />

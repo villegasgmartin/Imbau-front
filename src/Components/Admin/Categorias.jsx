@@ -70,9 +70,9 @@ export default function Categorias() {
         {/* Formulario para agregar subcategorías */}
         <div className="category-create">
           <h2 className="category-title">Crear Subcategoría</h2>
-          <div className="flex gap-4 items-center">
+          <div className="category-input-container">
             <select
-              className="category-input"
+              className="category-input margin-input"
               value={selectedCategoria}
               onChange={(e) => setSelectedCategoria(e.target.value)}
             >
@@ -106,32 +106,34 @@ export default function Categorias() {
           <h2 className="category-title">
             Categorías y Subcategorías
           </h2>
-          <table className="category-table">
-            <thead style={{backgroundColor: "#06023D",}}>
-              <tr>
-                <th className="category-th">Categoría</th>
-                <th className="category-th">Subcategorías</th>
-              </tr>
-            </thead>
-            <tbody>
-              {categorias?.map((cat) => (
-                <tr key={cat._id} className="border-t">
-                  <td className="category-td">{cat.categoria}</td>
-                  <td className="category-td">
-                    {cat.subcategoria.length > 0 ? (
-                      <ul className="list-disc pl-6">
-                        {cat.subcategoria.map((sub, index) => (
-                          <li key={index}>{sub}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <span className="category-none">Sin subcategorías</span>
-                    )}
-                  </td>
+          <div className="category-table-container">
+            <table className="category-table">
+              <thead style={{backgroundColor: "#EA8C06",}}>
+                <tr>
+                  <th className="category-th">Categoría</th>
+                  <th className="category-th">Subcategorías</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {categorias?.map((cat) => (
+                  <tr key={cat._id} className="border-t">
+                    <td className="category-td">{cat.categoria}</td>
+                    <td className="category-td">
+                      {cat.subcategoria.length > 0 ? (
+                        <ul className="list-disc pl-6">
+                          {cat.subcategoria.map((sub, index) => (
+                            <li key={index}>{sub}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <span className="category-none">Sin subcategorías</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
