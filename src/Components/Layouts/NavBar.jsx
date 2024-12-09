@@ -224,7 +224,7 @@ const allProducts = useSelector((state) => state.allProducts)
                         <a href="/prestador-panel">Mi panel</a>
                       </button>
                       <button className="bg-gray-100 m-1 opacity-100">
-                        <a href="/prestador-negocio">Mi negocio</a>
+                        <a href="#">Mi negocio</a>
                       </button>
                       <button className="bg-gray-100 m-1 opacity-100">
                         <a href="crear-servicio">Crear servicio</a>
@@ -398,7 +398,7 @@ const allProducts = useSelector((state) => state.allProducts)
                     <a href="/prestador-panel">Mi panel</a>
                   </button>
                   <button className="bg-gray-100 m-1 opacity-100">
-                    <a href="/prestador-negocio">Mi negocio</a>
+                    <a href="#">Mi negocio</a>
                   </button>
                   <button className="bg-gray-100 m-1 opacity-100">
                     <a href="crear-servicio">Crear servicio</a>
