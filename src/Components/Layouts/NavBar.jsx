@@ -4,7 +4,8 @@ import userFem from '../../assets/UserFem.png';
 import { useEffect, useState } from 'react';
 import { TbTriangleInvertedFilled } from 'react-icons/tb';
 import { getAllProducts, logout } from '../../../redux/actions';
-import "../Styles/Navbar.css"
+import "../Styles/Layouts/Navbar.css"
+import SearchIcon from "../../assets/search.png"
 
 export default function NavBar() {
 	const token = localStorage.getItem('token');
@@ -48,7 +49,7 @@ const allProducts = useSelector((state) => state.allProducts)
    };
 	return (
 
-    <nav className="w-full bg-[#06023D] shadow z-50 sm:rounded-lg opacity-90 text-white">
+    <nav className="w-full bg-[#06023D] shadow z-50  opacity-90 text-white">
       <div className="justify-between px-4 mx-auto sm:items-center md:px-8 sm:hidden">
         <div>
           <div className="flex items-center justify-around py-3 md:py-5 md:block">
@@ -254,10 +255,10 @@ const allProducts = useSelector((state) => state.allProducts)
           </div>
         </div>
       </div>
-      <div className="hidden sm:flex sm:justify-evenly items-center">
+      <div className="hidden sm:flex sm:justify-evenly items-center h-28">
         <div>
           <a href="/">
-            <img src={logo} alt="not found" className="w-36 sm:w-36" />
+            <img src={logo} alt="not found" className="w-36 sm:w-56" />
           </a>
         </div>
         <div className="flex sm:flex-row">

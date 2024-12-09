@@ -3,10 +3,11 @@ import CardProducto from './CardProducto'; // Asegúrate de importar el componen
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination'; // Importa los estilos de la paginación
-import { Pagination } from 'swiper/modules'; // Importa el módulo de paginación
+import { Autoplay, Pagination } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/actions';
-import "../Styles/Slider.css"
+import "../Styles/Home/Slider.css"
+
 
 const Slider = () => {
   const dispatch = useDispatch();
@@ -27,21 +28,38 @@ const Slider = () => {
           ver más
         </a>
       </div>
-      <div className="sm:flex sm:justify-center flex max-w-[100vw]">
-        <Swiper
-          modules={[Pagination]} // Incluye el módulo de paginación
+      <Swiper
+          modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
           pagination={{ clickable: true }} // Activa la paginación con puntos clicables
-          spaceBetween={50}
-        //   slidesPerView={4}
+          spaceBetween={10} // Reduce el espacio entre tarjetas
+          slidesPerView={4} // Siempre muestra 4 tarjetas visibles
+          centeredSlides={true} // Centra las tarjetas en la pantalla
+          loop={true} // Hace que el carrusel sea infinito
+          autoplay={{
+            delay: 3000, 
+            disableOnInteraction: false,
+        }}
+          speed={1000}
           breakpoints={{
+            250: {
+              slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+              
+            },
             640: {
               slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
+              
             },
-            768: {
+            720: {
               slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
+              centeredSlides: false,// Centra en pantallas medianas
             },
-            1024: {
-              slidesPerView: 4, // 4 tarjetas visibles en pantallas grandes
+            1050: {
+              slidesPerView: 3,
+              centeredSlides: true// 4 tarjetas visibles en pantallas grandes
+            },
+            1350: {
+              slidesPerView: 4, 
+              centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
             },
           }}
           onSlideChange={() => console.log('slide change')}
@@ -54,7 +72,6 @@ const Slider = () => {
           ))}
         </Swiper>
       </div>
-    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 import { getCompras } from "../../../redux/actions";
-import "../Styles/MisCompras.css"
+import "../Styles/Layouts/MisCompras.css"
 import SearchIcon from "../../assets/search.png"
 
 export default function MisCompras() {

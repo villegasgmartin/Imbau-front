@@ -109,146 +109,141 @@ export default function CrearProducto () {
       <div className="transition duration-700 h-max ">
         <NavBar />
         {index === 1 ? (
-          <div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10">
+          <div className="crearProducto-first-container">
             {" "}
-            <div className=" w-[40%] ">
-              <div className="h-min-96 rounded-xl ">
-                <div className="crearProducto-container">
-                  <h4 className="crearProducto-title">
-                    Completa los datos del producto
-                  </h4>
-                  <p className="crearProducto-instruction">Los campos con * son obligatorios</p>
-                  <div className=" mt-5  flex flex-col justify-start items-start ">
-                    <label htmlFor="" className="crearProducto-label">
-                      Nombre del producto*
-                    </label>
-                    <input
-                      placeholder="Ej: aires acondicionados"
-                      className="crearProducto-input"
-                      type="text"
-                      name="nombre"
-                      value={input.nombre}
-                      onChange={handleChange}
-                    ></input>
-                    <label htmlFor="" className="crearProducto-label">
-                      Categoria
-                    </label>
-                    <select
-                    style={{marginBottom: "10px"}}
-                      name="categoria"
-                      value={input.categoria}
-                      onChange={handleCategoriaChange}
-                      className="crearProducto-input"
-                    >
-                      <option value="">Selecciona una categoría</option>
-                      {categorias.map((c) => (
-                        <option key={c._id} value={c.categoria}>
-                          {c.categoria}
-                        </option>
-                      ))}
-                    </select>
+            <div className="crearProducto-container">
+              <h4 className="crearProducto-title">
+                Completa los datos del producto
+              </h4>
+              <p className="crearProducto-instruction">Los campos con * son obligatorios</p>
+              <div className=" mt-5  flex flex-col justify-start items-start ">
+                <label htmlFor="" className="crearProducto-label">
+                  Nombre del producto*
+                </label>
+                <input
+                  placeholder="Ej: aires acondicionados"
+                  className="crearProducto-input"
+                  type="text"
+                  name="nombre"
+                  value={input.nombre}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="" className="crearProducto-label">
+                  Categoria
+                </label>
+                <select
+                style={{marginBottom: "10px"}}
+                  name="categoria"
+                  value={input.categoria}
+                  onChange={handleCategoriaChange}
+                  className="crearProducto-input"
+                >
+                  <option value="">Selecciona una categoría</option>
+                  {categorias.map((c) => (
+                    <option key={c._id} value={c.categoria}>
+                      {c.categoria}
+                    </option>
+                  ))}
+                </select>
 
-                    <select
-                      style={{marginTop: "0px"}}
-                      name="subcategoria"
-                      value={input.subcategoria}
-                      onChange={handleChange}
-                      className="crearProducto-input"
-                      disabled={!input.categoria} // Deshabilitar si no hay categoría seleccionada
-                    >
-                      <option value="">Selecciona una subcategoría</option>
-                      {subcategoriasFiltradas.map((sub, index) => (
-                        <option key={index} value={sub}>
-                          {sub}
-                        </option>
-                      ))}
-                    </select>
+                <select
+                  style={{marginTop: "0px"}}
+                  name="subcategoria"
+                  value={input.subcategoria}
+                  onChange={handleChange}
+                  className="crearProducto-input"
+                  disabled={!input.categoria} // Deshabilitar si no hay categoría seleccionada
+                >
+                  <option value="">Selecciona una subcategoría</option>
+                  {subcategoriasFiltradas.map((sub, index) => (
+                    <option key={index} value={sub}>
+                      {sub}
+                    </option>
+                  ))}
+                </select>
 
-                    <label htmlFor="" className="crearProducto-label">
-                      Descripción general de la subcategoria
-                    </label>
-                    <input
-                      placeholder="Ej: aires acondicionados"
-                      className="crearProducto-input"
-                      type="text"
-                      name="descripcionSubcategoria"
-                      value={input.descripcionSubcategoria}
-                      onChange={handleChange}
-                    ></input>
-                    <label htmlFor="" className="crearProducto-label">
-                      Información extra
-                    </label>
-                    <input
-                      className="crearProducto-input"
-                      placeholder="Tamaño (altura, ancho, profundo), voltaje, estado, etc."
-                      type="text"
-                      name="info"
-                      value={input.info}
-                      onChange={handleChange}
-                    ></input>
-                    <h3 className="crearProducto-label">
-                      Caracteristicas principales
-                    </h3>
-                    <p className="crearProducto-text01">
-                      Completá estos datos con las especificaciones del
-                      fabricante. Podés usar la caja o el envase del producto
-                      para consultar la información.
-                    </p>
-                    <label htmlFor="">Marca</label>
-                    <input
-                      className="crearProducto-input"
-                      placeholder="Ej: BGH"
-                      type="text"
-                      name="marca"
-                      value={input.marca}
-                      onChange={handleChange}
-                    ></input>
-                    <label htmlFor="" className="crearProducto-label">
-                      Modelo
-                    </label>
-                    <input
-                      className="crearProducto-input"
-                      placeholder="Ej: Silent Air BS35WCCR"
-                      type="text"
-                      name="modelo"
-                      value={input.modelo}
-                      onChange={handleChange}
-                    ></input>
-                    <label htmlFor="" className="crearProducto-label">
-                      Color
-                    </label>
-                    <input
-                      className="crearProducto-input"
-                      placeholder="Ej:Blanco "
-                      type="text"
-                      name="color"
-                      value={input.color}
-                      onChange={handleChange}
-                    ></input>
-                  </div>
-                </div>
-                    <div className="crearProducto-button-container">
-                      <button
-                        onClick={() => handleIndex(2)}
-                        className="crearProducto-button"
-                      >
-                        Confirmar
-                      </button>
-                    </div>
+                <label htmlFor="" className="crearProducto-label">
+                  Descripción general de la subcategoria
+                </label>
+                <input
+                  placeholder="Ej: aires acondicionados"
+                  className="crearProducto-input"
+                  type="text"
+                  name="descripcionSubcategoria"
+                  value={input.descripcionSubcategoria}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="" className="crearProducto-label">
+                  Información extra
+                </label>
+                <input
+                  className="crearProducto-input"
+                  placeholder="Tamaño (altura, ancho, profundo), voltaje, estado, etc."
+                  type="text"
+                  name="info"
+                  value={input.info}
+                  onChange={handleChange}
+                ></input>
+                <h3 className="crearProducto-label">
+                  Caracteristicas principales
+                </h3>
+                <p className="crearProducto-text01">
+                  Completá estos datos con las especificaciones del
+                  fabricante. Podés usar la caja o el envase del producto
+                  para consultar la información.
+                </p>
+                <label htmlFor="">Marca</label>
+                <input
+                  className="crearProducto-input"
+                  placeholder="Ej: BGH"
+                  type="text"
+                  name="marca"
+                  value={input.marca}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="" className="crearProducto-label">
+                  Modelo
+                </label>
+                <input
+                  className="crearProducto-input"
+                  placeholder="Ej: Silent Air BS35WCCR"
+                  type="text"
+                  name="modelo"
+                  value={input.modelo}
+                  onChange={handleChange}
+                ></input>
+                <label htmlFor="" className="crearProducto-label">
+                  Color
+                </label>
+                <input
+                  style={{marginBottom: "0px"}}
+                  className="crearProducto-input"
+                  placeholder="Ej:Blanco "
+                  type="text"
+                  name="color"
+                  value={input.color}
+                  onChange={handleChange}
+                ></input>
               </div>
             </div>
-          </div>
+                <div className="crearProducto-button-container">
+                  <button
+                    onClick={() => handleIndex(2)}
+                    className="crearProducto-button"
+                  >
+                    Confirmar
+                  </button>
+                </div>
+              </div>
         ) : index === 2 ? (
-          <div className="crearProducto-main-container">
+          <div className="crearProducto-first-container">
             {" "}
-            <div className="">
-              <div className="h-min-96 rounded-xl ">
-                <div className="crearProducto-foto-container">
+                <div className="crearProducto-container">
                   <h4 className="crearProducto-title">
                     Foto del producto
                   </h4>
                   <div className=" mt-5  flex flex-col justify-start items-center      w-inherit">
-                    <div className="flex flex-between">
+                    <div className="crearProducto-foto-info-container">
                     <div>
                       <input
                         type="file"
@@ -291,13 +286,9 @@ export default function CrearProducto () {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         ) : index === 3 ? (
-          <div className="crearProducto-main-container">
+          <div className="crearProducto-first-container">
             {" "}
-            <div className="">
-              <div className="h-min-96 rounded-xl ">
                 <div className="crearProducto-codigo-container">
                   <div>
                     <h4 className="crearProducto-title">
@@ -349,14 +340,10 @@ export default function CrearProducto () {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         ) : index === 4 ? (
-          <div className="crearProducto-main-container">
+          <div className="crearProducto-first-container">
             {" "}
-            <div className="">
-              <div className="h-min-96 rounded-xl ">
-                <div className="crearProducto-stock-container">
+                <div className="crearProducto-container">
                   <h4 className="crearProducto-title">
                     Stock y código de identificación (SKU)
                   </h4>
@@ -365,9 +352,9 @@ export default function CrearProducto () {
                     interno para identificar tu producto.
                   </p>
                   <div className=" mt-5  flex flex-col justify-start items-center  w-inherit">
-                    <div className="flex flex-evenly">
+                    <div className="crearProducto-stock-inputs-container">
                       <input
-                      style={{width: "300px"}}
+                      style={{marginBottom: "0"}}
                         type="text"
                         className="crearProducto-input"
                         value={input.stock}
@@ -375,17 +362,15 @@ export default function CrearProducto () {
                         placeholder="unidad"
                         onChange={handleChange}
                       />
-                      <div className="flex flex-evenly items-center ml-5">
                         <input
                           type="text"
                           className="crearProducto-input"
-                          style={{width: "300px"}}
+                          style={{marginBottom: "0"}}
                           value={input.SKU}
                           name="SKU"
                           placeholder="código de identificación"
                           onChange={handleChange}
                         />
-                      </div>
                     </div>
                     <p className="crearProducto-instruction" style={{marginTop: "0"}}>
                       Tiene entre 8 y 14 números, sin letras. Los más usuales
@@ -408,16 +393,12 @@ export default function CrearProducto () {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         ) : index === 5 ? (
-          <div className="w-[99vw] flex justify-center items-start pt-10 bg-[#f8f3e0] pb-10">
+          <div className="crearProducto-first-container">
             {" "}
-            <div className=" ">
-              <div className="h-min-96 rounded-xl ">
                 <div className="crearProducto-container">
                   <h4 className="crearProducto-title">
-                    Para terminar, definamos<br/> las condiciones de venta
+                    Para terminar, definamos las condiciones de venta
                   </h4>
                   <div className=" mt-5  flex flex-col justify-start items-start  w-inherit">
                     <label htmlFor="" className="crearProducto-label">Precio</label>
@@ -484,25 +465,23 @@ export default function CrearProducto () {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         ) : index === 6 ? (
           <div className="crearProducto-main-container">
             {" "}
-            <div className="crearProducto-main-container">
-              <div className="h-min-96 rounded-xl ">
                 <div className="crearProducto-post-container">
                   <div className="crearProducto-post">
-                    <h4 className="crearProducto-product-name">
-                      {input.nombre}
-                    </h4>
+                    <div>
+                      <h4 className="crearProducto-product-name">
+                        {input.nombre}
+                      </h4>
+                      <div>
+                        <p className="crearProducto-foto-text01">Marca: <span style={{fontFamily: "thin"}}>{input.marca}</span> </p>
+                        <p className="crearProducto-foto-text01">Modelo: <span style={{fontFamily: "thin"}}> {input.modelo}</span></p>
+                        <p className="crearProducto-foto-text01">Color: <span style={{fontFamily: "thin"}}>{input.color}</span></p>
+                      </div>
+                    </div>
                     <h4 className="crearProducto-product-name">${input.precio}</h4>
                   </div>
-                    <div>
-                      <p className="crearProducto-foto-text01">Marca: <span style={{fontFamily: "thin"}}>{input.marca}</span> </p>
-                      <p className="crearProducto-foto-text01">Modelo: <span style={{fontFamily: "thin"}}> {input.modelo}</span></p>
-                      <p className="crearProducto-foto-text01">Color: <span style={{fontFamily: "thin"}}>{input.color}</span></p>
-                    </div>
                     <div className="resumen-divider"></div>
                     <div className="crearProducto-foto-buttonContainer ">
                       <button
@@ -521,8 +500,6 @@ export default function CrearProducto () {
                   
                 </div>
               </div>
-            </div>
-          </div>
         ) : (
           ""
         )}

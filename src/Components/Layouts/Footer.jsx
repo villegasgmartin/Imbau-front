@@ -2,7 +2,7 @@ import { AiOutlineFacebook } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { AiOutlineYoutube } from 'react-icons/ai';
 import logo from '../../assets/Isotipo crema.png'
-import "../Styles/Footer.css"
+import "../Styles/Layouts/Footer.css"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';

@@ -1,0 +1,111 @@
+/*Contenedor principal*/
+.prestadorHeader-main-container{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    height: 500px;
+    background-color: #EA8C06;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*Contenedor de información*/
+.prestadorHeader-container{
+    background-color: #FFFFFF;
+    height: 60%;
+    border-radius: 20px;
+}
+
+/*Contenedor de botones*/
+.prestadorHeader-button-container{
+    display: flex;
+    justify-content: end;
+    padding-top: 50px;
+    padding-right: 100px;
+    gap: 50px;
+}
+
+/*Botones*/
+.prestadorHeader-button{
+    font-family: "regular";
+    font-size: 22px !important;
+    color: #065D4A;
+    background-color: rgba(6, 93, 74, 0.2);
+    padding: 10px 40px 7px 40px;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto hover */
+.prestadorHeader-button:hover {
+    background-color: #065D4A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(6, 93, 74, 0.5);
+}
+
+/* Efecto al hacer click */
+.prestadorHeader-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(6, 93, 74, 0.5);
+    background-color: rgba(6, 93, 74, 0.8);
+}
+
+/*Contenedor de información abajo*/
+.prestadorHeader-info-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-top: 30px;
+}
+
+/*Contenedor de nombre y lugar de estudios*/
+.prestadorHeader-first-container{
+    display: flex;
+    align-items: center;
+    gap: 300px
+}
+
+/*Contenedor de nombre con estrellas*/
+.prestadorHeader-name-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/*Nombre*/
+.presatadorHeader-name{
+    font-family: "regular";
+    font-size: 40px !important;
+    color: #06023D;
+}
+
+/*Contenedor de ícono y lugar de estudios*/
+.prestadorHeader-study-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/*Lugar de estudios*/
+.prestadorHeader-study{
+    font-family: "inter";
+    color: #06023D;
+    font-size: 22px !important;
+    width: 250px;
+    line-height: normal;
+}
+
+/*Profesión*/
+.prestadorHeader-profesion{
+    font-family: "regular";
+    color: #EA8C06;
+    font-size: 30px !important;
+}
+
+/*Ciudad*/
+.prestadorHeader-adress{
+    font-family: "inter";
+    color: #9A9A9A;
+}

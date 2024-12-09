@@ -1,4 +1,4 @@
-import "../Styles/Promotions.css"
+import "../Styles/Home/Promotions.css"
 
 export default function Promotions() {
 	return (

@@ -8,8 +8,8 @@ import CardProducto from "../Home/CardProducto";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-import "../Styles/IdProduct.css"
+import { Autoplay, Pagination } from 'swiper/modules';
+import "../Styles/Layouts/IdProduct.css"
 import VisaIcon from "../../assets/PaymentIcons/visa.png"
 import AmericanExpressIcon from "../../assets/PaymentIcons/american-express.png"
 import MasterCardIcon from "../../assets/PaymentIcons/master-card.png"
@@ -141,20 +141,31 @@ const handleAddToCart = (product) => {
           <h1 className="idProduct-sliders-titles">Productos relacionados</h1>
           <div className="idProduct-slider-container">
             <Swiper
-              modules={[Pagination]}
-              pagination={{ clickable: true }}
-              spaceBetween={0}
+              modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
+              pagination={{ clickable: true }} // Activa la paginación con puntos clicables
+              spaceBetween={10} // Reduce el espacio entre tarjetas
+              slidesPerView={4} // Siempre muestra 4 tarjetas visibles
+              centeredSlides={true} // Centra las tarjetas en la pantalla
+              loop={true} // Hace que el carrusel sea infinito
+              autoplay={{
+                delay: 3000, 
+                disableOnInteraction: false,
+            }}
+              speed={1000}
               breakpoints={{
-                640: {
+                320: {
                   slidesPerView: 1,
                 },
-                768: {
+                810: {
                   slidesPerView: 2,
+                  centeredSlides: false
                 },
-                1024: {
+                1230: {
                   slidesPerView: 3,
                 },
               }}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
             >
               {products.map((producto) => (
                 <SwiperSlide key={producto._id}>
@@ -166,21 +177,32 @@ const handleAddToCart = (product) => {
           <div className="productId-divider"></div>
           <h1 className="idProduct-sliders-titles">Otros productos del vendedor</h1>
           <div className="idProduct-slider-container"> 
-              <Swiper
-              modules={[Pagination]}
-              pagination={{ clickable: true }}
-              spaceBetween={0}
+            <Swiper
+              modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
+              pagination={{ clickable: true }} // Activa la paginación con puntos clicables
+              spaceBetween={10} // Reduce el espacio entre tarjetas
+              slidesPerView={4} // Siempre muestra 4 tarjetas visibles
+              centeredSlides={true} // Centra las tarjetas en la pantalla
+              loop={true} // Hace que el carrusel sea infinito
+              autoplay={{
+                delay: 3000, 
+                disableOnInteraction: false,
+            }}
+              speed={1000}
               breakpoints={{
-                640: {
+                320: {
                   slidesPerView: 1,
                 },
-                768: {
+                810: {
                   slidesPerView: 2,
+                  centeredSlides: false
                 },
-                1024: {
+                1230: {
                   slidesPerView: 3,
                 },
               }}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
             >
               {products.map((producto) => (
                 <SwiperSlide key={producto._id}>

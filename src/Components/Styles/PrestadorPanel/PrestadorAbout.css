@@ -1,0 +1,42 @@
+/*Contenedor principañ*/
+.prestadorAbout-container{
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    width: 70%;
+    margin: auto;
+    background-color: #FFFFFF;
+    height: 700px;
+    border-radius: 20px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*Título*/
+.prestadorAbout-title{
+    font-family: "regular";
+    font-size: 40px !important;
+    color: #06023D;
+}
+
+/*Subtítulo*/
+.prestadorAbout-subTitle{
+    font-family: "regular";
+    color: #EA8C06;
+    font-size: 30px !important;
+}
+
+/*Años de experiencia*/
+.prestadorAbout-years{
+    font-family: "regular";
+    color: #06023D;
+    font-size: 22px !important;
+}
+
+/*Información*/
+.prestadorAbout-text{
+    color: #5B5B5B;
+    font-family: "regular";
+    text-align: left;
+    font-size: 22px !important;
+}

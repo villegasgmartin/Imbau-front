@@ -3,10 +3,11 @@ import PrestadorAbout from "./PrestadorAbout";
 import PrestadorActivity from "./PrestadorActivity";
 import PrestadorHeader from "./PrestadorHeader";
 import PrestadorReviews from "./PrestadorReviews";
+import "../Styles/PrestadorPanel/PrestadorPanel.css"
 
 export default function PrestadorPanel () {
     return(
-        <div className="bg-[#f8f3e0]">
+        <div className="prestador-main-container">
 				<NavBar />
 				<PrestadorHeader />
 				<PrestadorAbout />
