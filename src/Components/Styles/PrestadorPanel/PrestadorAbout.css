@@ -2,6 +2,7 @@
 .prestadorAbout-container{
     display: flex;
     flex-direction: column;
+    gap: 5px;
     padding: 100px;
     width: 70%;
     margin: auto;
@@ -15,7 +16,7 @@
 /*Título*/
 .prestadorAbout-title{
     font-family: "regular";
-    font-size: 40px !important;
+    font-size: 30px !important;
     color: #06023D;
 }
 
@@ -23,14 +24,14 @@
 .prestadorAbout-subTitle{
     font-family: "regular";
     color: #EA8C06;
-    font-size: 30px !important;
+    font-size: 25px !important;
 }
 
 /*Años de experiencia*/
 .prestadorAbout-years{
     font-family: "regular";
     color: #06023D;
-    font-size: 22px !important;
+    font-size: 20px !important;
 }
 
 /*Información*/
@@ -38,5 +39,47 @@
     color: #5B5B5B;
     font-family: "regular";
     text-align: left;
-    font-size: 22px !important;
+    font-size: 18px !important;
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1500px){
+    .prestadorAbout-container{
+        width: 80%;
+    }
+}
+
+@media (max-width: 1100px){
+    .prestadorAbout-container{
+        padding: 70px;
+        height: auto;
+    }
+}
+
+@media (max-width: 800px){
+    .prestadorAbout-container{
+        padding: 50px;
+    }
+}
+
+@media (max-width: 639px){
+    .prestadorAbout-container{
+        width: 90%;
+        margin-top: 30px;
+        padding: 35px;
+        gap: 0;
+    }
+    .prestadorAbout-title{
+        font-size: 25px !important;
+    }
+    .prestadorAbout-subTitle{
+        font-size: 20px !important;
+    }
+    .prestadorAbout-years{
+        font-size: 18px !important;
+    }
+    .prestadorAbout-text{
+        font-size: 16px !important;
+    }
 }

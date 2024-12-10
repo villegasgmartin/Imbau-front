@@ -7,6 +7,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/actions';
 import "../Styles/Home/Slider.css"
+import { Fade } from 'react-awesome-reveal';
 
 
 const Slider = () => {
@@ -20,6 +21,7 @@ const Slider = () => {
 
   return (
     <div className="slider-main-container">
+      <Fade triggerOnce={true} duration={800} delay={300}>
       <div className="slider-title-container">
         <h2 className="slider-title">
           Productos destacados
@@ -71,6 +73,7 @@ const Slider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </Fade>
       </div>
   );
 };

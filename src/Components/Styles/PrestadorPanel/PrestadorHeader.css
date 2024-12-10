@@ -16,24 +16,35 @@
     background-color: #FFFFFF;
     height: 60%;
     border-radius: 20px;
+    padding: 50px 100px 30px 100px ;
+}
+
+/*Imágen de perfil*/
+.prestadorHeader-logo-profile{
+    position: absolute;
+    top: 320px;
+    left: 19%;
+    width: 180px;
+    border-radius: 50%;
+    background-color: #F8F3E0;
 }
 
 /*Contenedor de botones*/
 .prestadorHeader-button-container{
     display: flex;
     justify-content: end;
-    padding-top: 50px;
-    padding-right: 100px;
-    gap: 50px;
+    gap: 30px;
 }
 
 /*Botones*/
 .prestadorHeader-button{
     font-family: "regular";
-    font-size: 22px !important;
+    font-size: 18px !important;
     color: #065D4A;
     background-color: rgba(6, 93, 74, 0.2);
-    padding: 10px 40px 7px 40px;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    width: 240px;
     border-radius: 20px;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
@@ -56,15 +67,14 @@
 .prestadorHeader-info-container{
     display: flex;
     flex-direction: column;
-    padding-left: 100px;
-    padding-top: 30px;
 }
 
 /*Contenedor de nombre y lugar de estudios*/
 .prestadorHeader-first-container{
     display: flex;
     align-items: center;
-    gap: 300px
+    justify-content: space-between;
+    padding-top: 30px;
 }
 
 /*Contenedor de nombre con estrellas*/
@@ -77,7 +87,7 @@
 /*Nombre*/
 .presatadorHeader-name{
     font-family: "regular";
-    font-size: 40px !important;
+    font-size: 30px !important;
     color: #06023D;
 }
 
@@ -92,8 +102,8 @@
 .prestadorHeader-study{
     font-family: "inter";
     color: #06023D;
-    font-size: 22px !important;
-    width: 250px;
+    font-size: 20px !important;
+    width: 230px;
     line-height: normal;
 }
 
@@ -101,11 +111,101 @@
 .prestadorHeader-profesion{
     font-family: "regular";
     color: #EA8C06;
-    font-size: 30px !important;
+    font-size: 25px !important;
 }
 
 /*Ciudad*/
 .prestadorHeader-adress{
     font-family: "inter";
     color: #9A9A9A;
+    font-size: 16px !important;
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1500px){
+    .prestadorHeader-main-container{
+        width: 80%;
+    }
+}
+
+@media (max-width: 1300px){
+    .prestadorHeader-button-container{
+        flex-direction: column;
+        align-items: end;
+        gap: 10px;
+    }
+    .prestadorHeader-container{
+        height: auto;
+        padding:  20px 80px 40px 80px;
+    }
+}
+
+
+@media (max-width: 1100px){
+    .prestadorHeader-container{
+        padding:  20px 70px 40px 70px;
+    }
+}
+
+@media (max-width: 860px){
+    .prestadorHeader-first-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+    .prestadorHeader-logo-profile{
+        top: 280px;
+        left: 16%;
+    }
+}
+
+@media (max-width: 800px){
+    .prestadorHeader-container{
+        padding:  20px 50px 30px 50px;
+    }
+}
+
+@media (max-width: 639px){
+    .prestadorHeader-main-container{
+        width: 90%;
+        margin-top: 4rem;
+    }
+    .prestadorHeader-container{
+        padding:  60px 35px 20px 35px;;
+    }
+    .prestadorHeader-first-container{
+        padding-top: 15px;
+    }
+    .presatadorHeader-name{
+        font-size: 25px !important;
+    }
+    .prestadorHeader-study-container{
+        gap: 5px;
+    }
+    .prestadorHeader-study{
+        font-size: 18px !important;
+        width: 100%;
+    }
+    .prestadorHeader-profesion{
+        font-size: 20px !important;
+    }
+    .prestadorHeader-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .prestadorHeader-button-container{
+        width: 100%;
+    }
+    .prestadorHeader-button{
+        width: 100%;
+    }
+    .prestadorHeader-logo-profile{
+        width: 160px;
+        top: 170px;
+        left: 50%; 
+        transform: translateX(-50%);
+    }
 }

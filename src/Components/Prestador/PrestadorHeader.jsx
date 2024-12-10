@@ -10,7 +10,7 @@ export default function PrestadorHeader () {
 					<img
 						src={perfil}
 						alt=""
-						className="absolute top-[25%] left-[19%] w-[200px] rounded-full bg-[#F8F3E0]"
+						className="prestadorHeader-logo-profile"
 					/>
 					<div className="prestadorHeader-button-container">
 						<button className="prestadorHeader-button">
@@ -27,8 +27,8 @@ export default function PrestadorHeader () {
 								<div><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/><StarIcon style={{color: "#EA8C06", paddingBottom: "3px"}}/></div>
 							</div>
 							<div className='prestadorHeader-study-container'>
-								<SquareIcon sx={{color: "#9D0572", fontSize: "60px"}}/>
-								<h3 className='prestadorHeader-study'>Univerdsidad Nacional de Rosario</h3>
+								<SquareIcon sx={{color: "#9D0572", fontSize: { xs: "20px", sm: "45px" }}}/>
+								<h3 className='prestadorHeader-study'>Universidad Nacional de Rosario</h3>
 							</div>
 						</div>
 						<h3 className="prestadorHeader-profesion">Profesión</h3>

@@ -16,6 +16,7 @@ import 'swiper/css/pagination'; // Importa los estilos de la paginación
 import { Autoplay, Pagination } from 'swiper/modules';
 import "../Styles/Layouts/AllProducts.css"
 import image from '../../assets/Lavarropa-edited.png'
+import { Fade } from "react-awesome-reveal";
 
 
 export default function AllProducts () {
@@ -36,6 +37,11 @@ export default function AllProducts () {
   const products2 = useSelector((state) => state.allProducts2);
   const categorias = useSelector((state) => state.categorias.categorias)
   console.log(categorias, 'cate')
+
+  const handleCategoryChange = (event) => {
+    const value = event.target.value;
+    setSelectedCategory(value === "all" ? null : value);
+  };
 
 
   const filteredProducts = selectedCategory
@@ -61,11 +67,6 @@ export default function AllProducts () {
 					<h1 className="allProducts-searchTitle">
 						¿Qué producto buscás?
 					</h1>
-					<div className="allProducts-searchContainer">
-						<input type="text" placeholder="Nombre del producto"  className="allProducts-input"/>
-						<input type="text" placeholder="Categoría del producto" className="allProducts-input" />
-						<button className="allProducts-button">Buscar</button>
-					</div>
 					<div className="allProducts-imageContainer">
             <img src={image} alt="" width={"100%"}/>
           </div>
@@ -100,6 +101,23 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
+
+        {/*Select para elegir las categorías en mobile*/}
+        <div className="allProducts-select-container">
+          <select
+            className="allProducts-select"
+            onChange={handleCategoryChange}
+            value={selectedCategory || "all"}
+          >
+            <option value="all">Todos</option>
+            {categorias?.map((c, index) => (
+              <option key={index} value={c.categoria}>
+                {c.categoria}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="slider-main-container" style={{backgroundColor: "white"}}>
         <Swiper
           modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
@@ -145,9 +163,11 @@ export default function AllProducts () {
             ))}
           </Swiper>
         </div>
-        <div className="allProducts-banner-container">
-          <img src={banner1} alt="publicidad" className="allProducts-banner"/>
-        </div>
+        <Fade triggerOnce={true} duration={800} delay={300}>
+          <div className="allProducts-banner-container">
+            <img src={banner1} alt="publicidad" className="allProducts-banner"/>
+          </div>
+        </Fade>
 
         <h3 className="allProducts-subtitles">
           Los más vendidos
@@ -179,6 +199,23 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
+
+        {/*Select para elegir las categorías en mobile*/}
+        <div className="allProducts-select-container">
+          <select
+            className="allProducts-select"
+            onChange={handleCategoryChange}
+            value={selectedCategory || "all"}
+          >
+            <option value="all">Todos</option>
+            {categorias?.map((c, index) => (
+              <option key={index} value={c.categoria}>
+                {c.categoria}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="slider-main-container" style={{backgroundColor: "white"}}>
           <Swiper
             modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
@@ -224,9 +261,11 @@ export default function AllProducts () {
             ))}
           </Swiper>
         </div>
-        <div className="allProducts-banner-container">
-          <img src={banner2} alt="publicidad" className="allProducts-banner"/>
-        </div>
+        <Fade triggerOnce={true} duration={800} delay={300}>
+          <div className="allProducts-banner-container">
+            <img src={banner2} alt="publicidad" className="allProducts-banner"/>
+          </div>
+        </Fade>
         <h3 className="allProducts-subtitles">
           Puede interesarte según tus búsquedas
         </h3>
@@ -257,6 +296,23 @@ export default function AllProducts () {
             Todos
           </button>
         </div>
+
+        {/*Select para elegir las categorías en mobile*/}
+        <div className="allProducts-select-container">
+          <select
+            className="allProducts-select"
+            onChange={handleCategoryChange}
+            value={selectedCategory || "all"}
+          >
+            <option value="all">Todos</option>
+            {categorias?.map((c, index) => (
+              <option key={index} value={c.categoria}>
+                {c.categoria}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="slider-main-container" style={{backgroundColor: "white"}}>
           <Swiper
             modules={[Pagination, Autoplay]} // Incluye el módulo de paginación
@@ -302,9 +358,11 @@ export default function AllProducts () {
             ))}
           </Swiper>
         </div>
-        <div className="allProducts-banner-container" style={{marginBottom: "8%"}}>
-          <img src={banner3} alt="publicidad" className="allProducts-banner"/>
-        </div>
+        <Fade triggerOnce={true} duration={800} delay={300}>
+          <div className="allProducts-banner-container" style={{marginBottom: "8%"}}>
+            <img src={banner3} alt="publicidad" className="allProducts-banner"/>
+          </div>
+        </Fade>
       </div>
 
     );

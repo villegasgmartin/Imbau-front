@@ -1,15 +1,19 @@
 import "../Styles/Home/Promotions.css"
+import { Fade } from 'react-awesome-reveal';
 
 export default function Promotions() {
 	return (
 		<div className="promotions-main-container">
+			<Fade  triggerOnce={true} duration={800} delay={300}>
 			<div className="promotions-title-container">
 				<h2 className="promotions-title">Promociones bancarias</h2>
 				{/* <a href="/" className="text-sky-400 hover:underline text-2xl ">
 					ver mas
 				</a> */}
 			</div>
+			</Fade>
 			<div className="promotions-cards-container">
+				<Fade triggerOnce={true} duration={800} delay={300} cascade={true}>
 				<li className="h-80 w-60 bg-white ml-15 mr-15 list-none border-2 border-[#D9D9D9] rounded-[20px]">
 					<div className="promotions-day" style={{backgroundColor: "#06023D"}}>
 						LUNES
@@ -58,6 +62,7 @@ export default function Promotions() {
 						</h4>
 					</div>
 				</li>
+				</Fade>
 			</div>
 			<div className="flex flex-col sm:hidden ">
 				<div className="flex justify-evenly mb-6">

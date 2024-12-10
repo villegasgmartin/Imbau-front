@@ -15,11 +15,27 @@
 /*Título*/
 .reseñas-title{
     font-family: "regular";
-    font-size: 40px !important;
+    font-size: 30px !important;
 }
 
 /*Texto de aviso*/
 .reseñas-empty{
     font-family: "regular";
     color: #9A9A9A;
+}
+
+/*-------Media Queries--------*/
+
+@media (max-width: 1500px){
+    .reseñas-container{
+        width: 80%;
+    }
+}
+
+@media (max-width: 639px){
+    .reseñas-container{
+        width: 90%;
+        flex-direction: column;
+        margin-top: 30px;
+    }
 }
