@@ -1,4 +1,5 @@
-const url = 'http://localhost:8080';
+// const url = 'http://localhost:8080';
+const url = 'https://imbau-back-production.up.railway.app' 
 import axios from 'axios';
 
 export const REGISTER = 'REGISTER'
@@ -476,7 +477,7 @@ export function postCategoria(payload) {
         })
         .then((response) => {
           return dispatch({
-            type: POST_CATEGORIA,
+            type: POST_CATEGORIAS,
             payload: response.data,
           });
         });
@@ -505,7 +506,7 @@ export function postSubcategoria(categoria, payload) {
         )
         .then((response) => {
           return dispatch({
-            type: POST_SUBCATEGORIA,
+            type: POST_SUBCATEGORIAS,
             payload: response.data,
           });
         });
