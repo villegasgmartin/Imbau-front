@@ -1,0 +1,302 @@
+/* Contenedor principal */
+.chat-container {
+    display: flex;
+    min-height: 600px; /* Ocupa toda la ventana */
+    justify-content: center;
+    padding-top: 150px;
+    margin-bottom: 100px;
+  }
+  
+  /* Barra lateral */
+  .chat-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: #000;
+    color: #fff;
+    width: 313px; /* Tamaño fijo para la barra lateral */
+    height: inherit ; /* Asegura que la altura coincida con la ventana */
+  }
+  
+  /* Área principal del chat */
+  .chat {
+    width: 1079px;
+    height: inherit;
+    background-color: #161616;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* Evita que elementos desborden */
+    border-radius: 40px  ;
+  }
+  
+  /* Área de mensajes */
+  .chat-messages {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    overflow-y: auto; /* Habilita scroll si los mensajes exceden el espacio */
+    padding: 10px;
+    color: #fff;
+    max-height: 530px;
+  }
+  
+  /* Estilo para los chats de usuario */
+  .user-chat {
+    width: 313px;
+    height: 71px;
+    padding: 10px;
+  }
+  
+  /* Enviar mensaje */
+  .send-chat {
+    width: 794px;
+    height: 50px;
+    border: solid 1px #fff;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centra el contenido verticalmente */
+    position: absolute;
+    bottom: 0; /* Siempre está al final del contenedor */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Ajusta el centro */
+    background-color: #161616; /* Fondo consistente */
+    margin-bottom: 50px;
+  }
+  
+  .send-chat input {
+    flex: 1; /* Ocupa todo el espacio restante */
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .send-chat button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #161616;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .send-chat button:hover {
+    background-color: #71219E
+  }
+  
+/*chat*/
+.chat-container {
+    display: flex;
+  }
+  
+  .chat-sidebar {
+    width: 250px;
+    border-right: 1px solid #ddd;
+    min-height: 600px;
+    overflow-y: scroll;
+    padding: 20px;
+  }
+  
+  .chat-item {
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .chat-item:hover,
+  .chat-item.active {
+    background-color: #A832EA;
+  }
+  
+  .chat-main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  
+  .mensaje {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .sent {
+    background-color: #000;
+    align-self: flex-end;
+  }
+  
+  .received {
+    background-color: #AC32F0;
+  }
+  
+  .chat-input {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+   color:#000
+  }
+  
+  .chat-input button {
+    padding: 10px 15px;
+    background-color: #AC32F0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .chat-input button:hover {
+    background-color: #71219E;
+  }
+  
+  .mensaje-confirmacion {
+    margin-top: 20px;
+    color: red;
+  }
+  
+  .chat-container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .chat-sidebar {
+    width: 30%;
+    padding: 1rem;
+  }
+  
+  .chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-item {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .chat-item.active {
+    background: #71219E;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #f9f9f9;
+  }
+  
+  .mensaje {
+    margin: 0.5rem 0;
+  }
+  
+  .mensaje.sent {
+    text-align: right;
+  }
+  
+  .mensaje.received {
+    text-align: left;
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 0.5rem;
+    border-top: 1px solid #ccc;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 0.5rem;
+  }
+  
+  .chat-input button, .btn-ver-chats {
+    padding: 0.5rem 1rem;
+    background: #ac33f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  
+  .chat-item{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #A832EA;
+  }
+  .chat-item p{
+    line-height: 40px;
+    text-align: center;
+  }
+  .chat-messages p{
+    color:#fff;
+  }
+  .btn-ver-container{
+    display: none;
+  }
+  
+  @media only screen and (max-width:768px){
+    .chat-container{
+        display: block;
+        margin-bottom: 50px;
+    }
+    .chat-sidebar{
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+    .chat-sidebar.hidden{
+        display: none;
+    }
+    .chat-sidebar.visible{
+        display: block;
+    }
+    .btn-ver-chats{
+        width: 90%;
+        height: 50px;
+        }
+    .btn-ver-container{
+        text-align: center;
+        display: block;
+    }
+    
+  }
+  .title-chat h3{
+    color:#fff;
+    font-size:20px;
+    text-transform: uppercase;
+    text-align: center;
+    color:#ac33f1
+  }
+  .chat-item{
+    display: flex;
+    justify-content: space-between
+  }
+  .delete-chat-btn{
+    background: transparent;
+    border:0px;
+  }
+  .delete-chat-btn:hover{
+    background-color:#fff;
+    color:#ac33f1!important;
+    padding: 0 10px;
+    border-radius: 10px;
+  }
