@@ -11,6 +11,7 @@ import {
   GET_ALL_PRODUCTS1,
   GET_ALL_PRODUCTS2,
   GET_PRODUCT_BY_ID,
+  GET_SERVICE_BY_ID,
   GET_ALL_SERVICES,
   ADD_TO_CART,
   REMOVE_FROM_CART,
@@ -30,6 +31,7 @@ let initialState = {
   allProducts2:[],
   allServices: [],
   productById: {},
+  serviceById: {},
   cartItems: [],
   buymplink: null,
   comprasPorUsuario: [],
@@ -82,6 +84,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         productById: action.payload,
+      };
+    case GET_SERVICE_BY_ID:
+      return {
+        ...state,
+        serviceById: action.payload,
       };
 
     case GET_ALL_SERVICES:

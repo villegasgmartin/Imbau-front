@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
-export default function ServiceHomeCard(props) {
+export default function ServiceHomeCard(props) {		
 	return (
 		<div className="flex flex-col mt-10">			
-				{/* <div className="flex sm:justify-evenly flex-col sm:flex-row">
+				<div className="flex sm:justify-evenly flex-col sm:flex-row">
 					<h5 className="w-fit bg-orange-400 rounded-lg regular ml-6 m-0 sm:ml-0 sm:pl-4 sm:pr-4 px-4 ">
 						{props.categoria}
 					</h5>
@@ -16,7 +16,7 @@ export default function ServiceHomeCard(props) {
 						<h4 className="color-main bold w-max text-2xl bold	">
 							{props.nombre} 
 						</h4>
-						<a href="" className="text-sky-400 thin ">
+						<a href={`/servicio/${props.uid}`} className="text-sky-400 thin ">
 							Ver perfil
 						</a>
 					</div>
@@ -27,7 +27,7 @@ export default function ServiceHomeCard(props) {
 
 					<p className="text-gray-400 mt-2">{props.provincia} - {props.ciudad}</p>
 					<p className="text-gray-400 mt-2">{props.sobremi}</p>
-				</div>			 */}
+				</div>			
 				
 		</div>
 	);

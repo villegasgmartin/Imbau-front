@@ -14,6 +14,7 @@ export const GET_ALL_PRODUCTS1 = "GET_ALL_PRODUCTS1";
 export const GET_ALL_PRODUCTS2 = "GET_ALL_PRODUCTS2";
 export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
+export const GET_SERVICE_BY_ID = 'GET_SERVICE_BY_ID'
 export const POST_PRODUCTO = 'POST_PRODUCTO'
 export const POST_SERVICE = 'POST_SERVICE'
 export const DELETE_USER = 'DELETE_USER'
@@ -204,6 +205,20 @@ export function getProductById(id){
 			
 		}
 	}
+}
+
+export function getServiceById(id) {
+  return async function (dispatch) {
+    try {
+      const info = await axios.get(`${url}/api/products/servicio?id=${id}`);
+      return dispatch({
+        type: GET_SERVICE_BY_ID,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 // Funcion para obtener todos los productos
 export function getAllServices() {
