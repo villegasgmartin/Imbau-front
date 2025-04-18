@@ -28,6 +28,7 @@ import EspacioPublicitario from './Components/Admin/EspacioPublicitario';
 import PromocionesBancarias from './Components/Admin/PromocionesBancarias';
 import MisCompras from './Components/Layouts/MisCompras';
 import MisContrataciones from './Components/Layouts/MisContrataciones';
+import IdService from './Components/Layouts/IdService';
 
 
 
@@ -42,6 +43,8 @@ function App() {
           <Route path="/products" element={<AllProducts />} />
           <Route exact path="/products/:id" element={<IdProduct />} />
           <Route path="/servicios" element={<AllServices />} />
+          <Route path="/servicio/:id" element={<IdService />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/email-login" element={<EmailLogin />} />
           {/* Rutas para el registro  */}

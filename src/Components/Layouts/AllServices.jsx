@@ -4,13 +4,16 @@ import 'swiper/css';
 import 'swiper/css/pagination'; // Importa los estilos de la paginación
 import { Pagination } from 'swiper/modules';
 import image from '../../assets/Mujer.png'
-
+import { Fade } from "react-awesome-reveal";
 import perfImg from '../../assets/perfil.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllServices } from '../../../redux/actions';
 import ServiceHomeCard from '../Home/ServiceHomeCard';
 import banner from '../../assets/banner-01.jpg'
 import NavBar from './NavBar';
+import banner1 from "../../assets/banner-01.jpg";
+import banner2 from "../../assets/banner-02.jpg";
+import banner3 from "../../assets/banner-03.jpg";
 
 
 export default function ServiceSlider() {
@@ -24,7 +27,7 @@ const services = useSelector((state) => state.allServices)
 	return (
     <div className="sm:h-max sm:relative sm:max-w-[100vw] sm:overflow-x-scroll ">
       <NavBar />
-      {/* <div className="flex justify-evenly items-center bg-[#f8f3e0]">
+      <div className="flex justify-evenly items-center bg-[#f8f3e0]">
 					<h1 className="text-3xl text-[#06023D] bold">
 						¿Que  <br /> servicio <br /> buscas?
 					</h1>
@@ -59,6 +62,7 @@ const services = useSelector((state) => state.allServices)
           {services.map((p) => (
             <SwiperSlide key={p.uid}>
              <ServiceHomeCard						
+            uid={p.uid}
 						nombre={p.usuario?.nombre}
 						experiencia={p.usuario?.experiencia}
 						provincia={p.Provicia}
@@ -69,90 +73,18 @@ const services = useSelector((state) => state.allServices)
             </SwiperSlide>
           ))}
         </Swiper>
-        <img src={banner2} alt="" className="w-[100vw] mt-10"/>
-        <h3 className="ml-10 mt-20 text-3xl text-[#06023D] bold">Recomendaciones segun <br/> tus busquedas</h3>   
-        <Swiper
-          modules={[Pagination]} // Incluye el módulo de paginación
-          pagination={{ clickable: true }} // Activa la paginación con puntos clicables
-          spaceBetween={50}
-        //   slidesPerView={4}
-          breakpoints={{
-            640: {
-              slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
-            },
-            768: {
-              slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
-            },
-            1024: {
-              slidesPerView: 4, // 4 tarjetas visibles en pantallas grandes
-            },
-          }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
-		 
-        >
-          {services.map((p) => (
-            <SwiperSlide key={p.uid}>
-             <ServiceHomeCard						
-						nombre={p.usuario?.nombre}
-						experiencia={p.usuario?.experiencia}
-						provincia={p.Provicia}
-						ciudad={p.Ciudad}
-						sobremi={p.usuario?.sobremi}
-						categoria={p.rubro}			
-								/>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <img src={banner2} alt="" className="w-[100vw] mt-10"/>
-        <h3 className="ml-10 mt-20 text-3xl text-[#06023D] bold">Quizas pueda<br/> interesarte</h3>   
-        <Swiper
-          modules={[Pagination]} // Incluye el módulo de paginación
-          pagination={{ clickable: true }} // Activa la paginación con puntos clicables
-          spaceBetween={50}
-        //   slidesPerView={4}
-          breakpoints={{
-            640: {
-              slidesPerView: 1, // 1 tarjeta visible en pantallas pequeñas
-            },
-            768: {
-              slidesPerView: 2, // 2 tarjetas visibles en pantallas medianas
-            },
-            1024: {
-              slidesPerView: 4, // 4 tarjetas visibles en pantallas grandes
-            },
-          }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
-		 
-        >
-          {services.map((p) => (
-            <SwiperSlide key={p.uid}>
-             <ServiceHomeCard						
-						nombre={p.usuario?.nombre}
-						experiencia={p.usuario?.experiencia}
-						provincia={p.Provicia}
-						ciudad={p.Ciudad}
-						sobremi={p.usuario?.sobremi}
-						categoria={p.rubro}			
-								/>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+         <Fade triggerOnce={true} duration={800} delay={300}>
+               <div className="allProducts-banner-container">
+                 <img src={banner1} alt="publicidad" className="allProducts-banner"/>
+               </div>
+             </Fade>
+
+
+      
         <img src={banner} alt="" className="w-[100vw] mt-10"/>
         
-				 */}
-      <div className="h-[80vh] flex flex-col justify-evenly items-center">
-        <h1 className='mt-32'>Web en desarrollo</h1>
-        <button>
-          <a
-            href="/"
-            className="border-2 border-solid border-green-400 rounded-xl p-2 mt-20 hover:bg-green-400 hover:text-white mt-20"
-          >
-            Volver al inicio
-          </a>
-        </button>
-      </div>
+				
+
     </div>
   );
 }
