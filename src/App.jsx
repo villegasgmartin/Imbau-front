@@ -29,6 +29,8 @@ import PromocionesBancarias from './Components/Admin/PromocionesBancarias';
 import MisCompras from './Components/Layouts/MisCompras';
 import MisContrataciones from './Components/Layouts/MisContrataciones';
 import IdService from './Components/Layouts/IdService';
+import Chat from './Components/Chat/chat';
+import ChatPanel from './Components/Chat/chatPanel';
 
 
 
@@ -74,6 +76,13 @@ function App() {
           <Route
             path="/promociones-bancarias"
             element={<PromocionesBancarias />}
+          />
+
+          {/* ruta del chat */}
+          <Route
+            path = "/chat"
+            element = {<ChatPanel/>}
+          
           />
         </Routes>
         <Footer />

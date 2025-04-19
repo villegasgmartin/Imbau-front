@@ -1,5 +1,5 @@
-//const url = 'http://localhost:8080';
-const url = 'https://imbau-back-production.up.railway.app' 
+const url = 'http://localhost:8080';
+//const url = 'https://imbau-back-production.up.railway.app' 
 import axios from 'axios';
 
 export const REGISTER = 'REGISTER'
@@ -29,6 +29,12 @@ export const GET_SUBCATEGORIAS = "GET_SUBCATEGORIAS";
 export const POST_CATEGORIAS = "POST_CATEGORIAS";
 export const POST_SUBCATEGORIAS = "POST_SUBCATEGORIAS";
 export const PUT_PRODUCT = "PUT_PRODUCT";
+
+export const GET_CHAT_CLIENTE = "GET_CHAT_CLIENTE";
+export const GET_CHAT_ESCORT = "GET_CHAT_ESCORT";
+export const GET_MENSAJES_CHAT = "GET_MENSAJES_CHAT";
+export const POST_NEWCHAT = "POST_NEWCHAT";
+export const DELETE_CHAT = "DELETE_CHAT"
 
 // Funciones para crear tipos de usuarios
 export function register(payload) {
@@ -554,6 +560,129 @@ export function putProduct(id, payload) {
             payload: response.data,
           });
         });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+//chat
+
+
+
+export function postNewChat(usuario, prestador) {
+  return async function (dispatch) {
+    try {
+      const info = await axios.post(`${url}/api/new-chat?usuario=${usuario}&prestador=${prestador}`);
+      console.log(info)
+      return dispatch({
+        type: POST_NEWCHAT,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+//get chats en escort y clientes
+export function getChatsCliente() {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/chats`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_CHAT_CLIENTE,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+// export function getChatsEscort() {
+//   return async function (dispatch) {
+//     try {
+//       const token = localStorage.getItem("token");
+//       const headers = {
+//         "x-token": token,
+//       };
+//       axios
+//         .get(`${url}/chicas/chats`, {
+//           headers,
+//         })
+//         .then((response) => {
+//           return dispatch({
+//             type: GET_CHAT_ESCORT,
+//             payload: response.data,
+//           });
+//         });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// }
+export function getMensajesChat(chatId) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/listado-mensajes?chatId=${chatId}`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: "GET_MENSAJES_CHAT",
+            payload: response.data.mensajes, 
+          });
+        });
+    } catch (error) {
+        window.location.href = "/";
+      console.error("Error al obtener los mensajes del chat:", error);
+    }
+  };
+}
+export const enviarMensaje = async ({ chatId, mensaje }) => {
+  try {
+    const token = localStorage.getItem("token"); // Obtiene el token del almacenamiento local
+    const response = await axios.post(
+      `${url}/api/enviar-mensaje`,
+      { chatId, mensaje },
+      {
+        headers: {
+          "x-token": token, // Cambiado a "x-token"
+        },
+      }
+    );
+    return response.data; // Devuelve la respuesta del servidor
+  } catch (error) {
+    console.error("Error al enviar el mensaje:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export function deleteChat(id, payload) {
+  return async function (dispatch) {
+    const token = localStorage.getItem("token");
+    const headers = {
+      "x-token": token,
+    };
+    try {
+      const info = await axios.delete(`${url}/api/chats/${id}`, { headers });
+      return dispatch({
+        type: DELETE_CHAT,
+        payload: info.data,
+      });
     } catch (error) {
       console.log(error);
     }

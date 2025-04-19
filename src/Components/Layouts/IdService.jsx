@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAllProducts, getProductById, getServiceById } from "../../../redux/actions";
+import { getAllProducts, getProductById, getServiceById, postNewChat } from "../../../redux/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Layouts/NavBar";
@@ -20,13 +20,26 @@ export default function IdService() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  const [logged, setLogged] = useState(false);
+  const [idUsuario, setidUsuario] = useState(null);
+  const [rol, setRol] = useState(null); // Nueva variable de estado para el rol
+
+
+    // Verificación de rol para mostrar u ocultar la sección de favoritos
+    useEffect(() => {
+      const storedRol = localStorage.getItem('rol');
+      const idUser = localStorage.getItem('userId');
+      console.log(storedRol, idUser)
+      setidUsuario(idUser); 
+      setRol(storedRol); // Guardamos el rol en el estado
+    }, [id]);
+
   useEffect(() => {
     dispatch(getServiceById(id));
     
   }, [dispatch, id]);
 
   const service = useSelector((state) => state.serviceById);
-  console.log(service);
   
   const products = useSelector((state) => state.allProducts);
 
@@ -75,7 +88,30 @@ export default function IdService() {
 //       }
 //     });
 //   };
+const handleCreateChat = async (idUsuario, id) => {
+  if (!idUsuario || !id) {
+    console.error("idUsuario o id no son válidos");
+    return;
+  }
 
+ 
+
+  try {
+    await dispatch(postNewChat(idUsuario, id))
+      .then(() => {
+        window.location.href = '/chat'
+      })
+      .catch((error) => {
+        console.error("Error al crear el chat:", error);
+      });
+  } catch (error) {
+    console.error("Error al crear el chat:", error);
+  }
+};
+
+const handleCreateChatNologged = ()=>{
+  window.location = '/login'
+}
   return (
     <main>
       <NavBar />
@@ -102,7 +138,7 @@ export default function IdService() {
           <div className="bg-white w-[1000px] h-[200px] flex justify-evenly">
             <div className="flex flex-col justify-center items-start">
               <h4 className="text-blue-900 bold">
-                {service?.usuario.nombre} - Estrellas - reseñas
+                {service?.usuario?.nombre} - Estrellas - reseñas
               </h4>
               <h5 className="text-orange-300 bold">{service?.servicio}</h5>
               <p>
@@ -112,10 +148,21 @@ export default function IdService() {
             <div className="flex flex-col justify-center items-start">
               <h4>Aca iria estudios</h4>
             </div>
-            <div className="flex flex-col justify-start items-start">
-              <button className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white">
-                Contactar
-              </button>
+            <div >
+            
+            {rol === 'USER_BUYER' && (
+                <button className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white" onClick={() => handleCreateChat(idUsuario, id)}>
+               Contactar
+                </button>
+              )}
+              {rol != 'USER_BUYER' && (
+                  <>
+                <button className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white" onClick={() => handleCreateChatNologged()}>
+                    Contactar
+                </button>
+                  </>
+                )
+              }
             </div>
           </div>
 

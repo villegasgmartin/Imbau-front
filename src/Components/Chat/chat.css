@@ -13,8 +13,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     width: 313px; /* Tamaño fijo para la barra lateral */
     height: inherit ; /* Asegura que la altura coincida con la ventana */
   }
@@ -106,7 +106,8 @@
   
   .chat-item:hover,
   .chat-item.active {
-    background-color: #A832EA;
+    background-color: #EA8B05;
+    color:#fff;
   }
   
   .chat-main {
@@ -127,12 +128,20 @@
   }
   
   .sent {
-    background-color: #000;
+    background-color:#c4c2c2;
+    color:#000;
     align-self: flex-end;
+  }
+  .sent p{
+    color:#000;
   }
   
   .received {
-    background-color: #AC32F0;
+    background-color: #06023D;
+    color:#fff;
+  }
+  .received p{
+    color:#fff;
   }
   
   .chat-input {
@@ -150,7 +159,7 @@
   
   .chat-input button {
     padding: 10px 15px;
-    background-color: #AC32F0;
+    background-color: #EA8B05;
     color: white;
     border: none;
     border-radius: 5px;
@@ -158,7 +167,9 @@
   }
   
   .chat-input button:hover {
-    background-color: #71219E;
+    background-color: #fff;
+    color:#EA8B05;
+    border:1px solid #EA8B05;
   }
   
   .mensaje-confirmacion {
@@ -191,7 +202,7 @@
   }
   
   .chat-item.active {
-    background: #71219E;
+    background: #EA8B05;
   }
   
   .chat-messages {
@@ -229,7 +240,7 @@
   
   .chat-input button, .btn-ver-chats {
     padding: 0.5rem 1rem;
-    background: #ac33f1;
+    background: #EA8B05;
     color: white;
     border: none;
     border-radius: 8px;
@@ -240,15 +251,13 @@
   .chat-item{
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid #A832EA;
+    border-bottom: 1px solid #EA8B05;
   }
   .chat-item p{
     line-height: 40px;
     text-align: center;
   }
-  .chat-messages p{
-    color:#fff;
-  }
+  
   .btn-ver-container{
     display: none;
   }
@@ -284,7 +293,7 @@
     font-size:20px;
     text-transform: uppercase;
     text-align: center;
-    color:#ac33f1
+    color:#EA8B05
   }
   .chat-item{
     display: flex;
@@ -296,7 +305,24 @@
   }
   .delete-chat-btn:hover{
     background-color:#fff;
-    color:#ac33f1!important;
+    color:#EA8B05!important;
     padding: 0 10px;
     border-radius: 10px;
   }
+
+  @media only screen and (min-width:768px){
+    .chat-container{
+        width: 80%;
+        margin: auto;
+    }  
+    .chat-sidebar{
+        padding: 30px;
+        border-radius: 20px 0 0 20px;
+    }
+    .chat-main{
+        border-radius: 0 20px 20px 0;
+    }
+}
+.chat-main{
+    background: #fff;
+}

@@ -19,7 +19,10 @@ import {
   GET_COMPRAS_POR_USUARIO,
   GET_VENTAS_POR_USUARIO,
   GET_CATEGORIAS,
-  GET_SUBCATEGORIAS
+  GET_SUBCATEGORIAS,
+  GET_CHAT_CLIENTE,
+  GET_CHAT_ESCORT,
+  GET_MENSAJES_CHAT,
 } from "./actions";
 
 let initialState = {
@@ -37,7 +40,9 @@ let initialState = {
   comprasPorUsuario: [],
   ventasPorUsuario:[],
   categorias:[],
-  subcategorias:[]
+  subcategorias:[],
+  chats:{},
+  mensajes:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -151,7 +156,21 @@ function rootReducer(state = initialState, action) {
         ...state,
         subcategorias: action.payload,
       };
-
+    case GET_CHAT_CLIENTE:
+        return {
+          ...state,
+          chats: action.payload,
+        };
+    case GET_CHAT_ESCORT:
+          return {
+            ...state,
+            chats: action.payload,
+          };
+  case GET_MENSAJES_CHAT:
+            return {
+              ...state,
+              mensajes: action.payload,
+            }
     default:
       return state;
   }

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import "../Chat/chat.css"
+
 
 import {
   getChatsCliente,
-  getChatsEscort,
+  // getChatsEscort,
   getMensajesChat,
   enviarMensaje,
   deleteChat,
-} from "@/redux/actions"; // Asegúrate de que la ruta sea correcta
+} from "../../../redux/actions"; // Asegúrate de que la ruta sea correcta
 
 export default function Chat() {
   const dispatch = useDispatch();
@@ -18,15 +20,16 @@ export default function Chat() {
   const [nuevoMensaje, setNuevoMensaje] = useState("");
   const [mensajeError, setMensajeError] = useState("");
   const [refreshTrigger, setRefreshTrigger] = useState(false); // Nuevo estado para actualizar mensajes
-  const [mostrarSidebar, setMostrarSidebar] = useState(false); // Estado para mostrar/ocultar el sidebar
+  const [mostrarSidebar, setMostrarSidebar] = useState(true); // Estado para mostrar/ocultar el sidebar
 
   useEffect(() => {
     const storedRol = localStorage.getItem("rol");
     setRol(storedRol);
-    if (storedRol === "USER_ESCORT") {
+    if (storedRol === "USER_BUYER") {
       dispatch(getChatsCliente());
-    } else if (storedRol === "ESCORT") {
-      dispatch(getChatsEscort());
+    } else if (storedRol === "USER_SERVICE") {
+      dispatch(getChatsCliente());
+      // dispatch(getChatsEscort());
     } else {
       setMensajeError("Error: Rol no válido o no definido.");
     }
@@ -120,8 +123,9 @@ export default function Chat() {
       </div>
      
 
-      {/* Sidebar de chats */}
-      <div className={`chat-sidebar ${mostrarSidebar ? "visible" : "hidden"}`}>
+ {/* Sidebar de chats */}
+ {/* <div className={`chat-sidebar ${mostrarSidebar ? "visible" : "hidden"}`}> */}
+ <div className={`chat-sidebar`}>
         <p>Selecciona un chat para empezar a hablar.</p>
         {chats?.chat && chats.chat.length > 0 ? (
           chats.chat.map((chat) => (
@@ -133,8 +137,8 @@ export default function Chat() {
               onClick={() => handleSeleccionarChat(chat)}
             >
               <p>
-                {rol === "USER_ESCORT"
-                  ? `${chat.escortNombre}`
+                {rol === "USER_SERVICE"
+                  ? `${chat.proveedorNombre}`
                   : `${chat.usuarioNombre}`}
               </p>
               <button
@@ -155,7 +159,7 @@ export default function Chat() {
         {chatSeleccionado ? (
           <>
           <div className="title-chat">
-            <h3>Chat de {chatSeleccionado.escortNombre} y {chatSeleccionado.usuarioNombre}</h3>
+            <h3>Chat de {chatSeleccionado.proveedorNombre} y {chatSeleccionado.usuarioNombre}</h3>
           </div>
             <div className="chat-messages">
               {chatSeleccionado.mensajes.length > 0 ? (
@@ -188,6 +192,8 @@ export default function Chat() {
           <p>Selecciona un chat para ver los mensajes.</p>
         )}
       </div>
+
+     
     </div>
   );
 }
