@@ -584,7 +584,7 @@ export function postNewChat(usuario, prestador) {
     }
   };
 }
-//get chats en escort y clientes
+//get chats en  y clientes
 export function getChatsCliente() {
   return async function (dispatch) {
     try {

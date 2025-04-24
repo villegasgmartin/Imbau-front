@@ -50,8 +50,8 @@ export default function Chat() {
    if (!nuevoMensaje.trim()) return;
    try {
      const chatId = chatSeleccionado._id;
-     const telefono = chatSeleccionado.telefono;
-     const nombreUsuario = chatSeleccionado.usuarioNombre
+    //  const telefono = chatSeleccionado.telefono;
+    //  const nombreUsuario = chatSeleccionado.usuarioNombre
      const nuevoMensajeObj = {
        mensaje: nuevoMensaje,
        fecha: new Date().toISOString(),
@@ -59,21 +59,6 @@ export default function Chat() {
      };
 
      await enviarMensaje({ chatId, mensaje: nuevoMensaje });
-
-    // // Hacer POST a la URL de UltraMsg
-    // const apiUrl = `https://api.ultramsg.com/instance107301/messages/chat`;
-    // const token = "8cwi12b8h0qqzflm"; // Idealmente manejar esto como variable de entorno
-    // const body = {
-    //     token: token,
-    //     to: telefono, // Teléfono del destinatario
-    //     body: `Tienes un nuevo mensaje de "${nombreUsuario}" en EL CieloBA`,
-    //     priority: 10,
-    // };
-
-    // // Llamada POST directa
-    // await axios.post(apiUrl, null, { params: body });
-
-    // console.log(`Mensaje enviado a ${telefono}`);
 
      
      // Actualiza el estado sin recargar la página
