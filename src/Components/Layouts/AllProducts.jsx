@@ -36,7 +36,7 @@ export default function AllProducts () {
   const products1 = useSelector((state) => state.allProducts1);
   const products2 = useSelector((state) => state.allProducts2);
   const categorias = useSelector((state) => state.categorias.categorias)
-  console.log(categorias, 'cate')
+
 
   const handleCategoryChange = (event) => {
     const value = event.target.value;

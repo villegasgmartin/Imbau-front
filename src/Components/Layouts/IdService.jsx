@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAllProducts, getProductById, getServiceById, postNewChat } from "../../../redux/actions";
+import { getAllProducts, getOfertasTerminadas, getProductById, getServiceById, postNewChat } from "../../../redux/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Layouts/NavBar";
@@ -36,9 +36,9 @@ export default function IdService() {
 
   useEffect(() => {
     dispatch(getServiceById(id));
-    
+    dispatch(getOfertasTerminadas(id));
   }, [dispatch, id]);
-
+  const ofertasTerminadas = useSelector((state) => state.ofertasTerminadas);
   const service = useSelector((state) => state.serviceById);
   
   const products = useSelector((state) => state.allProducts);
@@ -148,21 +148,25 @@ const handleCreateChatNologged = ()=>{
             <div className="flex flex-col justify-center items-start">
               <h4>Aca iria estudios</h4>
             </div>
-            <div >
-            
-            {rol === 'USER_BUYER' && (
-                <button className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white" onClick={() => handleCreateChat(idUsuario, id)}>
-               Contactar
+            <div>
+              {rol === "USER_BUYER" && (
+                <button
+                  className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white"
+                  onClick={() => handleCreateChat(idUsuario, id)}
+                >
+                  Contactar
                 </button>
               )}
-              {rol != 'USER_BUYER' && (
-                  <>
-                <button className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white" onClick={() => handleCreateChatNologged()}>
+              {rol != "USER_BUYER" && (
+                <>
+                  <button
+                    className=" border-2 border-green-700 text-green-700 rounded-xl mt-4 p-2 hover:bg-green-700 hover:text-white"
+                    onClick={() => handleCreateChatNologged()}
+                  >
                     Contactar
-                </button>
-                  </>
-                )
-              }
+                  </button>
+                </>
+              )}
             </div>
           </div>
 
@@ -183,7 +187,21 @@ const handleCreateChatNologged = ()=>{
           <div className="bg-white shadow-lg p-6 mt-6 rounded-lg w-[1000px]">
             <h3 className="text-xl font-semibold">Actividad</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              Ver aca que va
+              {!ofertasTerminadas.length ? (
+                <p className="prestadorActivity-empty">Aún no hay actividad</p>
+              ) : (
+                <div>
+                  {ofertasTerminadas.map((o) => {
+                    return (
+                      <div key={o._id}>
+                        <img src="" alt="" />
+                        <h2>{o.titulo}</h2>
+                        <p>{o.descripcion}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
           <div className="bg-white shadow-lg p-6 mt-6 rounded-lg w-[1000px]">

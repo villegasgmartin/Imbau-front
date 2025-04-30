@@ -31,6 +31,7 @@ import MisContrataciones from './Components/Layouts/MisContrataciones';
 import IdService from './Components/Layouts/IdService';
 import Chat from './Components/Chat/chat';
 import ChatPanel from './Components/Chat/chatPanel';
+import MiNegocio from './Components/Prestador/PrestadorNegocio';
 
 
 
@@ -65,6 +66,7 @@ function App() {
           {/* Prestador de servicios */}
           <Route path="/prestador-panel" element={<PrestadorPanel />} />
           <Route path="/crear-servicio" element={<CrearServicio />} />
+          <Route path="/prestador-negocio" element={<MiNegocio />} />
           {/* Administrador */}
           <Route path="/admin" element={<AdminGeneral />} />
           <Route path="/usuarios" element={<AdminUsers />} />
@@ -79,11 +81,7 @@ function App() {
           />
 
           {/* ruta del chat */}
-          <Route
-            path = "/chat"
-            element = {<ChatPanel/>}
-          
-          />
+          <Route path="/chat" element={<ChatPanel />} />
         </Routes>
         <Footer />
       </div>

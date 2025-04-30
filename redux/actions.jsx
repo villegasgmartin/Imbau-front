@@ -14,6 +14,8 @@ export const GET_ALL_PRODUCTS1 = "GET_ALL_PRODUCTS1";
 export const GET_ALL_PRODUCTS2 = "GET_ALL_PRODUCTS2";
 export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID'
 export const GET_ALL_SERVICES = 'GET_ALL_SERVICES'
+export const GET_ALL_SERVICES1 = "GET_ALL_SERVICES1";
+export const GET_ALL_SERVICES2 = "GET_ALL_SERVICES2";
 export const GET_SERVICE_BY_ID = 'GET_SERVICE_BY_ID'
 export const POST_PRODUCTO = 'POST_PRODUCTO'
 export const POST_SERVICE = 'POST_SERVICE'
@@ -35,6 +37,12 @@ export const GET_CHAT_ESCORT = "GET_CHAT_ESCORT";
 export const GET_MENSAJES_CHAT = "GET_MENSAJES_CHAT";
 export const POST_NEWCHAT = "POST_NEWCHAT";
 export const DELETE_CHAT = "DELETE_CHAT"
+
+export const CREAR_OFERTA = 'CREAR_OFERTA'
+export const GET_OFERTAS_TERMINADAS = "GET_OFERTAS_TERMINADAS";
+export const GET_OFERTAS_PENDIENTES = 'GET_OFERTAS_PENDIENTES';
+export const GET_OFERTAS_INTERRUMPIDAS = "GET_OFERTAS_INTERRUMPIDAS"
+export const ACTUALIZAR_ETAPA = 'ACTUALIZAR_ETAPA'
 
 // Funciones para crear tipos de usuarios
 export function register(payload) {
@@ -239,6 +247,32 @@ export function getAllServices() {
 			console.log(error);
 		}
 	};
+}
+export function getAllServices1() {
+  return async function (dispatch) {
+    try {
+      const info = await axios.get(`${url}/api/products/servicios1`);
+      return dispatch({
+        type: GET_ALL_SERVICES1,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getAllServices2() {
+  return async function (dispatch) {
+    try {
+      const info = await axios.get(`${url}/api/products/servicios2`);
+      return dispatch({
+        type: GET_ALL_SERVICES2,
+        payload: info.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 // Funcion para crear producto
@@ -683,6 +717,123 @@ export function deleteChat(id, payload) {
         type: DELETE_CHAT,
         payload: info.data,
       });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+
+export function postOferta(payload) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .post(`${url}/api/products/crear-oferta`, payload, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: CREAR_OFERTA,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getOfertasTerminadas(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/products/ofertas-terminadas?id=${id}`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_OFERTAS_TERMINADAS,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getOFertasPendientes(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/products/ofertas-pendientes?id=${id}`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_OFERTAS_PENDIENTES,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}export function getOfertasInterrumpidas(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .get(`${url}/api/products/ofertas-interrumpidas?id=${id}`, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: GET_OFERTAS_INTERRUMPIDAS,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function actualizarEtapa(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .put(`${url}/api/products/actualizar-etapa?id=${id}`, {}, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: ACTUALIZAR_ETAPA,
+            payload: response.data,
+          });
+        });
     } catch (error) {
       console.log(error);
     }

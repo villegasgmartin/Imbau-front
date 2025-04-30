@@ -13,6 +13,8 @@ import {
   GET_PRODUCT_BY_ID,
   GET_SERVICE_BY_ID,
   GET_ALL_SERVICES,
+  GET_ALL_SERVICES1,
+  GET_ALL_SERVICES2,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   COMPRAR_PRODUCTO,
@@ -23,6 +25,9 @@ import {
   GET_CHAT_CLIENTE,
   GET_CHAT_ESCORT,
   GET_MENSAJES_CHAT,
+  GET_OFERTAS_TERMINADAS,
+  GET_OFERTAS_INTERRUMPIDAS,
+  GET_OFERTAS_PENDIENTES
 } from "./actions";
 
 let initialState = {
@@ -30,19 +35,24 @@ let initialState = {
   allUsers: [],
   userData: {},
   allProducts: [],
-  allProducts1:[],
-  allProducts2:[],
+  allProducts1: [],
+  allProducts2: [],
   allServices: [],
+  allServices1: [],
+  allServices2: [],
   productById: {},
   serviceById: {},
   cartItems: [],
   buymplink: null,
   comprasPorUsuario: [],
-  ventasPorUsuario:[],
-  categorias:[],
-  subcategorias:[],
-  chats:{},
-  mensajes:[]
+  ventasPorUsuario: [],
+  categorias: [],
+  subcategorias: [],
+  chats: {},
+  mensajes: [],
+  ofertasTerminadas: [],
+  ofertasInterrumpidas:[],
+  ofertasPendientes:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -101,6 +111,16 @@ function rootReducer(state = initialState, action) {
         ...state,
         allServices: action.payload,
       };
+    case GET_ALL_SERVICES1:
+      return {
+        ...state,
+        allServices1: action.payload,
+      };
+    case GET_ALL_SERVICES2:
+      return {
+        ...state,
+        allServices2: action.payload,
+      };
     case ADD_TO_CART:
       console.log(state.cartItems, "cartred");
 
@@ -157,20 +177,35 @@ function rootReducer(state = initialState, action) {
         subcategorias: action.payload,
       };
     case GET_CHAT_CLIENTE:
-        return {
-          ...state,
-          chats: action.payload,
-        };
+      return {
+        ...state,
+        chats: action.payload,
+      };
     case GET_CHAT_ESCORT:
-          return {
-            ...state,
-            chats: action.payload,
-          };
-  case GET_MENSAJES_CHAT:
-            return {
-              ...state,
-              mensajes: action.payload,
-            }
+      return {
+        ...state,
+        chats: action.payload,
+      };
+    case GET_MENSAJES_CHAT:
+      return {
+        ...state,
+        mensajes: action.payload,
+      };
+    case GET_OFERTAS_TERMINADAS:
+      return {
+        ...state,
+        ofertasTerminadas: action.payload,
+      };
+    case GET_OFERTAS_INTERRUMPIDAS:
+      return {
+        ...state,
+        ofertasInterrumpidas: action.payload,
+      };
+    case GET_OFERTAS_PENDIENTES:
+      return {
+        ...state,
+        ofertasPendientes: action.payload,
+      };
     default:
       return state;
   }
