@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Layouts/NavBar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
       actualizarEtapa,
+  agregarImagenOferta,
+  borrarOferta,
   getAllProducts,
   getOfertasInterrumpidas,
   getOFertasPendientes,
   getOfertasTerminadas,
+  putEstadoOferta,
 } from "../../../redux/actions";
 import "../Styles/Admin/AdminGeneral.css";
 
@@ -37,11 +40,57 @@ export default function MiNegocio() {
   const handleActualizarEtapa = (id) => {
       dispatch(actualizarEtapa(id))
   }
+    const handleActualizarEstado = (id) => {
+      dispatch(putEstadoOferta(id));
+    };
+      const handleBorrarOferta = (id) => {
+        dispatch(borrarOferta(id));
+      };
+  
+const [selectedOferta, setSelectedOferta] = useState(null);
+const [showModal, setShowModal] = useState(false);
+console.log(selectedOferta, 'se');
+
+const handleVerMas = (oferta) => {
+  setSelectedOferta(oferta);
+  setShowModal(true);
+};
+
+const closeModal = () => {
+  setShowModal(false);
+  setSelectedOferta(null);
+};
+
+const fileInputRef = useRef(null);
+
+const handleFileUploadClick = (id) => {
+  // Guardamos el ID actual en una variable para subir luego
+  setOfertaIdParaImagen(id);
+  fileInputRef.current?.click();
+};
+
+const [ofertaIdParaImagen, setOfertaIdParaImagen] = useState(null);
+
+const handleFileChange = (e) => {
+  const file = e.target.files[0];
+  if (file && ofertaIdParaImagen) {
+    dispatch(agregarImagenOferta(ofertaIdParaImagen, file));
+    setOfertaIdParaImagen(null);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-[#f8f3e0]">
       <NavBar />
       <div className="adminGeneral-container p-8">
+        <input
+          type="file"
+          ref={fileInputRef}
+          className="hidden"
+          onChange={handleFileChange}
+        />
+
         <h1 className="adminGeneral-title text-3xl font-bold mb-8">
           Mi negocio
         </h1>
@@ -106,25 +155,105 @@ export default function MiNegocio() {
                   {op.etapasRealizadas} de {op.cantidadDeEtapas}
                 </p>
               </div>
-              <div className="flex justify-between mt-4">
-                <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full">
+              <div className="flex flex-wrap gap-2 mt-4">
+                <button
+                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full"
+                  onClick={() => handleVerMas(op)}
+                >
                   Ver Más
                 </button>
-                {selectedTab === "terminadas" ? (
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full">
-                    Agregar imagen
-                  </button>
-                ) : (
+
+                {selectedTab === "pendientes" && (
+                  <>
+                    <button
+                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full"
+                      onClick={() => handleActualizarEstado(op._id)}
+                    >
+                      Interrumpir oferta
+                    </button>
+                    <button
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full"
+                      onClick={() => handleActualizarEtapa(op._id)}
+                    >
+                      Entregar etapa
+                    </button>
+                  </>
+                )}
+
+                {selectedTab === "interrumpidas" && (
+                  <>
+                    <button
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full"
+                      onClick={() => handleActualizarEstado(op._id)}
+                    >
+                      Reanudar oferta
+                    </button>
+                    <button
+                      className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-full"
+                      onClick={() => handleBorrarOferta(op._id)}
+                    >
+                      Eliminar oferta
+                    </button>
+                  </>
+                )}
+
+                {selectedTab === "terminadas" && (
                   <button
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full"
-                    onClick={() => handleActualizarEtapa(op._id)}
+                    className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-full"
+                    onClick={() => handleFileUploadClick(op._id)}
                   >
-                    Entregar etapa
+                    Agregar imagen
                   </button>
                 )}
               </div>
             </div>
           ))}
+          {showModal && selectedOferta && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative">
+                <button
+                  className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                  onClick={closeModal}
+                >
+                  ×
+                </button>
+                <h2 className="text-2xl font-bold mb-4">
+                  {selectedOferta.titulo}
+                </h2>
+                <p>
+                  <strong>Estado:</strong> {selectedOferta.estadoFinal}
+                </p>
+                <p>
+                  <strong>Comprador:</strong>{" "}
+                  {selectedOferta.comprador?.nombre || "No asignado"}
+                </p>
+                <p>
+                  <strong>Prestador:</strong>{" "}
+                  {selectedOferta.proveedor?.nombre || "No asignado"}
+                </p>
+                <p>
+                  <strong>Descripcióm:</strong>{" "}
+                  {selectedOferta.descripcion || "No asignado"}
+                </p>
+                <p>
+                  <strong>Código de pedido:</strong> {selectedOferta._id}
+                </p>
+                <p>
+                  <strong>Presupuesto:</strong>{" "}
+                  {selectedOferta.presupuesto || "-"}
+                </p>
+                <p>
+                  <strong>Etapas:</strong> {selectedOferta.etapasRealizadas} de{" "}
+                  {selectedOferta.cantidadDeEtapas}
+                </p>
+                <p>
+                  <strong>Tiempo por etapas:</strong>{" "}
+                  {selectedOferta.tiempoPorEtapas || "-"}
+                </p>
+                <img src={selectedOferta.imagen} alt="" width={200} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

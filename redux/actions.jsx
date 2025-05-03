@@ -43,7 +43,9 @@ export const GET_OFERTAS_TERMINADAS = "GET_OFERTAS_TERMINADAS";
 export const GET_OFERTAS_PENDIENTES = 'GET_OFERTAS_PENDIENTES';
 export const GET_OFERTAS_INTERRUMPIDAS = "GET_OFERTAS_INTERRUMPIDAS"
 export const ACTUALIZAR_ETAPA = 'ACTUALIZAR_ETAPA'
-
+export const PUT_ESTADO_OFERTA = "PUT_ESTADO_OFERTA";
+export const BORRAR_OFERTA = 'BORRAR_OFERTA'
+export const AGREGAR_IMAGEN_OFERTA = 'AGREGAR_IMAGEN_OFERTA'
 // Funciones para crear tipos de usuarios
 export function register(payload) {
 	return async function (dispatch) {
@@ -792,7 +794,8 @@ export function getOFertasPendientes(id) {
       console.log(error);
     }
   };
-}export function getOfertasInterrumpidas(id) {
+}
+export function getOfertasInterrumpidas(id) {
   return async function (dispatch) {
     try {
       const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
@@ -836,6 +839,86 @@ export function actualizarEtapa(id) {
         });
     } catch (error) {
       console.log(error);
+    }
+  };
+}
+export function putEstadoOferta(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token"); // Obtén el token almacenado en localStorage
+      console.log(token, "token");
+      const headers = {
+        "x-token": token,
+      };
+      axios
+        .put(`${url}/api/products/estado-oferta?id=${id}`,{}, {
+          headers,
+        })
+        .then((response) => {
+          return dispatch({
+            type: PUT_ESTADO_OFERTA,
+            payload: response.data,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function borrarOferta(id) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token, "token");
+
+      if (!token) {
+        throw new Error("No se encontró el token en localStorage");
+      }
+
+      const response = await axios.delete(
+        `${url}/api/products/borrar-oferta?id=${id}`,
+        {
+          headers: {
+            "x-token": token,
+          },
+        }
+      );
+
+      dispatch({
+        type: BORRAR_OFERTA,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error("Error al borrar la oferta:", error);
+    }
+  };
+}
+
+export function agregarImagenOferta(id, file) {
+  return async function (dispatch) {
+    try {
+      const token = localStorage.getItem("token");
+      const formData = new FormData();
+      formData.append("imagen", file); // 👈 nombre correcto del campo
+
+      const response = await axios.post(
+        `http://localhost:8080/api/products/imagen-proyecto?id=${id}`,
+        formData,
+        {
+          headers: {
+            "x-token": token,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      dispatch({
+        type: AGREGAR_IMAGEN_OFERTA,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error("Error al subir imagen:", error);
     }
   };
 }
