@@ -112,7 +112,10 @@
   
   .chat-main {
     flex-grow: 1;
-    padding: 20px;
+    padding-top: 3.125rem;
+    padding-bottom: 1.25rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
   }
   
   .chat-messages {
@@ -128,12 +131,12 @@
   }
   
   .sent {
-    background-color:#c4c2c2;
     color:#000;
     align-self: flex-end;
   }
   .sent p{
-    color:#000;
+    color:#5B5B5B;
+    font-family: "inter";
   }
   
   .received {
@@ -144,34 +147,30 @@
     color:#fff;
   }
   
-  .chat-input {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .chat-input input {
-    flex-grow: 1;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-   color:#000
-  }
-  
-  .chat-input button {
-    padding: 10px 15px;
-    background-color: #EA8B05;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .chat-input button:hover {
-    background-color: #fff;
-    color:#EA8B05;
-    border:1px solid #EA8B05;
-  }
-  
+/* Input estilizado */
+.input-mensaje {
+  width: 100%;
+  background-color: #F5F5F5;
+  color: #06023D;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "inter";
+  font-size: 1rem;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+/* Placeholder */
+.input-mensaje::placeholder {
+  color: #9A9A9A;
+}
+
+.input-mensaje:focus {
+  outline: none;
+  box-shadow: none;
+}
+
   .mensaje-confirmacion {
     margin-top: 20px;
     color: red;
@@ -238,15 +237,29 @@
     margin-right: 0.5rem;
   }
   
-  .chat-input button, .btn-ver-chats {
-    padding: 0.5rem 1rem;
-    background: #EA8B05;
-    color: white;
-    border: none;
-    border-radius: 8px;
+  .chat-send-button,
+  .btn-ver-chats {
+    font-family: "regular";
+    color: #06023D;
+    border: 1px inset #06023D;
+    padding: .625rem 1.875rem .625rem 1.875rem;
+    border-radius: 1.5625rem;
     cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.1s;
   }
   
+  /* Hover: fondo más claro */
+  .chat-send-button:hover,
+  .btn-ver-chats:hover {
+    background-color: #f0f0f5; /* gris muy claro */
+  }
+  
+  /* Active: efecto de clic */
+  .chat-send-button:active,
+  .btn-ver-chats:active {
+    transform: scale(0.97);
+  }
   
   .chat-item{
     width: 100%;
@@ -288,12 +301,14 @@
     }
     
   }
-  .title-chat h3{
-    color:#fff;
+  .title-chat{
+    display: flex;
+    justify-content: space-between;
+  } h3{
     font-size:20px;
-    text-transform: uppercase;
+    font-family: "inter";
     text-align: center;
-    color:#EA8B05
+    color: #06023D
   }
   .chat-item{
     display: flex;
@@ -325,4 +340,116 @@
 }
 .chat-main{
     background: #fff;
+}
+
+.crearOferta-button {
+  background-color: #065D4A;
+  padding: .9375rem;
+  color: #F8F3E0;
+  font-family: "regular";
+  border-radius: .75rem;
+  transition: background-color 0.3s, transform 0.1s;
+  cursor: pointer;
+}
+
+.crearOferta-button:hover {
+  background-color: #0A7C63; /* un tono más claro para hover */
+}
+
+.crearOferta-button:active {
+  transform: scale(0.98); /* efecto visual de "presionar" */
+}
+
+.chat-divider {
+  height: 1px;
+  background-color: #ccc; /* gris claro */
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+.chat-oferta-title{
+  color: #06023D;
+  font-family: "regular";
+  font-size: 1.5625rem;
+  text-align: left;
+}
+
+.chat-oferta-label{
+  color: #06023D;
+  font-family: "inter";
+  font-size: 1.25rem;
+}
+
+.chat-input-oferta {
+  width: 100%;
+  padding: 1.25rem 1rem; /* más alto que lo normal */
+  margin-bottom: 1rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "inter", sans-serif;
+  box-sizing: border-box;
+  background-color: white;
+  color: #06023D;
+  margin-top: .625rem;
+}
+
+/* Quitar el borde fuerte al enfocar */
+.chat-input-oferta:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.chat-select-oferta {
+  width: 100%;
+  height: 40px; /* más cómodo que 20px, pero podés poner height: 20px si lo querés exacto */
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "inter", sans-serif;
+  background-color: white;
+  color: #06023D;
+  box-sizing: border-box;
+  appearance: none; /* saca el estilo nativo del navegador */
+}
+
+/* Quitar borde de focus */
+.chat-select-oferta:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.chat-enviarOferta-button {
+  padding: 10px 30px 10px 30px;
+  color: #065D4A;
+  font-family: "regular";
+  border: .0625rem inset #065D4A;
+  border-radius: 1.5625rem;
+  transition: background-color 0.3s, transform 0.1s;
+  cursor: pointer;
+}
+
+.chat-enviarOferta-button:hover {
+  background-color: #065D4A; /* Cambia el fondo al color verde */
+  color: #F8F3E0; /* Cambia el texto al color blanco */
+  transform: scale(1.05); /* Pequeño zoom */
+}
+
+.chat-cancelarOferta-button {
+  padding: 10px 30px;
+  color: #6B6B6B; /* Gris oscuro */
+  font-family: "regular";
+  border: .0625rem inset #B0B0B0; /* Gris claro */
+  border-radius: 1.5625rem;
+  transition: background-color 0.3s, transform 0.1s;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.chat-cancelarOferta-button:hover {
+  background-color: #E6E6E6; /* Gris más claro al pasar el mouse */
+  color: #3A3A3A; /* Un poco más oscuro para contraste */
+  transform: scale(1.05);
 }

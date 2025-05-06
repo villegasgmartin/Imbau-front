@@ -139,31 +139,31 @@ const handleCrearOferta = () => {
       {/* Pop up de crear oferta */}
       {crearOfertaOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-xl">
-            <h3 className="text-xl font-semibold mb-4">
+        <div className="bg-white pt-[50px] pr-[50px] pb-[30px] pl-[50px] rounded-xl shadow-lg w-full max-w-xl max-h-[90vh] overflow-y-auto">
+        <h3 className="chat-oferta-title">
               Oferta para {chatSeleccionado?.usuarioNombre || "cliente"}
             </h3>
-
+            <div className="chat-divider"></div>
             {/* Aquí van los inputs */}
-            <label className="block mb-1">Nombre del proyecto</label>
+            <label className="chat-oferta-label">Nombre del proyecto</label>
             <input
               type="text"
               value={oferta.titulo}
               onChange={(e) => setOferta({ ...oferta, titulo: e.target.value })}
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
-            <label className="block mb-1">¿Qué ofreces en este servicio?</label>
+            <label className="chat-oferta-label">¿Qué ofreces en este servicio?</label>
             <input
               type="text"
               value={oferta.descripcion}
               onChange={(e) =>
                 setOferta({ ...oferta, descripcion: e.target.value })
               }
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
-            <label className="block mb-1">
+            <label className="chat-oferta-label">
               ¿Qué entregables recibirá el cliente al final del proyecto?
             </label>
             <input
@@ -172,10 +172,10 @@ const handleCrearOferta = () => {
               onChange={(e) =>
                 setOferta({ ...oferta, resultado: e.target.value })
               }
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
-            <label className="block mb-1">
+            <label className="chat-oferta-label">
               ¿Cuándo terminarás el proyecto?
             </label>
             <input
@@ -184,16 +184,16 @@ const handleCrearOferta = () => {
               onChange={(e) =>
                 setOferta({ ...oferta, duracion: e.target.value })
               }
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
-            <label className="block mb-1">
+            <label className="chat-oferta-label">
               ¿Es un proyecto de varias etapas?
             </label>
             <select
               value={oferta.etapas}
               onChange={(e) => setOferta({ ...oferta, etapas: e.target.value })}
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-select-oferta"
             >
               <option value="true">Sí</option>
               <option value="false">No</option>
@@ -206,46 +206,46 @@ const handleCrearOferta = () => {
               *Los datos de las etapas se pueden renegociar
             </p>
 
-            <label className="block mb-1">Cantidad de etapas</label>
+            <label className="chat-oferta-label">Cantidad de etapas</label>
             <input
               type="number"
               value={oferta.cantidadDeEtapas}
               onChange={(e) =>
                 setOferta({ ...oferta, cantidadDeEtapas: e.target.value })
               }
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
-            <label className="block mb-1">Tiempo por etapa</label>
+            <label className="chat-oferta-label">Tiempo por etapa</label>
             <input
               type="text"
               value={oferta.tiempoPorEtapas}
               onChange={(e) =>
                 setOferta({ ...oferta, tiempoPorEtapas: e.target.value })
               }
-              className="w-full p-2 mb-3 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
-            <label className="block mb-1">Presupuesto final</label>
+            <label className="chat-oferta-label">Presupuesto final</label>
             <input
               type="number"
               value={oferta.presupuesto}
               onChange={(e) =>
                 setOferta({ ...oferta, presupuesto: e.target.value })
               }
-              className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+              className="chat-input-oferta"
             />
 
             <div className="flex justify-end gap-3">
               <button
                 onClick={handleCrearOferta}
-                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+                className="chat-enviarOferta-button"
               >
                 Enviar oferta
               </button>
               <button
                 onClick={() => setCrearOfertaOpen(false)}
-                className="bg-gray-300 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-400"
+                className="chat-cancelarOferta-button"
               >
                 Cancelar
               </button>
@@ -257,7 +257,7 @@ const handleCrearOferta = () => {
       {/* Sidebar de chats */}
       {/* <div className={`chat-sidebar ${mostrarSidebar ? "visible" : "hidden"}`}> */}
       <div className={`chat-sidebar`}>
-        <p>Selecciona un chat para empezar a hablar.</p>
+        <h3>Mis mensajes</h3>
         {chats?.chat && chats.chat.length > 0 ? (
           chats.chat.map((chat) => (
             <div
@@ -295,9 +295,10 @@ const handleCrearOferta = () => {
                 {chatSeleccionado.usuarioNombre}
               </h3>
             {rol && (
-              <button onClick={() => setCrearOfertaOpen(true)}>Crear oferta</button>
+              <button className="crearOferta-button" onClick={() => setCrearOfertaOpen(true)}>Crear oferta</button>
             )}
             </div>
+            <div className="chat-divider"></div>
             <div className="chat-messages">
               {chatSeleccionado.mensajes.length > 0 ? (
                 chatSeleccionado.mensajes.map((mensaje, idx) => (
@@ -321,8 +322,11 @@ const handleCrearOferta = () => {
                 value={nuevoMensaje}
                 onChange={(e) => setNuevoMensaje(e.target.value)}
                 placeholder="Escribe un mensaje..."
+                className="input-mensaje"
               />
-              <button onClick={handleEnviarMensaje}>Enviar</button>
+            </div>
+            <div style={{display: "flex", justifyContent: "flex-end", marginTop: "10px"}} >
+              <button onClick={handleEnviarMensaje} className="chat-send-button">Enviar</button>
             </div>
           </>
         ) : (

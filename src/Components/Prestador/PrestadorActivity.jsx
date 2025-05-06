@@ -14,19 +14,21 @@ export default function PrestadorActivity() {
   console.log(ofertasTerminadas,'off');
   
   return (
-    <div className="prestadorActivity-container flex flex-col">
+    <div className={`prestadorActivity-container ${ofertasTerminadas.length ? 'con-actividad' : 'sin-actividad'}`}>
       <h3 className="prestadorActivity-title">Actividad</h3>
       {!ofertasTerminadas.length ? (
         <p className="prestadorActivity-empty">Aún no hay actividad</p>
       ) : (
-        <div className="flex h-96 w-62 bg-yellow-100">
+        <div className="prestadorActivity-full-container">
           {ofertasTerminadas.map((o) => {
             return (
-              <div key={o._id} className="flex flex-col">
-                <h2>{o.titulo}</h2>
-                {o.imagen && <img src={o.imagen} alt="" className="w-20" />}
-                <p>{o.descripcion}</p>
-                <a href="">Ver mas</a>
+              <div key={o._id} className="prestadorActivity-subContainer">
+                <div className="prestadorActivity-imageContainer">
+                  {o.imagen && <img src={o.imagen} alt="" className="prestadorActivity-image" width={"200px"} />}
+                </div>
+                <h2 className="prestadorActivity-subtitle">{o.titulo}</h2>
+                <p className="prestadorActivity-description">{o.descripcion}</p>
+                <a href="" className="prestadorActivity-link">Ver más</a>
               </div>
             );
           })}

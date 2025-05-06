@@ -1,34 +1,49 @@
 /* eslint-disable react/prop-types */
 
-export default function ServiceHomeCard(props) {		
+import "../Styles/Home/ServiceHomeCard.css"
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+
+let cardRenderIndex = 0;
+
+export default function ServiceHomeCard(props) {	
+	
+	const classes = ["cat-color-1", "cat-color-2", "cat-color-3", "cat-color-4"];
+	const currentClass = classes[cardRenderIndex % classes.length];
+	cardRenderIndex++;
+
 	return (
-		<div className="flex flex-col mt-10">			
-				<div className="flex sm:justify-evenly flex-col sm:flex-row">
-					<h5 className="w-fit bg-orange-400 rounded-lg regular ml-6 m-0 sm:ml-0 sm:pl-4 sm:pr-4 px-4 ">
-						{props.categoria}
-					</h5>
-					<a href="" className="text-sky-400 thinm ml-6 sm:ml-0">
-						Ver mas de esta categoría
+		<div className="serviceHomeCard-container">			
+			<div className="serviceHomeCard-categoryContainer">
+			<h5 className={`serviceHomeCard-category ${currentClass}`}>
+					{props.categoria}
+				</h5>
+				<a href="" className="serviceHomeCard-category-link">
+					Ver más
+				</a>
+			</div>
+			<div className="serviceHomeCard-profile-container">
+				<div className="serviceHomeCard-name-container ">
+					<h4 className="serviceHomeCard-name">
+						{props.nombre} 
+					</h4>
+					<a href={`/servicio/${props.uid}`} className="serviceHomeCard-link">
+						Ver perfil
 					</a>
 				</div>
-				<div className="border-2 rounded-xl sm:min-h-72 min-h-48 mt-1 p-10 sm:w-96 w-60 ml-5 ">
-					<div className="flex justify-between align-middle m-0  ">
-						<h4 className="color-main bold w-max text-2xl bold	">
-							{props.nombre} 
-						</h4>
-						<a href={`/servicio/${props.uid}`} className="text-sky-400 thin ">
-							Ver perfil
-						</a>
-					</div>
-
-					<p className="text-gray-400 mt-2 ">
-						{props.experiencia} años de profesión
-					</p>
-
-					<p className="text-gray-400 mt-2">{props.provincia} - {props.ciudad}</p>
-					<p className="text-gray-400 mt-2">{props.sobremi}</p>
-				</div>			
-				
+				<div className="serviceHomeCard-info-container">
+					<div>
+						<StarIcon sx={{color: "#EA8C06"}}/>
+						<StarIcon sx={{color: "#EA8C06"}}/>
+						<StarIcon sx={{color: "#EA8C06"}}/>		
+						<StarIcon sx={{color: "#EA8C06"}}/>	
+						<StarBorderIcon sx={{color: "#EA8C06"}}/>			
+					</div>	
+					<p className="serviceHomeCard-experiencia">{props.experiencia} años de profesión</p>
+					<p className="serviceHomeCard-ciudad">{props.provincia} - {props.ciudad}</p>
+					<p className="serviceHomeCard-sobremi">{props.sobremi}</p>
+				</div>
+			</div>			
 		</div>
 	);
 }

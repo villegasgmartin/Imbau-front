@@ -1,0 +1,109 @@
+/*Contenedor principal*/
+.serviceHomeCard-container{
+    margin-top: 1.875rem;
+}
+
+/*Contenedor de categoría*/
+.serviceHomeCard-categoryContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem
+}
+
+/*Varios estilos para nombres de categorías*/
+.serviceHomeCard-category.cat-color-1 {
+    color: #06023D;
+    background-color: #EA8C06;
+    font-family: "regular";
+    padding: 10px 14px 10px 14px;
+    font-size: 1.125rem !important;
+    border-radius: .75rem;
+}
+
+.serviceHomeCard-category.cat-color-2 {
+    color: #F8F3E0;
+    background-color: #E00A14;
+    font-family: "regular";
+    padding: 10px 14px 10px 14px;
+    font-size: 1.125rem !important;
+    border-radius: .75rem;
+}
+
+.serviceHomeCard-category.cat-color-3 {
+    color: #F8F3E0;
+    background-color: #065D4A;
+    font-family: "regular";
+    padding: 10px 14px 10px 14px;
+    font-size: 1.125rem !important;
+    border-radius: .75rem;
+}
+
+.serviceHomeCard-category.cat-color-4 {
+    color: #F8F3E0;
+    background-color: #06023D;
+    font-family: "regular";
+    padding: 10px 14px 10px 14px;
+    font-size: 1.125rem !important;
+    border-radius: .75rem;
+}
+
+/*Enlace de categoría*/
+.serviceHomeCard-category-link{
+    color: #4284F3;
+    font-family: "regular";
+    font-size: 1.125rem !important;
+}
+
+/*Contenedor de perfil*/
+.serviceHomeCard-profile-container{
+    border: 1px solid #D9D9D9;
+    border-radius: .75rem;
+    padding: 1.25rem;
+}
+
+/*Contenedor de nombre y enlace*/
+.serviceHomeCard-name-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Nombre*/
+.serviceHomeCard-name{
+    color: #06023D;
+    font-size: 1.25rem !important;
+    font-family: "regular";
+    font-size: 1.875rem !important;
+}
+
+/*Enlace*/
+.serviceHomeCard-link{
+    color: #4284F3;
+    font-family: "regular";
+}
+
+/*Contenedor de información*/
+.serviceHomeCard-info-container{
+    display: flex;
+    flex-direction: column;
+}
+
+/*Experiencia*/
+.serviceHomeCard-experiencia{
+    color: #9A9A9A;
+    font-family: "inter";
+}
+
+/*Ciudad*/
+.serviceHomeCard-ciudad{
+    color: #9A9A9A;
+    font-family: "inter";
+}
+
+/*Información*/
+.serviceHomeCard-sobremi{
+    color: #5B5B5B;
+    font-family: "inter";
+}
