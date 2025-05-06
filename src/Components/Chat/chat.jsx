@@ -294,7 +294,7 @@ const handleCrearOferta = () => {
                 Chat de {chatSeleccionado.proveedorNombre} y{" "}
                 {chatSeleccionado.usuarioNombre}
               </h3>
-            {rol && (
+            {rol && rol==='USER_SERVICE'  && (
               <button className="crearOferta-button" onClick={() => setCrearOfertaOpen(true)}>Crear oferta</button>
             )}
             </div>

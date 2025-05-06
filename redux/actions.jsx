@@ -1,5 +1,5 @@
-const url = 'http://localhost:8080';
-//const url = 'https://imbau-back-production.up.railway.app' 
+//const url = 'http://localhost:3000';
+const url = 'https://imbau-back-production.up.railway.app' 
 import axios from 'axios';
 
 export const REGISTER = 'REGISTER'

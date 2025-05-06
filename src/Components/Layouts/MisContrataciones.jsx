@@ -22,6 +22,7 @@ export default function MisContrataciones() {
     dispatch(getOFertasPendientes(userId));
     dispatch(getOfertasInterrumpidas(userId));
     dispatch(getOfertasTerminadas(userId));
+    
   }, [dispatch, userId]);
 
   const ofertasPendientes = useSelector((state) => state.ofertasPendientes);
@@ -204,7 +205,8 @@ const handleFileChange = (e) => {
                   <strong>Tiempo por etapas:</strong>{" "}
                   {selectedOferta.tiempoPorEtapas || "-"}
                 </p>
-                <img src={selectedOferta.imagen} alt="" width={200} />
+                {selectedOferta.estadoFinal === 'terminado' && (<img src={selectedOferta.imagen} alt="" width={200} />)}
+                
               </div>
             </div>
           )}

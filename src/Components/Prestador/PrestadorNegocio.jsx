@@ -39,12 +39,21 @@ export default function MiNegocio() {
 
   const handleActualizarEtapa = (id) => {
       dispatch(actualizarEtapa(id))
+      dispatch(getOFertasPendientes(userId));
+      dispatch(getOfertasInterrumpidas(userId));
+      dispatch(getOfertasTerminadas(userId));
   }
     const handleActualizarEstado = (id) => {
       dispatch(putEstadoOferta(id));
+      dispatch(getOFertasPendientes(userId));
+      dispatch(getOfertasInterrumpidas(userId));
+      dispatch(getOfertasTerminadas(userId));
     };
       const handleBorrarOferta = (id) => {
         dispatch(borrarOferta(id));
+        dispatch(getOFertasPendientes(userId));
+        dispatch(getOfertasInterrumpidas(userId));
+        dispatch(getOfertasTerminadas(userId));
       };
   
 const [selectedOferta, setSelectedOferta] = useState(null);

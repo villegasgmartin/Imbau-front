@@ -116,7 +116,7 @@ const handleCreateChatNologged = ()=>{
     <main>
       <NavBar />
       <div className="bg-[#F6F0E5] min-h-screen flex justify-center p-6">
-        <div className="w-full max-w-3xl ">
+        <div className="w-full max-w-[1000px] ">
           {/* Header */}
           {/* <div className="bg-orange-500 rounded-t-lg p-6 relative flex items-center">
             <div className="absolute -top-8 left-6 bg-white rounded-full w-16 h-16 flex items-center justify-center border border-gray-300 shadow-md">
@@ -146,7 +146,7 @@ const handleCreateChatNologged = ()=>{
               </p>
             </div>
             <div className="flex flex-col justify-center items-start">
-              <h4>Aca iria estudios</h4>
+              
             </div>
             <div>
               {rol === "USER_BUYER" && (
