@@ -46,8 +46,9 @@
 .misContrataciones-buttonActive {
     font-family: "inter";
     color: #F8F3E0;
+    letter-spacing: .0625rem;
     background-color: #EA8C06;
-    padding: 7px 12px;
+    padding: 5px 20px;
     border-radius: .9375rem;
     transition: all 0.2s ease;
     cursor: pointer;
