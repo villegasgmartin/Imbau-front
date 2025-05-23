@@ -11,7 +11,7 @@ export default function PrestadorActivity() {
     dispatch(getOfertasTerminadas(userId));
   }, [dispatch, userId]);
   const ofertasTerminadas = useSelector((state) => state.ofertasTerminadas);
-  console.log(ofertasTerminadas,'off');
+
   
   return (
     <div className={`prestadorActivity-container ${ofertasTerminadas.length ? 'con-actividad' : 'sin-actividad'}`}>

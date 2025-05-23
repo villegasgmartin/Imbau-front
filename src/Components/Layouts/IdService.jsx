@@ -29,7 +29,6 @@ export default function IdService() {
     useEffect(() => {
       const storedRol = localStorage.getItem('rol');
       const idUser = localStorage.getItem('userId');
-      console.log(storedRol, idUser)
       setidUsuario(idUser); 
       setRol(storedRol); // Guardamos el rol en el estado
     }, [id]);

@@ -28,8 +28,6 @@ useEffect(() => {
 const services = useSelector((state) => state.allServices)
 const services1 = useSelector((state) => state.allServices1);
 const services2 = useSelector((state) => state.allServices2);
-console.log(services1, '1');
-console.log(services2,'2');
 
 
 	return (
@@ -63,8 +61,7 @@ console.log(services2,'2');
                 slidesPerView: 3, // 4 tarjetas visibles en pantallas grandes
               },
             }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+      
           >
           {services.map((p) => (
             <SwiperSlide key={p.uid}>
@@ -110,8 +107,7 @@ console.log(services2,'2');
               slidesPerView: 3, // 4 tarjetas visibles en pantallas grandes
             },
           }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+
         >
           {services1.map((p) => (
             <SwiperSlide key={p.uid}>
@@ -157,8 +153,7 @@ console.log(services2,'2');
               slidesPerView: 3, // 4 tarjetas visibles en pantallas grandes
             },
           }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+        
         >
           {services2.map((p) => (
             <SwiperSlide key={p.uid}>

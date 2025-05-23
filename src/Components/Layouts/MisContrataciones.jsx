@@ -50,7 +50,7 @@ export default function MisContrataciones() {
   
 const [selectedOferta, setSelectedOferta] = useState(null);
 const [showModal, setShowModal] = useState(false);
-console.log(selectedOferta, 'se');
+
 
 const handleVerMas = (oferta) => {
   setSelectedOferta(oferta);

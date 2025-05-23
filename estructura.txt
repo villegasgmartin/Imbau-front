@@ -1,0 +1,155 @@
+.
+├── estructura.txt
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── UserFem.png
+│   └── vite.svg
+├── README.md
+├── redux
+│   ├── actions.jsx
+│   ├── reducer.jsx
+│   └── store.jsx
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── banner-01.jpg
+│   │   ├── banner-02.jpg
+│   │   ├── banner-03.jpg
+│   │   ├── caja test.jpg
+│   │   ├── Comprador.png
+│   │   ├── Florero_1.png
+│   │   ├── fonts
+│   │   │   ├── Inter_18pt-Regular.ttf
+│   │   │   ├── MagnifyPRO-Bold.otf
+│   │   │   ├── MagnifyPRO-BoldItalic.otf
+│   │   │   ├── MagnifyPRO-Italic.otf
+│   │   │   ├── MagnifyPRO-Regular.otf
+│   │   │   ├── MagnifyPRO-Thin.otf
+│   │   │   └── MagnifyPRO-ThinItalic.otf
+│   │   ├── Herramienta_1.png
+│   │   ├── hombre-billete.png
+│   │   ├── Hombre.png
+│   │   ├── Isotipo crema.png
+│   │   ├── Lavarropa_1.png
+│   │   ├── Lavarropa-edited.png
+│   │   ├── Logotipo azul.png
+│   │   ├── Logotipo crema.png
+│   │   ├── Mujer-edited.png
+│   │   ├── Mujer.png
+│   │   ├── PaymentIcons
+│   │   │   ├── american-express.png
+│   │   │   ├── cabal.png
+│   │   │   ├── maestro.png
+│   │   │   ├── master-card.png
+│   │   │   └── visa.png
+│   │   ├── perfil.png
+│   │   ├── perfilGenerico.png
+│   │   ├── prefooter.png
+│   │   ├── react.svg
+│   │   ├── search.png
+│   │   └── UserFem.png
+│   ├── Components
+│   │   ├── Admin
+│   │   │   ├── AdminGeneral.jsx
+│   │   │   ├── AdminUsers.jsx
+│   │   │   ├── Categorias.jsx
+│   │   │   ├── EspacioPublicitario.jsx
+│   │   │   └── PromocionesBancarias.jsx
+│   │   ├── Chat
+│   │   │   ├── chat.css
+│   │   │   ├── chat.jsx
+│   │   │   └── chatPanel.jsx
+│   │   ├── Home
+│   │   │   ├── Banner.jsx
+│   │   │   ├── Banner1.jsx
+│   │   │   ├── Banner2.jsx
+│   │   │   ├── Banner3.jsx
+│   │   │   ├── CardProducto.jsx
+│   │   │   ├── index.jsx
+│   │   │   ├── Promotions.jsx
+│   │   │   ├── ServiceHomeCard.jsx
+│   │   │   ├── ServiceSlider.jsx
+│   │   │   └── Slider.jsx
+│   │   ├── Layouts
+│   │   │   ├── AdminNavBar.jsx
+│   │   │   ├── AllProducts.jsx
+│   │   │   ├── AllServices.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── IdProduct.jsx
+│   │   │   ├── IdService.jsx
+│   │   │   ├── Minicart.jsx
+│   │   │   ├── MisCompras.jsx
+│   │   │   ├── MisContrataciones.jsx
+│   │   │   ├── NavBar.jsx
+│   │   │   └── ProductCard.jsx
+│   │   ├── Login
+│   │   │   ├── EmailLogin.jsx
+│   │   │   ├── Login.css
+│   │   │   └── Login.jsx
+│   │   ├── Prestador
+│   │   │   ├── PrestadorAbout.jsx
+│   │   │   ├── PrestadorActivity.jsx
+│   │   │   ├── PrestadorHeader.jsx
+│   │   │   ├── PrestadorNavBar.jsx
+│   │   │   ├── PrestadorNegocio.jsx
+│   │   │   ├── PrestadorPanel.jsx
+│   │   │   └── PrestadorReviews.jsx
+│   │   ├── Register
+│   │   │   └── RegisterForm.jsx
+│   │   ├── Servicios
+│   │   │   ├── CrearServicio.jsx
+│   │   │   ├── FeaturedServices.jsx
+│   │   │   ├── index.jsx
+│   │   │   ├── ServiceCard.jsx
+│   │   │   └── ServicesBanner.jsx
+│   │   ├── Styles
+│   │   │   ├── Admin
+│   │   │   │   ├── AdminGeneral.css
+│   │   │   │   ├── AdminUsers.css
+│   │   │   │   └── Categorias.css
+│   │   │   ├── CrearProducto.css
+│   │   │   ├── CrearServicio.css
+│   │   │   ├── Home
+│   │   │   │   ├── Banner.css
+│   │   │   │   ├── Banner1.css
+│   │   │   │   ├── Banner2.css
+│   │   │   │   ├── CardProducto.css
+│   │   │   │   ├── Promotions.css
+│   │   │   │   ├── ServiceHomeCard.css
+│   │   │   │   └── Slider.css
+│   │   │   ├── Layouts
+│   │   │   │   ├── AllProducts.css
+│   │   │   │   ├── AllServices.css
+│   │   │   │   ├── Footer.css
+│   │   │   │   ├── IdProduct.css
+│   │   │   │   ├── MiniCart.css
+│   │   │   │   ├── MisCompras.css
+│   │   │   │   └── Navbar.css
+│   │   │   ├── Login.css
+│   │   │   ├── PrestadorPanel
+│   │   │   │   ├── PrestadorAbout.css
+│   │   │   │   ├── PrestadorActivity.css
+│   │   │   │   ├── PrestadorHeader.css
+│   │   │   │   ├── PrestadorPanel.css
+│   │   │   │   └── PrestadorReviews.css
+│   │   │   ├── RegisterForm.css
+│   │   │   └── VendedorNegocio.css
+│   │   └── Vendedor
+│   │       ├── CrearProducto.jsx
+│   │       ├── VendedorNegocio.jsx
+│   │       └── VendedorPanel.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── utils
+│       └── ProductsArray.jsx
+├── tailwind.config.js
+├── utils
+│   └── categorias.js
+├── vercel.json
+└── vite.config.js
+
+24 directories, 129 files

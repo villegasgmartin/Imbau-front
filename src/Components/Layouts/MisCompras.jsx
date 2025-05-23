@@ -14,7 +14,7 @@ export default function MisCompras() {
   }, [dispatch]);
 
   const products = useSelector((state) => state.comprasPorUsuario);
-  console.log(products, "productos");
+
 
   // Filtrar productos según el término de búsqueda
   const filteredProducts = Array.isArray(products?.productos)

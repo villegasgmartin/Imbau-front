@@ -105,7 +105,7 @@ export default function Chat() {
   });
 const handleCrearOferta = () => {
   if (!chatSeleccionado || !chatSeleccionado.usuarioComprador) {
-    console.log(chatSeleccionado, 'teatge');
+  
     
     alert("Debe seleccionarse un chat válido.");
     return;

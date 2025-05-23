@@ -16,7 +16,7 @@ export default function AdminGeneral() {
   }, [dispatch]);
 
   const products = useSelector((state) => state.allProducts);
-console.log(products, 'pr');
+
 
   // Filtrar productos según el término de búsqueda
   const filteredProducts = products?.filter((p) =>

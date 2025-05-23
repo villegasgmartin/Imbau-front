@@ -122,8 +122,6 @@ function rootReducer(state = initialState, action) {
         allServices2: action.payload,
       };
     case ADD_TO_CART:
-      console.log(state.cartItems, "cartred");
-
       // Verifica si el producto ya está en el carrito
       const existItem = state.cartItems.find(
         (item) => item._id === action.payload._id

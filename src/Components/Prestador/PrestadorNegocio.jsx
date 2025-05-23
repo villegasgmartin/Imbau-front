@@ -58,7 +58,7 @@ export default function MiNegocio() {
   
 const [selectedOferta, setSelectedOferta] = useState(null);
 const [showModal, setShowModal] = useState(false);
-console.log(selectedOferta, 'se');
+
 
 const handleVerMas = (oferta) => {
   setSelectedOferta(oferta);

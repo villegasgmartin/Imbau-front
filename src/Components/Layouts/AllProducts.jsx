@@ -153,8 +153,7 @@ export default function AllProducts () {
               centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
             },
           }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
+        
         >
           {filteredProducts.map((producto) => (
               <SwiperSlide key={producto._id}>
@@ -251,8 +250,7 @@ export default function AllProducts () {
                 centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
               },
             }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+      
           >
             {filteredProducts.map((producto) => (
               <SwiperSlide key={producto._id}>
@@ -348,8 +346,7 @@ export default function AllProducts () {
                 centeredSlides: false,// 4 tarjetas visibles en pantallas grandes
               },
             }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+
           >
             {filteredProducts.map((producto) => (
               <SwiperSlide key={producto._id}>

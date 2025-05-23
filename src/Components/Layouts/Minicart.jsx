@@ -7,7 +7,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
   const link = useSelector((state) => state.buymplink)
-  console.log(link, 'mp');
+
   
   // Al cargar el componente, obtener los productos del carrito desde localStorage
   useEffect(() => {
