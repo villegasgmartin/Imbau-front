@@ -11,7 +11,7 @@ import {
   getOfertasTerminadas,
   putEstadoOferta,
 } from "../../../redux/actions";
-import "../Styles/Admin/AdminGeneral.css";
+import "../Styles/Layouts/MisContrataciones.css"
 
 export default function MisContrataciones() {
   const dispatch = useDispatch();
@@ -84,82 +84,91 @@ const handleFileChange = (e) => {
   return (
     <div className="min-h-screen bg-[#f8f3e0]">
       <NavBar />
-      <div className="adminGeneral-container p-8">
+      <div className="misContrataciones-container">
       
-        <h1 className="adminGeneral-title text-3xl font-bold mb-8">
+        <h1 className="misContrataciones-title">
           Mis contrataciones
         </h1>
 
         {/* Botones para cambiar pestaña */}
-        <div className="flex justify-center gap-4 mb-10">
+        <div className="misContrataciones-buttonContainer">
           <button
-            className={`px-6 py-2 rounded-full ${
+            className={` ${
               selectedTab === "pendientes"
-                ? "bg-green-500 text-white"
-                : "bg-white text-green-500 border border-green-500"
+                ? "misContrataciones-buttonActive"
+                : "misContrataciones-buttonInactive"
             }`}
             onClick={() => setSelectedTab("pendientes")}
           >
             Activo
           </button>
           <button
-            className={`px-6 py-2 rounded-full ${
+            className={` ${
               selectedTab === "terminadas"
-                ? "bg-green-500 text-white"
-                : "bg-white text-green-500 border border-green-500"
+                ? "misContrataciones-buttonActive"
+                : "misContrataciones-buttonInactive"
             }`}
             onClick={() => setSelectedTab("terminadas")}
           >
             Terminado
           </button>
           <button
-            className={`px-6 py-2 rounded-full ${
+            className={` ${
               selectedTab === "interrumpidas"
-                ? "bg-green-500 text-white"
-                : "bg-white text-green-500 border border-green-500"
+                ? "misContrataciones-buttonActive"
+                : "misContrataciones-buttonInactive"
             }`}
             onClick={() => setSelectedTab("interrumpidas")}
           >
             Interrumpido
           </button>
         </div>
-
+        <div className="misContrataciones-divider"></div>
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="misContrataciones-cardsContainer">
           {getCurrentOfertas()?.map((op) => (
             <div key={op._id} className="bg-white rounded-xl shadow-md p-6">
-              <div className="mb-4">
-                <h3 className="text-xl font-semibold">{op.titulo}</h3>
-                <span className="text-gray-500">{op.estadoFinal}</span>
+              <div className="misContrataciones-subtitleContainer">
+                <h3 className="misContrataciones-subtitle">{op.titulo}</h3>
+                <span
+                  className={`misContrataciones-estado ${
+                    op.estadoFinal === "Pendiente"
+                      ? "misContrataciones-estadoPendiente"
+                      : op.estadoFinal === "terminado"
+                      ? "misContrataciones-estadoTerminado"
+                      : op.estadoFinal === "interrumpido"
+                      ? "misContrataciones-estadoInterrumpido"
+                      : ""
+                  }`}
+                >
+                  {op.estadoFinal}
+                </span>
               </div>
-              <div className="mb-4">
-                <label className="font-semibold">Comprador:</label>
-                <p>{op.comprador?.nombre || "No asignado"}</p>
+              <div className="misContrataciones-infoContainer">
+                <div>
+                  <label className="misContrataciones-label">Comprador:</label>
+                  <p className="misContrataciones-info">{op.comprador?.nombre || "No asignado"}</p>
+                </div>
+                <div>
+                  <label className="misContrataciones-label">Código de pedido:</label>
+                  <p className="misContrataciones-info">{op._id}</p>
+                </div>
+                <div>
+                  <label className="misContrataciones-label">Presupuesto:</label>
+                  <p className="misContrataciones-info">{op.presupuesto || "-"}</p>
+                </div>
+                <div>
+                  <label className="misContrataciones-label">Etapa:</label>
+                  <p className="misContrataciones-info">{op.etapasRealizadas} de {op.cantidadDeEtapas}</p>
+                </div>
               </div>
-              <div className="mb-4">
-                <label className="font-semibold">Código de pedido:</label>
-                <p>{op._id}</p>
-              </div>
-              <div className="mb-4">
-                <label className="font-semibold">Presupuesto:</label>
-                <p>{op.presupuesto || "-"}</p>
-              </div>
-              <div className="mb-4">
-                <label className="font-semibold">Etapa:</label>
-                <p>
-                  {op.etapasRealizadas} de {op.cantidadDeEtapas}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div style={{display: "flex", justifyContent: "flex-end"}}>
                 <button
-                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full"
+                  className="misContrataciones-verMas"
                   onClick={() => handleVerMas(op)}
                 >
                   Ver Más
                 </button>         
-           
-
-             
               </div>
             </div>
           ))}
@@ -172,37 +181,37 @@ const handleFileChange = (e) => {
                 >
                   ×
                 </button>
-                <h2 className="text-2xl font-bold mb-4">
+                <h2 className="misContrataciones-modal-title">
                   {selectedOferta.titulo}
                 </h2>
-                <p>
-                  <strong>Estado:</strong> {selectedOferta.estadoFinal}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Estado:</strong> {selectedOferta.estadoFinal}
                 </p>
-                <p>
-                  <strong>Comprador:</strong>{" "}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Comprador:</strong>{" "}
                   {selectedOferta.comprador?.nombre || "No asignado"}
                 </p>
-                <p>
-                  <strong>Prestador:</strong>{" "}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Prestador:</strong>{" "}
                   {selectedOferta.proveedor?.nombre || "No asignado"}
                 </p>
-                <p>
-                  <strong>Descripcióm:</strong>{" "}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Descripcióm:</strong>{" "}
                   {selectedOferta.descripcion || "No asignado"}
                 </p>
-                <p>
-                  <strong>Código de pedido:</strong> {selectedOferta._id}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Código de pedido:</strong> {selectedOferta._id}
                 </p>
-                <p>
-                  <strong>Presupuesto:</strong>{" "}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Presupuesto:</strong>{" "}
                   {selectedOferta.presupuesto || "-"}
                 </p>
-                <p>
-                  <strong>Etapas:</strong> {selectedOferta.etapasRealizadas} de{" "}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Etapas:</strong> {selectedOferta.etapasRealizadas} de{" "}
                   {selectedOferta.cantidadDeEtapas}
                 </p>
-                <p>
-                  <strong>Tiempo por etapas:</strong>{" "}
+                <p className="misContrataciones-modal-info">
+                  <strong className="misContrataciones-modal-label">Tiempo por etapas:</strong>{" "}
                   {selectedOferta.tiempoPorEtapas || "-"}
                 </p>
                 {selectedOferta.estadoFinal === 'terminado' && (<img src={selectedOferta.imagen} alt="" width={200} />)}
