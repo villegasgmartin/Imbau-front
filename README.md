@@ -12,20 +12,25 @@ Imbau/
 ├── vercel.json
 ├── estructura.txt
 ├── public/
+
 │   ├── UserFem.png
 │   └── vite.svg
 ├── redux/
+
 │   ├── actions.jsx
 │   ├── reducer.jsx
 │   └── store.jsx
 ├── utils/
+
 │   └── categorias.js
 ├── src/
+
 │   ├── App.jsx
 │   ├── App.css
 │   ├── index.css
 │   ├── main.jsx
 │   ├── utils/
+
 │   │   └── ProductsArray.jsx
 │   ├── assets/               # Imágenes, fuentes y logos
 │   ├── Components/
